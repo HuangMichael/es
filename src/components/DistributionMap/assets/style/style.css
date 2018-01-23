@@ -1,0 +1,8 @@
+.dateTypeSelect .el-radio-group {
+    border: none !important;
+}
+
+.el-row-map .basemaps.leaflet-control{
+    margin-left: 3px;
+    margin-top: 4px;
+}

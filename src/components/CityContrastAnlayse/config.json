@@ -1,0 +1,336 @@
+{
+  "name": "CityContrastAnlayse",
+  "contentTitle": "污染物预报值和实测值对比分析",
+  "zoneName":"d3",
+  "echartNodata": "-",
+  "hours00Color":"#04e7e1",
+  "hoursOtherColor":"#ffffff",
+  "cityImageUrl": "static/images/citys/",
+  "howLongDayTohour": 8,
+  "chartAxisFormat": {
+    "day": "MM月dd日",
+    "hour":"MM月dd日 HH时"
+  },
+  "chartMoniterSer": {
+    "name": "实测",
+    "type": "bar",
+    "data": [],
+    "barMaxWidth":"100%",
+    "itemStyle": {
+      "normal": {
+          "color": "#5de3e1"
+      }
+    }
+  },
+  "chartForestSer": {
+    "name": "",
+    "type": "line",
+    "symbol": "circle",
+    "smooth": true,
+    "itemStyle":{
+      "normal": {
+          "color": ""
+      }
+    },
+    "lineStyle": {
+      "normal": {
+        "width": 3,
+        "shadowColor": "rgba(0,0,0,0.4)",
+        "shadowBlur": 3,
+        "shadowOffsetY": 3
+      }
+    },
+    "data": []
+  },
+  "chartOption": {
+    "title": {
+      "show": false
+    },
+    "legend":{
+      "top": 20,
+      "itemGap": 20,
+      "textStyle":{
+        "color":"#04e7e1"
+      },
+      "data":[]
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "axisPointer": {
+        "type": "shadow"
+      }
+    },
+    "dataZoom": [
+      {
+        "type": "inside",
+        "xAxisIndex": [0],
+        "zoomOnMouseWheel": false,
+        "moveOnMouseMove": false
+      }
+    ],
+    "grid": {
+      "show": false,
+      "left": 20,
+      "right": 40,
+      "bottom": 20,
+      "top": 54,
+      "containLabel": true
+    },
+    "xAxis": [
+      {
+        "type": "category",
+        "boundaryGap": true,
+        "axisTick": {
+          "alignWithLabel": true
+        },
+        "splitLine": {"show": false},
+        "axisLine":{
+          "lineStyle": {
+            "color":"#ffffff"
+          }
+        },
+        "axisLabel":{
+          "color":"#ffffff"
+        },
+        "data": []
+      }
+    ],
+    "yAxis": [
+      {
+        "name":"",
+        "type": "value",
+        "scale": false,
+        "axisLabel":{
+            "color":"#ffffff"
+        },
+        "splitLine": {"show": false},
+        "axisLine":{
+          "lineStyle": {
+            "color":"#ffffff"
+          }
+        },
+        "nameLocation": "end",
+        "nameTextStyle": {
+            "color":"#ffffff"
+        }
+      }
+    ],
+    "series": []
+  },
+  "settings": {
+    "polRObj": {
+      "disabled": "",
+      "label": "污染指标",
+      "type": "RadioBtns",
+      "default": "aqi",
+      "options": [
+        {
+          "label": "AQI",
+          "value": "aqi",
+          "unit": "",
+          "MaxValue": 500,
+          "MinValue": 0
+        },
+        {
+          "label": "PM₂.₅",
+          "value": "pm25",
+          "unit": "(μg/m³)",
+          "MaxValue": 500,
+          "MinValue": 0
+        },
+        {
+          "label": "PM₁₀",
+          "value": "pm10",
+          "unit": "(μg/m³)",
+          "MaxValue": 600,
+          "MinValue": 0
+        },
+        {
+          "label": "SO₂",
+          "value": "so2",
+          "unit": "(μg/m³)",
+          "MaxValue": 800,
+          "MinValue": 0
+        },
+        {
+          "label": "NO₂",
+          "value": "no2",
+          "unit": "(μg/m³)",
+          "MaxValue": 400,
+          "MinValue": 0
+        },
+        {
+          "label": "CO",
+          "value": "co",
+          "unit": "(mg/m³)",
+          "MaxValue": 10,
+          "MinValue": 0
+        },
+        {
+          "label": "O₃",
+          "value": "o3",
+          "unit": "(μg/m³)",
+          "MaxValue": 400,
+          "MinValue": 0
+        }
+      ]
+    },
+    "chartStableObj": {
+      "disabled": "",
+      "label": "图表自适应",
+      "type": "RadioBtns",
+      "default": "auto",
+      "options": [
+        {
+          "label": "自动",
+          "value": "auto"
+        },
+        {
+          "label": "固定",
+          "value": "stable"
+        }
+      ]
+    },
+    "modelCObj": {
+      "disabled": "",
+      "label": "模式",
+      "type": "CheckBoxs",
+      "default": [
+        "naqpms_20",
+        "cmaq_20"
+      ],
+      "options": [
+        {
+          "label": "NAQPMS(08时)",
+          "value": "naqpms_08",
+          "color": "#ffea37"
+        },
+        {
+          "label": "NAQPMS(20时)",
+          "value": "naqpms_20",
+          "color": "#0e4dca"
+        },
+        {
+          "label": "CMAQ(08时)",
+          "value": "cmaq_08",
+          "color": "#f55252"
+        },
+        {
+          "label": "CMAQ(20时)",
+          "value": "cmaq_20",
+          "color": "#f5a652"
+        },
+        {
+          "label": "CAMx",
+          "value": "camx_20",
+          "color": "#53c535"
+        },
+        {
+          "label": "WRF-Chem",
+          "value": "wrfch_20",
+          "color": "#77b9ff"
+        }
+      ]
+    },
+    "cityCObj": {
+      "disabled": "",
+      "label": "城市选择",
+      "type": "CheckBoxs",
+      "default": [
+        "320100",
+        "320200",
+        "320500"
+      ],
+      "options": [
+        {
+          "label": "南京市",
+          "value": "320100"
+        },
+        {
+          "label": "无锡市",
+          "value": "320200"
+        },
+        {
+          "label": "徐州市",
+          "value": "320300"
+        },
+        {
+          "label": "常州市",
+          "value": "320400"
+        },
+        {
+          "label": "苏州市",
+          "value": "320500"
+        },
+        {
+          "label": "淮安市",
+          "value": "320800"
+        },
+        {
+          "label": "连云港市",
+          "value": "320700"
+        },
+        {
+          "label": "泰州市",
+          "value": "321200"
+        },
+        {
+          "label": "宿迁市",
+          "value": "321300"
+        },
+        {
+          "label": "盐城市",
+          "value": "320900"
+        },
+        {
+          "label": "扬州市",
+          "value": "321000"
+        },
+        {
+          "label": "镇江市",
+          "value": "321100"
+        },
+        {
+          "label": "南通市",
+          "value": "320600"
+        }
+      ]
+    },
+    "dateTypeObj": {
+      "disabled": "",
+      "label": "时间类型",
+      "type": "RadioBtns",
+      "default": "hour",
+      "options": [
+        {
+          "label": "小时",
+          "value": "hour"
+        },
+        {
+          "label": "日均",
+          "value": "day"
+        }
+      ]
+    },
+    "timeRecentlyObj": {
+      "disabled": "",
+      "label": "选择时间段",
+      "type": "RadioBtns",
+      "default": "recent_day",
+      "options": [
+        {
+          "label": "最近一天",
+          "value": "recent_day"
+        },
+        {
+          "label": "最近一周",
+          "value": "recent_week"
+        },
+        {
+          "label": "最近一月",
+          "value": "recent_month"
+        }
+      ]
+    }
+  }
+}

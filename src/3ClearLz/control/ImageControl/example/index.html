@@ -1,0 +1,67 @@
+<script src="../js/imagecontrol.js"></script>
+
+
+<div id="AAAA" style="width:90%;height:90%;position:absolute;">
+</div>
+
+
+<div id="BBBB" style="position:absolute;left:20px;bottom:10px;width:140px;height:30px;line-height:30px;text-align:center;background-color:red;cursor:pointer;">重新设置数据源</div>
+
+
+<script type="text/javascript">
+
+    // http://123.232.109.172:58084/PicService?shape=small&path=/download/2017/11/04/wbqx/ECWMF/500hpa/Forecast_2017110408_240.png
+    var para =
+    {
+        type: "picURL",
+        picType: ["C021"],
+        sort: "0",
+        picShape: "large",
+        C021: {
+            //modelType: ["wbqx"],
+            //domain: ["d01"],
+            times: "2017110408",
+            periodStart: 0,
+            periodEnd: 240
+        }
+    }
+
+    var imageObj = new imageControl({
+        parent: "AAAA",
+        queryImageSourcePara: para,
+
+    });
+
+    //type:picURL
+    //picType[]:J010
+    //sort:0
+    //picShape:small
+    //J010[modelType][]:camx
+    //J010[domain][]:d02
+    //J010[times]:2017110420
+    //J010[periodStart]:4
+    //J010[periodEnd]:172
+
+    //缩小
+    document.getElementById("BBBB").addEventListener('click', function () {
+        var para1 =
+                    {
+                        type: "picURL",
+                        picType: ["J010"],
+                        sort: "0",
+                        picShape: "large",
+                        J010: {
+                            modelType: ["camx"],
+                            domain: ["d02"],
+                            times: "2017110420",
+                            periodStart: 4,
+                            periodEnd: 172
+                        }
+                    }
+
+        imageObj.queryDataSource(para1, function (data) {
+            imageObj.setDataSource(data);
+        });
+    });
+
+</script>

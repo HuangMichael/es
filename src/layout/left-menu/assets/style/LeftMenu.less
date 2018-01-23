@@ -1,0 +1,114 @@
+.fa {
+	margin-right: 6px;
+}
+
+.left-fixed-right-auto {
+	padding-top: 60px;
+}
+
+
+
+
+.left {
+	position: fixed;
+	float: left;
+	/*width:190px;
+    margin-right:-190px;*/
+	//top: 60px;
+	z-index: 1000;
+}
+
+.right-content {
+	float: right;
+	width: 100%;
+}
+
+.menu-name {
+	font-size: 16px;
+}
+
+.sub-menu-name {
+	font-size: 1rem;
+}
+
+.icon-menu {
+	width: 24px;
+	text-align: center;
+}
+
+.sub-icon-menu {
+	width: 24px;
+	text-align: center;
+	font-size: 16px !important;
+	margin-right: 3px;
+}
+
+#left-menu {
+	height: 100%;
+	background: #262E41;
+	//position: relative;
+	overflow-x: hidden;
+}
+
+.toggle-menu {
+	width: 30px;
+	height: 30px;
+	background: #1f2f3d;
+	position: absolute;
+	right: 10px;
+	top:0px;
+	/*left: 190px;*/
+	z-index: 1000;
+	cursor: pointer;
+	line-height: 30px;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	opacity: 0.8;
+	transition: opacity .3s ease-out;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.tac{
+	margin-top: 30px;
+}
+
+
+.el-menu-item {
+	border-left: 5px solid transparent;
+	background-color: #262E41;
+	color: #fff;
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 8px;
+}
+
+.el-submenu .el-menu-item {
+	height: 40px;
+	line-height: 40px;
+}
+
+
+
+.el-menu--dark .el-submenu .el-menu {
+	background-color: #262E41 !important;
+}
+
+.el-menu--dark .el-submenu__title {
+	color: #fff !important;
+}
+
+.el-menu-item.is-active {
+	border-color: #1F6BC3;
+	background-color: #2B374E;
+}
+
+.el-menu--dark .el-menu-item, .el-menu--dark .el-submenu__title {
+	color: #fff;
+}
+
+
+

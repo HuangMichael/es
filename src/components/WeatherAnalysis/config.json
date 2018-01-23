@@ -1,0 +1,2208 @@
+{
+  "name": "WeatherAnalysis",
+  "isweatherMapALLOpen": false,
+  "echartOpenStatus": true,
+  "defaultShowHours": -72,
+  "timeSliderSpeed": 500,
+  "mapTitleDateFormat": "yyyy-MM-dd HH时",
+  "mapTitleHead": "实时天气状况",
+  "mapPolluTitleHead": "实时空气质量实况",
+  "echartTitle":"各气象要素实况统计图",
+  "zoneName":"d03",
+
+  "hours00Color": "#04e7e1",
+  "hoursOtherColor":"#fff",
+  "chartAxisFormat": {
+    "day": "MM月dd日",
+    "hour":"dd日HH时",
+    "hour00":"dd日"
+  },
+  "zoomLayerOpacity_0": 7,
+  "zoomLayerShowNum": 8,
+  "zoomLayerShowLabel": 9,
+  "mapOption":{
+      "center": [32.970000, 119.450000],
+      "zoom": 7,
+      "minZoom": 7,
+      "maxZoom": 10,
+      "worldCopyJump":false,
+      "attributionControl": false
+  },
+  "firstMarklatlng":{
+      "NAME": "南京",
+      "CODE": 58238,
+      "latlng":{
+        "lat": 31.93,
+        "lng": 118.9
+      }
+  },
+
+  "polFigurePath_Wea":"figure_gis/figure_gis/ObsMet/ConcSpa/",
+  "polFigurePath_pollu":"figure_gis/figure_gis/ObsPol/ConcSpa/",
+
+  "windBaseUrl": "static/images/wind/",
+  "weatherReqStr": "tem_1h,tem_dt1h,tem_dt24h,rain_1h,rain_3h,rain_6h,rain_12h,rain_24h,rh_1h,slp_1h,pressure_dt1h,pressure_dt24h,windspeed_1h,winddirect_1h,windspeed_10min_1h,winddirect_10min_1h",
+  "webGLOpcity": 0.8,
+  "weatherWebglUrlParam":{
+    "timeResolu": 1,
+    "pictrueresolu": 2,
+    "dateType": "Hourly",
+    "domain": "d03",
+    "model": "Observation"
+  },
+  "polluWebglUrlParam":{
+    "timeResolu": 1,
+    "pictrueresolu": 2,
+    "dateType": "Hourly",
+    "domain": "d03",
+    "model": "Observation"
+  },
+  "mapLegendOption":{
+    "width": 420,
+    "height": 15,
+    "_w": 0,
+    "step":[],
+    "class":[],
+    "unite":[],
+    "color":[],
+    "fontcolor":"#000",
+    "name": ""
+  },
+
+  "monitorUpdateMinute": 15,
+  "monitorUpdateBeforeHour": -2,
+  "monitorUpdateafterHour": -1,
+  
+  "stationMapLayer":true,
+  "DistrMapLayer":true,
+  "pollu_stationMapLayer":true,
+  "pollu_DistrMapLayer":true,
+
+  "windType": "F",
+  "windColor": "rgba(255, 255, 255, 1)",
+  "windSourceImgWidth": 312,
+  "windSourceImgHeight": 290,
+  "WindMaxUV": 17,
+  "WindMinUV": -17,
+
+  "relativeMinHum":50,
+  "pollutionDefault": "pm25",
+  "pollutionDefaultLabel": "PM₂.₅",  
+  "pollution": [{
+    "label": "污染物",
+    "value": "pollution",
+    "icon":"icon-3clear-Leaf",
+    "listItem":[
+      [{
+        "label": "AQI",
+        "value": "aqi",
+        "icon":"icon-3clear-Leaf",
+        "unit": "",
+        "checked": false,
+        "MaxValue": 500,
+        "MinValue": 0
+      },
+      {
+        "label": "PM₂.₅",
+        "checked": true,
+        "icon":"icon-3clear-Leaf",
+        "value": "pm25",
+        "unit": "(μg/m³)",
+        "MaxValue": 500,
+        "MinValue": 0
+      },
+      {
+        "label": "PM₁₀",
+        "value": "pm10",
+        "unit": "(μg/m³)",
+        "checked": false,
+        "icon":"icon-3clear-Leaf",
+        "MaxValue": 600,
+        "MinValue": 0
+      },
+      {
+        "label": "SO₂",
+        "value": "so2",
+        "unit": "(μg/m³)",
+        "checked": false,
+        "icon":"icon-3clear-Leaf",
+        "MaxValue": 800,
+        "MinValue": 0
+      },
+      {
+        "label": "NO₂",
+        "value": "no2",
+        "unit": "(μg/m³)",
+        "checked": false,
+        "icon":"icon-3clear-Leaf",
+        "MaxValue": 400,
+        "MinValue": 0
+      },
+      {
+        "label": "CO",
+        "value": "co",
+        "unit": "(mg/m3)",
+        "checked": false,
+        "icon":"icon-3clear-Leaf",
+        "MaxValue": 10,
+        "MinValue": 0
+      },
+      {
+        "label": "O₃",
+        "value": "o3",
+        "unit": "(μg/m³)",
+        "checked": false,
+        "icon":"icon-3clear-Leaf",
+        "MaxValue": 400,
+        "MinValue": 0
+      }]
+      ]
+  }],
+
+  "weatherDefault": "tem_1h",
+  "weatherImgDefault": "TEM",
+  "weatherLegendLabel": "气温",
+  "Wea_options": [{
+      "label": "风",
+      "value": "wind",
+      "icon":"icon-3clear-wind",
+      "listItem":[
+        [{
+          "icon":"icon-3clear-wind",
+          "type": "polygon",
+          "label": "10min平均风",
+          "image_value": "WIND10", 
+           "checked": false,
+          "value": "windspeed_10min_1h"
+        },{
+          "icon":"icon-3clear-wind",
+          "type": "polygon",
+          "label": "1h瞬时风",
+          "image_value": "WIND",
+           "checked": false,
+          "value": "windspeed_1h"
+        }]
+      ]
+  },{
+      "label": "温度",
+      "value": "tem",
+      "icon":"icon-3clear-temperature",
+      "listItem":[
+        [{
+          "icon":"icon-3clear-temperature",
+          "label": "气温",
+          "type": "child",
+          "value": "tem_1h",
+          "image_value": "TEM",
+          "checked": true
+        },
+        {
+          "icon":"icon-3clear-temperature",
+          "label": "1h变温",
+          "type": "child",
+          "value": "tem_dt1h",
+           "checked": false,
+          "image_value": "TEMDT1"
+        },
+        {
+          "icon":"icon-3clear-temperature",
+          "label": "24h变温",
+          "type": "child",
+          "value": "tem_dt24h",
+           "checked": false,
+          "image_value": "TEMDT24"
+        }]
+      ]
+  },{
+      "label": "降水",
+      "value": "rain",
+      "icon":"icon-3clear-rain-c",
+      "listItem":[[
+        {
+          "icon":"icon-3clear-rain-c",
+          "label": "1h降水",
+          "type": "child",
+          "value": "rain_1h",
+           "checked": false,
+          "image_value": "RAIN"
+        },
+        {
+          "icon":"icon-3clear-rain-c",
+          "label": "3h降水",
+          "type": "child",
+          "value": "rain_3h",
+           "checked": false,
+          "image_value": "RAIN3"
+        },
+        {
+          "icon":"icon-3clear-rain-c",
+          "label": "6h降水",
+          "type": "child",
+          "value": "rain_6h",
+           "checked": false,
+          "image_value": "RAIN6"
+        },
+        {
+          "icon":"icon-3clear-rain-c",
+          "label": "12h降水",
+          "type": "child",
+          "value": "rain_12h",
+           "checked": false,
+          "image_value": "RAIN12"
+        },
+        {
+          "icon":"icon-3clear-rain-c",
+          "label": "24h降水",
+          "type": "child",
+          "value": "rain_24h",
+           "checked": false,
+          "image_value": "RAIN24"
+        }
+      ]]
+  },{
+      "label": "气压",
+      "value": "pressure",
+      "icon":"icon-3clear-pressure",
+      "listItem":[[
+        {
+          "icon":"icon-3clear-pressure",
+          "label": "海平面气压",
+          "type": "child",
+           "checked": false,
+          "value": "slp_1h",
+          "image_value": "SLP"
+        },
+        {
+          "icon":"icon-3clear-pressure",
+          "label": "1h变压",
+           "checked": false,
+          "type": "child",
+          "value": "pressure_dt1h",
+          "image_value": "PRESSUREDT1"
+        },
+        {
+          "icon":"icon-3clear-pressure",
+          "label": "24h变压",
+          "type": "child",
+           "checked": false,
+          "value": "pressure_dt24h",
+          "image_value": "PRESSUREDT24"
+        }
+      ]]
+  },{
+      "label": "相对湿度",
+      "value": "hum",
+      "icon":"icon-3clear-humidity",
+      "listItem":[[
+        {
+          "icon":"icon-3clear-humidity",
+          "label": "相对湿度",
+          "type": "child",
+           "checked": false,
+          "value": "rh_1h",
+          "image_value": "RH"
+        }
+      ]]
+  }],
+
+  "RH_small50Color": [249, 250, 213, 255],
+  "RAIN_small0Color": [249, 250, 213, 255],
+  "mrak_echarts": ["Windy", "Temperatrue", "Pressure", "RainAndHum"],
+  "Windy_Option": {
+    "legend":{
+      "top": 50,
+      "itemGap": 20,
+      "selectedMode": "single",
+      "textStyle":{
+        "color":"#02e4f6"
+      },
+      "data":["10min平均风", "1h瞬时风"]
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "axisPointer": {
+        "type": "shadow"
+      }
+    },
+   "dataZoom": [{
+        "type": "slider",
+        "show": true,
+        "left": 60,
+        "right": 65,
+        "top": 10,
+        "start":68,
+        "end": 100,
+        "dataBackground":{
+          "areaStyle":{
+            "color":"#08afca",
+            "opacity": 1
+          }
+        },
+        "borderColor":"#08afca",
+        "textStyle":{
+          "color":"#fff"
+        }
+    }],
+    "grid": {
+      "show": false,
+      "left": 60,
+      "right": 60,
+      "bottom": 50,
+      "top": 90,
+      "containLabel": false
+    },
+    "xAxis": [
+      {
+        "type": "category",
+        "boundaryGap": true,
+        "axisTick": {
+          "alignWithLabel": true
+        },
+        "splitLine": {"show": false},
+        "axisLine":{
+          "lineStyle": {
+            "color":"#02e4f6"
+          }
+        },
+        "axisLabel":{
+           "color":"#fff"
+        },
+        "data": []
+      }
+    ],
+    "yAxis": [
+      {
+        "name": "风速(m/s)",
+        "type": "value",
+        "axisLabel":
+        {
+           "color":"#fff"
+        },
+        "splitLine": {"show": false},
+        "axisLine":{
+          "lineStyle": {
+             "color":"#02e4f6"
+          }
+        },
+        "nameLocation": "end",
+        "nameTextStyle": {
+             "color":"#fff"
+        }
+      }
+    ],
+    "color":["#00fdff", "rgb(228,199,45)"],
+    "series": [           
+      {
+        "name":"10min平均风",
+        "name_value":"windspeed_10min_1h",
+        "wind_direct":"winddirect_10min_1h",  
+        "wind_color":"rgb(255,0,0)",    
+        "smooth": true,          
+        "type": "line",
+        "yAxisIndex": 0,
+        "smooth": true,
+        "symbol": "arrow",
+        "symbolSize": 12,
+        "showSymbol": true,
+        "symbolOffset":[0, -12],
+        "data":[]
+      },{
+        "name":"1h瞬时风",
+        "name_value":"windspeed_1h",
+        "wind_direct":"winddirect_1h",
+        "wind_color":"rgb(255,0,0)",    
+        "smooth": true,        
+        "type": "line",
+        "yAxisIndex": 0,
+        "smooth": true,
+        "symbol": "arrow",
+        "symbolSize": 12,
+        "showSymbol": true,
+        "symbolOffset":[0, -12],
+        "itemStyle": {
+          "normal": {
+            "lineStyle": {
+              "shadowColor": "rgba(0,0,0,0.5)",
+              "shadowBlur": 10,
+              "shadowOffsetX": 8,
+              "shadowOffsetY": 8
+            }
+          }
+        },
+        "data":[]
+    }
+  ]
+  },
+  "Temperatrue_Option": {
+    "legend":{
+      "top": 5,
+      "itemGap": 20,
+      "textStyle":{
+        "color":"#02e4f6"
+      },
+      "data":["气温","1h变温","24h变温"]
+    },
+    "dataZoom": [{
+        "type": "slider",
+        "xAxisIndex": [0,1],  
+        "start":68,
+        "end": 100,           
+        "show": false
+    }],
+    "tooltip": {
+      "trigger": "axis",
+      "axisPointer": {
+        "type": "shadow"
+      }
+    },
+    "grid": {
+      "show": false,
+      "left": 60,
+      "right": 60,
+      "bottom": 50,
+      "top": 30,
+      "containLabel": false
+    },
+    "xAxis": [
+      {
+        "type": "category",
+        "boundaryGap": true,
+        "axisTick": {
+          "show": false
+        },
+        "splitLine": {"show": false},
+        "axisLine":{
+          "onZeroAxisIndex": 0, 
+          "lineStyle": {
+            "color":"#02e4f6"
+          }
+        },
+        "axisLabel":{
+          "color":"#fff"
+        },
+        "data": []
+      },
+      {
+        "type": "category",
+        "boundaryGap": true,
+        "axisTick": {
+          "alignWithLabel": true
+        },
+        "axisTick": {"show": false},
+        "splitLine": {"show": false},
+        "axisLine":{
+          "onZeroAxisIndex": 1,          
+          "lineStyle": {
+            "type": "dotted",
+            "color":"#02e4f6"
+          }
+        },
+        "axisLabel":{
+          "show": false
+        },
+        "data": []
+      }
+    ],
+    "yAxis": [
+      {
+        "name":"温度(℃)",
+        "type": "value",
+        "position": "left",
+        "axisLabel":{
+            "color":"#fff"
+        },
+        "splitLine": {"show": false},
+        "axisLine":{
+          "lineStyle": {
+            "color":"#02e4f6"
+          }
+        },
+        "nameLocation": "end",
+        "nameTextStyle": {
+            "color":"#fff"
+        }
+      },
+      {
+        "name":"变温(℃)",
+        "type": "value",
+        "position": "right",
+        "axisLabel":{
+            "color":"#fff"
+        },
+        "splitLine": {"show": false},
+        "axisLine":{
+          "lineStyle": {
+            "type": "dotted",
+            "color":"#02e4f6"
+          }
+        },
+        "nameLocation": "end",
+        "nameTextStyle": {
+           "color":"#fff"
+        }
+      }
+    ],
+    "color": ["#0be3a6","#c6ff00","#ff7200"],
+    "series": [
+      {
+        "name":"气温",
+        "name_value":"tem_1h",
+        "yAxisIndex":0,
+        "xAxisIndex":0,
+        "type":"line",
+        "smooth": true,        
+        "symbol":"circle",        
+        "data":[]
+      },{
+        "name":"1h变温",
+        "name_value":"tem_dt1h",
+        "symbol":"circle",        
+        "yAxisIndex": 1,
+        "xAxisIndex": 1,
+        "smooth": true,        
+        "type":"line",
+        "data":[]
+    },{
+        "name":"24h变温",
+        "name_value":"tem_dt24h",
+        "yAxisIndex":1,
+        "xAxisIndex": 1,
+        "symbol":"circle",  
+        "smooth": true,              
+        "type":"line",
+        "data":[]
+    }]
+  },
+
+  "Pressure_Option": {
+    "legend":{
+      "top": 5,
+      "itemGap": 20,
+      "textStyle":{
+        "color":"#02e4f6"
+      },
+      "data":["海平面气压","1h变压","24h变压"]
+    },
+    "dataZoom": [{
+        "type": "slider",
+        "xAxisIndex": [0,1], 
+        "start":68,
+        "end": 100,                 
+        "show": false
+    }],
+    "tooltip": {
+      "trigger": "axis",
+      "axisPointer": {
+        "type": "shadow"
+      }
+    },
+    "grid": {
+      "show": false,
+      "left": 60,
+      "right": 60,
+      "bottom": 50,
+      "top": 30,
+      "containLabel": false
+    },
+    "xAxis": [
+      {
+        "type": "category",
+        "boundaryGap": true,
+        "axisTick": {
+          "alignWithLabel": true
+        },
+        "splitLine": {"show": false},
+        "axisLine":{
+          "onZeroAxisIndex":0,
+          "lineStyle": {
+            "color":"#02e4f6"
+          }
+        },
+        "axisLabel":{
+           "show":"#fff"
+        },
+        "data": []
+      },
+      {
+        "type": "category",
+        "boundaryGap": true,
+        "axisTick": {
+          "alignWithLabel": true
+        },
+        "axisTick": {"show": false},
+        "splitLine": {"show": false},
+        "axisLine":{
+          "onZeroAxisIndex": 1,          
+          "lineStyle": {
+            "type": "dotted",
+            "color":"#02e4f6"
+          }
+        },
+        "axisLabel":{
+           "show":false
+        },
+        "data": []
+      }
+    ],
+    "yAxis": [
+      {
+        "name": "气压(hPa)",
+        "type": "value",
+        "position": "left",
+        "axisLabel":{
+            "color":"#fff"
+        },
+        "scale": true,
+        "splitLine": {"show": false},
+        "axisLine":{
+          "lineStyle": {
+             "color":"#02e4f6"
+          }
+        },
+        "nameLocation": "end",
+        "nameTextStyle": {
+            "color":"#fff"
+        }
+      },
+      {
+        "name": "变压(hPa)",
+        "type": "value",
+        "position": "right",
+        "axisLabel":{
+            "color":"#fff"
+        },
+        "splitLine": {"show": false},
+        "axisLine":{
+          "lineStyle": {
+            "type": "dotted",
+            "color":"#02e4f6"
+          }
+        },
+        "nameLocation": "end",
+        "nameTextStyle": {
+            "color":"#fff"
+        }
+      }
+    ],
+    "color":["#ceeb0e","#00b4ff","#012ee6"],
+    "series": [
+      {
+        "name":"海平面气压",
+        "yAxisIndex": 0,
+        "xAxisIndex":0,
+        "name_value":"slp_1h",
+        "smooth": true,        
+        "type":"line",
+        "symbol":"circle",        
+        "data":[]
+      },{
+        "name":"1h变压",
+        "yAxisIndex": 1,
+        "xAxisIndex": 1,        
+        "name_value":"pressure_dt1h",
+        "symbol":"circle",    
+        "smooth": true,            
+        "type":"line",
+        "data":[]
+    },{
+        "name":"24h变压",
+        "yAxisIndex": 1,
+        "xAxisIndex": 1,        
+        "name_value":"pressure_dt24h",
+        "symbol":"circle",     
+        "smooth": true,           
+        "type":"line",
+        "data":[]
+    }]
+  },
+  "RainAndHum_Option": {
+    "legend":{
+      "top": 5,
+      "itemGap": 20,
+      "selected": {"相对湿度":true},
+      "padding": [10, 40, 10, 40],
+      "textStyle":{
+        "color":"#02e4f6"
+      },
+      "data":["相对湿度", "1h降水", "3h降水", "6h降水", "12h降水", "24h降水"]
+    },
+    "dataZoom": [{
+        "type": "slider",
+        "start":68,
+        "end": 100,        
+        "show": false
+    }],
+    "tooltip": {
+      "trigger": "axis",
+      "axisPointer": {
+        "type": "shadow"
+      }
+    },
+    "grid": {
+      "show": false,
+      "left": 60,
+      "right": 60,
+      "bottom": 50,
+      "top": 30,
+      "containLabel": false
+    },
+    "xAxis": [
+      {
+        "type": "category",
+        "boundaryGap": true,
+        "axisTick": {
+          "alignWithLabel": true
+        },
+        "splitLine": {"show": false},
+        "axisLine":{
+          "lineStyle": {
+            "color":"#02e4f6"
+          }
+        },
+        "axisLabel":{
+          "color":"#fff"
+        },
+        "data": []
+      }
+    ],
+    "yAxis": [
+      {
+        "name": "相对湿度(%)",
+        "type": "value",
+        "position": "left",
+        "axisLabel":{
+            "color":"#fff",
+            "type": "dotted"
+        },
+        "splitLine": {"show": false},
+        "axisLine":{
+          "lineStyle": {
+            "color":"#02e4f6"
+          }
+        },
+        "nameLocation": "end",
+        "nameTextStyle": {
+            "color":"#fff"
+        }
+      },      
+      {
+        "name": "降水(mm)",
+        "type": "value",
+        "position": "right",
+        "axisLabel":{
+            "color":"#fff"
+        },
+        "splitLine": {"show": false},
+        "axisLine":{
+          "lineStyle": {
+            "color":"#02e4f6"
+          }
+        },
+        "nameLocation": "end",
+        "nameTextStyle": {
+          "color":"#fff"
+        }
+      }
+    ],
+    "color":["#07afec","rgb(165,86,86)","rgb(56,86,86)","rgb(65,86,186)","rgb(1665,186,86)","rgb(165,186,86)"],
+    "series": [
+    {
+        "name":"相对湿度",
+        "name_value":"rh_1h",
+        "yAxisIndex": 0,
+        "symbol":"circle",  
+        "smooth": true,              
+        "type":"line",
+        "data":[]
+    },{
+        "name":"1h降水",
+        "name_value":"rain_1h",
+        "yAxisIndex": 1,
+        "symbol":"circle",        
+        "areaStyle": {
+          "normal": {
+            "opacity": 0.6
+          }
+        },
+        "type":"line",
+        "smooth": true,        
+        "data":[]
+      },{
+        "name":"3h降水",
+        "yAxisIndex": 1,
+        "areaStyle": {
+          "normal": {
+            "opacity": 0.6
+          }
+        },
+        "name_value":"rain_3h",
+        "symbol":"circle", 
+        "smooth": true,               
+        "type":"line",
+        "data":[]
+    },{
+        "name":"6h降水",
+        "name_value":"rain_6h",
+        "yAxisIndex": 1,
+        "smooth": true,        
+        "type":"line",
+        "symbol":"circle",        
+        "areaStyle": {
+          "normal": {
+            "opacity": 0.6
+          }
+        },
+        "data":[]
+    },{
+        "name":"12h降水",
+        "name_value":"rain_12h",
+        "yAxisIndex": 1,
+        "smooth": true,        
+        "type":"line",
+        "symbol":"circle",        
+        "areaStyle": {
+          "normal": {
+            "opacity": 0.6
+          }
+        },
+        "data":[]
+      },{
+        "name":"24h降水",
+        "name_value":"rain_24h",
+        "yAxisIndex": 1,
+        "smooth": true,
+        "type":"line",
+        "symbol":"circle",        
+        "areaStyle": {
+          "normal": {
+            "opacity": 0.6
+          }
+        },
+        "data":[]
+    }]
+  },
+
+  "weatherColor":{
+      "wind":{
+        "resolution": 1,
+        "value_fixed": 0,
+        "class":[0,4,8,12,16,20,24],
+        "min": 0,
+        "max": 24,
+        "unit": "m/s",
+        "colorBar":[
+          [60,100,230,0],
+          [79,118,234,0],
+          [98,135,238,0],
+          [118,153,242,0],
+          [136,175,239,255],
+          [154,197,235,255],
+          [172,219,231,255],
+          [171,220,187,255],
+          [164,214,129,255],
+          [157,207,72,255],
+          [174,209,40,255],
+          [207,215,24,255],
+          [239,222,8,255],
+          [255,216,0,255],
+          [255,196,0,255],
+          [255,177,0,255],
+          [255,154,0,255],
+          [255,123,0,255],
+          [255,92,0,255],
+          [249,66,3,255],
+          [225,55,14,255],
+          [200,44,24,255],
+          [181,33,38,255],
+          [206,29,75,255]
+        ]
+      },
+      "tem_1h":{
+        "resolution": 2,
+        "value_fixed": 0,
+        "class":[-8,-4,-0,4,8,12,16,20,24,28,32,36,40],
+        "min": -8,
+        "max": 40,
+        "unit": "℃",
+        "colorBar":[
+          [1,162,255,255],
+          [1,185,255,255],
+          [1,205,253,255],
+          [1,221,249,255],
+          [1,233,207,255],
+          [7,243,151,255],
+          [25,249,76,255],
+          [67,253,33,255],
+          [117,255,6,255],
+          [172,255,3,255],
+          [212,255,2,255],
+          [240,253,1,255],
+          [247,245,1,255],
+          [252,234,1,255],
+          [255,220,1,255],
+          [255,196,1,255],
+          [255,173,1,255],
+          [255,153,1,255],
+          [255,129,1,255],
+          [255,100,1,255],
+          [255,57,1,255],
+          [251,27,1,255],
+          [244,5,1,255],
+          [232,2,1,255]
+        ]
+      },
+      "tem_dt1h":{
+        "resolution": 1,
+        "value_fixed": 1,
+        "min": -10,
+        "max": 10,
+        "class":[-10,-8,-6,-4,-2,0,2,4,6,8,10],
+        "unit": "℃",
+        "colorBar":[
+          [19,3,148,255],
+          [20,4,175,255],
+          [19,12,205,255],
+          [15,31,229,255],
+          [8,63,239,255],
+          [8,91,245,255],
+          [8,130,249,255],
+          [6,167,249,255],
+          [2,196,241,255],
+          [2,230,203,255],
+          [80,241,147,255],
+          [175,238,85,255],
+          [252,223,30,255],
+          [251,192,10,255],
+          [250,167,2,255],
+          [250,133,0,255],
+          [250,94,0,255],
+          [249,65,0,255],
+          [245,39,1,255],
+          [230,18,1,255]
+        ]
+      },
+      "tem_dt24h":{
+        "resolution": 1,
+        "value_fixed": 1,
+        "class":[-20,-15,-10,-5,0,5,10,15,20],
+        "min": -20,
+        "max": 20,
+        "unit": "℃",
+        "colorBar":[
+          [88,2,96,255],
+          [69,2,98,255],
+          [50,1,99,255],
+          [36,1,108,255],
+          [28,2,125,255],
+          [21,3,143,255],
+          [21,3,166,255],
+          [21,4,191,255],
+          [20,10,212,255],
+          [13,30,223,255],
+          [7,49,235,255],
+          [7,70,241,255],
+          [9,91,245,255],
+          [11,113,249,255],
+          [8,139,250,255],
+          [5,165,252,255],
+          [3,189,240,255],
+          [1,211,221,255],
+          [4,232,201,255],
+          [73,239,169,255],
+          [142,245,136,255],
+          [191,244,102,255],
+          [221,236,65,255],
+          [251,228,28,255],
+          [252,208,17,255],
+          [251,187,8,255],
+          [251,165,3,255],
+          [250,141,1,255],
+          [250,117,0,255],
+          [250,94,0,255],
+          [250,72,0,255],
+          [249,51,0,255],
+          [243,34,1,255],
+          [237,17,2,255],
+          [221,10,2,255],
+          [200,6,3,255],
+          [180,3,5,255],
+          [169,4,24,255],
+          [159,5,43,255],
+          [149,5,53,255]
+        ]
+      },
+      "rain_1h":{
+        "resolution": 1,
+        "value_fixed": 0,
+        "min": 0,
+        "max": 50,
+        "unit": "mm",
+        "class": [0, 1, 7, 15, 40, 50],
+        "colorBar":[
+          [255,255,255,0],
+          [166,242,143,255],
+          [148,233,129,255],
+          [130,223,116,255],
+          [112,213,102,255],
+          [97,205,91,255],
+          [81,196,81,255],
+          [66,188,72,255],
+          [65,186,86,255],
+          [70,185,109,255],
+          [74,185,131,255],
+          [79,185,154,255],
+          [83,184,177,255],
+          [87,184,200,255],
+          [89,181,218,255],
+          [88,174,232,255],
+          [87,167,246,255],
+          [82,156,255,255],
+          [72,138,255,255],
+          [63,119,255,255],
+          [53,101,255,255],
+          [43,82,255,255],
+          [33,64,255,255],
+          [24,46,255,255],
+          [19,31,255,255],
+          [13,15,255,255],
+          [8,0,255,255],
+          [23,0,255,255],
+          [38,0,254,255],
+          [53,0,254,255],
+          [68,0,254,255],
+          [82,0,253,255],
+          [97,0,253,255],
+          [112,0,253,255],
+          [127,0,252,255],
+          [142,0,252,255],
+          [157,0,252,255],
+          [172,0,251,255],
+          [187,0,251,255],
+          [202,0,251,255],
+          [217,0,251,255],
+          [232,0,250,255],
+          [238,0,244,255],
+          [230,0,226,255],
+          [221,0,209,255],
+          [212,0,191,255],
+          [197,0,170,255],
+          [183,0,149,255],
+          [169,0,127,255],
+          [156,0,106,255]
+        ]
+      },
+      "rain_3h":{
+        "resolution": 1,
+        "class":[0,3,10,20,50,70],
+        "min": 0,
+        "max": 70,
+        "value_fixed": 0,
+        "unit": "mm",
+        "colorBar":[
+          [255,255,255,0],
+          [166,242,143,255],
+          [144,229,136,255],
+          [123,216,130,255],
+          [101,203,123,255],
+          [79,190,116,255],
+          [73,182,134,255],
+          [76,176,166,255],
+          [79,171,198,255],
+          [83,165,231,255],
+          [81,154,255,255],
+          [66,126,255,255],
+          [52,99,255,255],
+          [37,70,255,255],
+          [22,43,255,255],
+          [21,31,255,255],
+          [21,22,255,255],
+          [22,13,255,255],
+          [23,5,255,255],
+          [27,0,255,255],
+          [35,0,255,255],
+          [42,0,254,255],
+          [50,0,254,255],
+          [58,0,254,255],
+          [66,0,254,255],
+          [74,0,254,255],
+          [82,0,253,255],
+          [90,0,253,255],
+          [98,0,253,255],
+          [106,0,253,255],
+          [113,0,252,255],
+          [121,0,252,255],
+          [129,0,252,255],
+          [137,0,252,255],
+          [144,0,252,255],
+          [152,0,252,255],
+          [160,0,252,255],
+          [168,0,252,255],
+          [176,0,252,255],
+          [183,0,251,255],
+          [191,0,251,255],
+          [199,0,251,255],
+          [207,0,251,255],
+          [214,0,250,255],
+          [222,0,250,255],
+          [229,0,249,255],
+          [232,0,247,255],
+          [235,0,244,255],
+          [238,0,241,255],
+          [242,0,238,255],
+          [237,0,231,255],
+          [232,0,223,255],
+          [227,0,215,255],
+          [222,0,207,255],
+          [216,0,199,255],
+          [211,0,191,255],
+          [206,0,183,255],
+          [201,0,175,255],
+          [195,0,167,255],
+          [190,0,159,255],
+          [185,0,151,255],
+          [180,0,143,255],
+          [175,0,135,255],
+          [170,0,127,255],
+          [165,0,119,255],
+          [160,0,112,255],
+          [154,0,104,255],
+          [149,0,96,255],
+          [144,0,88,255],
+          [139,0,80,255]
+        ]
+      },
+      "rain_6h":{
+        "resolution": 1,
+        "class":[0,4,13,25,60,120],
+        "min": 0,
+        "max": 120,
+        "value_fixed": 0,
+        "unit": "mm",
+        "colorBar":[
+          [255,255,255,0],
+          [166,242,143,255],
+          [154,234,142,255],
+          [142,227,140,255],
+          [129,219,139,255],
+          [117,212,138,255],
+          [105,204,136,255],
+          [93,197,135,255],
+          [80,189,134,255],
+          [73,181,141,255],
+          [72,172,157,255],
+          [70,163,174,255],
+          [69,154,190,255],
+          [67,146,206,255],
+          [66,137,222,255],
+          [65,128,238,255],
+          [63,119,255,255],
+          [56,103,255,255],
+          [49,87,255,255],
+          [42,72,255,255],
+          [35,56,255,255],
+          [28,40,255,255],
+          [22,24,255,255],
+          [15,8,255,255],
+          [14,0,255,255],
+          [21,0,255,255],
+          [28,0,255,255],
+          [34,0,255,255],
+          [41,0,254,255],
+          [48,0,254,255],
+          [54,0,254,255],
+          [61,0,254,255],
+          [68,0,254,255],
+          [74,0,254,255],
+          [81,0,254,255],
+          [87,0,253,255],
+          [94,0,253,255],
+          [100,0,253,255],
+          [107,0,253,255],
+          [113,0,253,255],
+          [120,0,253,255],
+          [127,0,253,255],
+          [133,0,253,255],
+          [140,0,252,255],
+          [147,0,252,255],
+          [153,0,252,255],
+          [160,0,252,255],
+          [167,0,252,255],
+          [173,0,252,255],
+          [180,0,252,255],
+          [186,0,251,255],
+          [193,0,251,255],
+          [199,0,251,255],
+          [206,0,251,255],
+          [212,0,251,255],
+          [217,0,250,255],
+          [222,0,249,255],
+          [227,0,249,255],
+          [232,0,248,255],
+          [237,0,247,255],
+          [242,0,247,255],
+          [247,0,246,255],
+          [245,0,243,255],
+          [243,0,240,255],
+          [241,0,237,255],
+          [239,0,234,255],
+          [237,0,231,255],
+          [235,0,228,255],
+          [233,0,225,255],
+          [231,0,222,255],
+          [229,0,219,255],
+          [227,0,216,255],
+          [225,0,213,255],
+          [224,0,210,255],
+          [222,0,207,255],
+          [220,0,204,255],
+          [218,0,201,255],
+          [216,0,198,255],
+          [214,0,195,255],
+          [212,0,192,255],
+          [210,0,189,255],
+          [208,0,186,255],
+          [206,0,183,255],
+          [204,0,180,255],
+          [202,0,176,255],
+          [200,0,173,255],
+          [198,0,170,255],
+          [196,0,167,255],
+          [194,0,164,255],
+          [192,0,161,255],
+          [190,0,158,255],
+          [188,0,155,255],
+          [186,0,152,255],
+          [184,0,149,255],
+          [182,0,146,255],
+          [180,0,143,255],
+          [178,0,140,255],
+          [176,0,137,255],
+          [174,0,134,255],
+          [172,0,131,255],
+          [170,0,128,255],
+          [168,0,125,255],
+          [166,0,122,255],
+          [164,0,119,255],
+          [162,0,116,255],
+          [160,0,113,255],
+          [158,0,110,255],
+          [156,0,107,255],
+          [154,0,104,255],
+          [152,0,101,255],
+          [150,0,98,255],
+          [148,0,95,255],
+          [146,0,92,255],
+          [144,0,89,255],
+          [142,0,85,255],
+          [140,0,82,255],
+          [138,0,79,255],
+          [136,0,76,255],
+          [134,0,73,255],
+          [132,0,70,255]
+        ]
+      },
+      "rain_12h":{
+        "resolution": 1,
+        "class":[0,5,15,30,70,140],
+        "min": 0,
+        "max": 140,
+        "value_fixed": 0,
+        "unit": "mm",
+        "colorBar":[
+          [255,255,255,0],
+          [166,242,143,255],
+          [146,231,128,255],
+          [127,221,113,255],
+          [107,211,98,255],
+          [88,201,83,255],
+          [77,194,82,255],
+          [71,189,89,255],
+          [69,186,105,255],
+          [74,185,132,255],
+          [79,185,160,255],
+          [84,184,187,255],
+          [89,184,214,255],
+          [89,177,233,255],
+          [89,170,253,255],
+          [78,148,255,255],
+          [66,125,255,255],
+          [53,101,255,255],
+          [40,77,255,255],
+          [28,53,255,255],
+          [16,29,255,255],
+          [7,11,255,255],
+          [8,5,255,255],
+          [10,0,255,255],
+          [16,0,255,255],
+          [22,0,255,255],
+          [28,0,255,255],
+          [33,0,254,255],
+          [39,0,254,255],
+          [45,0,254,255],
+          [50,0,254,255],
+          [56,0,254,255],
+          [62,0,254,255],
+          [68,0,254,255],
+          [74,0,254,255],
+          [79,0,253,255],
+          [85,0,253,255],
+          [91,0,253,255],
+          [97,0,253,255],
+          [103,0,253,255],
+          [109,0,253,255],
+          [114,0,253,255],
+          [120,0,253,255],
+          [126,0,253,255],
+          [132,0,252,255],
+          [137,0,252,255],
+          [143,0,252,255],
+          [149,0,252,255],
+          [155,0,252,255],
+          [160,0,252,255],
+          [166,0,252,255],
+          [172,0,252,255],
+          [178,0,252,255],
+          [184,0,251,255],
+          [190,0,251,255],
+          [195,0,251,255],
+          [201,0,251,255],
+          [207,0,251,255],
+          [213,0,251,255],
+          [219,0,251,255],
+          [225,0,251,255],
+          [230,0,251,255],
+          [236,0,250,255],
+          [241,0,250,255],
+          [247,0,250,255],
+          [249,0,249,255],
+          [247,0,246,255],
+          [245,0,244,255],
+          [244,0,241,255],
+          [243,0,239,255],
+          [241,0,236,255],
+          [240,0,234,255],
+          [238,0,232,255],
+          [236,0,229,255],
+          [235,0,227,255],
+          [234,0,224,255],
+          [232,0,222,255],
+          [230,0,219,255],
+          [228,0,217,255],
+          [227,0,215,255],
+          [226,0,212,255],
+          [224,0,210,255],
+          [222,0,207,255],
+          [221,0,205,255],
+          [219,0,202,255],
+          [217,0,200,255],
+          [216,0,198,255],
+          [214,0,195,255],
+          [213,0,193,255],
+          [211,0,191,255],
+          [209,0,188,255],
+          [208,0,185,255],
+          [206,0,183,255],
+          [205,0,181,255],
+          [203,0,178,255],
+          [201,0,176,255],
+          [200,0,173,255],
+          [198,0,171,255],
+          [197,0,168,255],
+          [195,0,166,255],
+          [193,0,164,255],
+          [192,0,161,255],
+          [190,0,159,255],
+          [189,0,156,255],
+          [187,0,154,255],
+          [185,0,151,255],
+          [184,0,149,255],
+          [182,0,147,255],
+          [180,0,144,255],
+          [179,0,142,255],
+          [178,0,139,255],
+          [176,0,137,255],
+          [174,0,134,255],
+          [172,0,132,255],
+          [171,0,130,255],
+          [170,0,127,255],
+          [168,0,125,255],
+          [166,0,122,255],
+          [165,0,120,255],
+          [163,0,117,255],
+          [161,0,115,255],
+          [160,0,113,255],
+          [158,0,110,255],
+          [157,0,108,255],
+          [155,0,106,255],
+          [153,0,103,255],
+          [152,0,100,255],
+          [150,0,98,255],
+          [149,0,96,255],
+          [147,0,93,255],
+          [145,0,91,255],
+          [144,0,88,255],
+          [142,0,86,255],
+          [141,0,83,255],
+          [139,0,81,255],
+          [137,0,79,255],
+          [136,0,76,255],
+          [134,0,74,255],
+          [133,0,71,255],
+          [131,0,69,255]
+        ]
+      },
+      "rain_24h":{
+        "resolution": 1,
+        "class":[0,10,25,50,100,250],
+        "min": 0,
+        "max": 250,        
+        "value_fixed": 0,
+        "unit": "mm",
+        "colorBar":[
+          [255,255,255,0],
+          [166,242,143,255],
+          [155,236,134,255],
+          [143,230,125,255],
+          [132,224,116,255],
+          [120,217,107,255],
+          [108,211,98,255],
+          [96,205,89,255],
+          [85,199,80,255],
+          [75,194,74,255],
+          [73,191,84,255],
+          [72,189,94,255],
+          [71,187,105,255],
+          [71,185,117,255],
+          [75,185,136,255],
+          [78,185,155,255],
+          [82,185,174,255],
+          [85,185,192,255],
+          [88,183,210,255],
+          [91,182,228,255],
+          [93,181,246,255],
+          [92,174,255,255],
+          [85,160,255,255],
+          [77,146,255,255],
+          [70,132,255,255],
+          [63,118,255,255],
+          [55,104,255,255],
+          [48,91,255,255],
+          [41,77,255,255],
+          [33,63,255,255],
+          [26,49,255,255],
+          [18,35,255,255],
+          [11,22,255,255],
+          [11,15,255,255],
+          [13,10,255,255],
+          [15,5,255,255],
+          [17,1,255,255],
+          [22,0,255,255],
+          [29,0,255,255],
+          [35,0,254,255],
+          [42,0,254,255],
+          [48,0,254,255],
+          [54,0,254,255],
+          [61,0,254,255],
+          [67,0,254,255],
+          [74,0,254,255],
+          [80,0,253,255],
+          [86,0,253,255],
+          [93,0,253,255],
+          [99,0,253,255],
+          [106,0,253,255],
+          [112,0,253,255],
+          [118,0,253,255],
+          [124,0,253,255],
+          [131,0,252,255],
+          [137,0,252,255],
+          [143,0,252,255],
+          [149,0,252,255],
+          [156,0,252,255],
+          [162,0,252,255],
+          [169,0,252,255],
+          [175,0,252,255],
+          [181,0,251,255],
+          [188,0,251,255],
+          [194,0,251,255],
+          [201,0,251,255],
+          [207,0,251,255],
+          [213,0,251,255],
+          [220,0,251,255],
+          [226,0,251,255],
+          [233,0,250,255],
+          [239,0,250,255],
+          [242,0,249,255],
+          [244,0,249,255],
+          [246,0,248,255],
+          [248,0,247,255],
+          [248,0,246,255],
+          [247,0,245,255],
+          [247,0,244,255],
+          [246,0,243,255],
+          [245,0,242,255],
+          [245,0,241,255],
+          [244,0,240,255],
+          [243,0,239,255],
+          [242,0,238,255],
+          [242,0,237,255],
+          [241,0,236,255],
+          [240,0,235,255],
+          [239,0,234,255],
+          [239,0,233,255],
+          [238,0,232,255],
+          [238,0,231,255],
+          [237,0,230,255],
+          [236,0,229,255],
+          [236,0,228,255],
+          [235,0,227,255],
+          [234,0,226,255],
+          [233,0,225,255],
+          [233,0,224,255],
+          [232,0,223,255],
+          [231,0,222,255],
+          [231,0,221,255],
+          [230,0,220,255],
+          [230,0,219,255],
+          [229,0,218,255],
+          [228,0,217,255],
+          [227,0,215,255],
+          [227,0,214,255],
+          [226,0,213,255],
+          [225,0,212,255],
+          [224,0,211,255],
+          [224,0,210,255],
+          [223,0,209,255],
+          [223,0,208,255],
+          [222,0,207,255],
+          [221,0,206,255],
+          [221,0,205,255],
+          [220,0,204,255],
+          [219,0,203,255],
+          [218,0,202,255],
+          [218,0,201,255],
+          [217,0,199,255],
+          [216,0,198,255],
+          [216,0,197,255],
+          [215,0,196,255],
+          [215,0,195,255],
+          [214,0,194,255],
+          [213,0,193,255],
+          [212,0,192,255],
+          [212,0,191,255],
+          [211,0,190,255],
+          [210,0,189,255],
+          [209,0,188,255],
+          [209,0,187,255],
+          [208,0,186,255],
+          [207,0,185,255],
+          [207,0,184,255],
+          [206,0,183,255],
+          [206,0,182,255],
+          [205,0,181,255],
+          [204,0,180,255],
+          [203,0,179,255],
+          [203,0,178,255],
+          [202,0,177,255],
+          [201,0,176,255],
+          [200,0,175,255],
+          [200,0,174,255],
+          [199,0,173,255],
+          [198,0,171,255],
+          [197,0,170,255],
+          [197,0,169,255],
+          [196,0,168,255],
+          [196,0,167,255],
+          [195,0,166,255],
+          [195,0,165,255],
+          [194,0,164,255],
+          [193,0,163,255],
+          [192,0,162,255],
+          [191,0,161,255],
+          [191,0,160,255],
+          [190,0,159,255],
+          [189,0,158,255],
+          [189,0,157,255],
+          [188,0,156,255],
+          [188,0,155,255],
+          [187,0,154,255],
+          [186,0,153,255],
+          [186,0,152,255],
+          [185,0,151,255],
+          [184,0,150,255],
+          [183,0,149,255],
+          [182,0,147,255],
+          [182,0,146,255],
+          [181,0,145,255],
+          [180,0,144,255],
+          [180,0,143,255],
+          [179,0,142,255],
+          [179,0,141,255],
+          [178,0,140,255],
+          [177,0,139,255],
+          [177,0,138,255],
+          [176,0,137,255],
+          [175,0,136,255],
+          [174,0,135,255],
+          [173,0,134,255],
+          [173,0,133,255],
+          [172,0,132,255],
+          [172,0,131,255],
+          [171,0,130,255],
+          [171,0,129,255],
+          [170,0,127,255],
+          [169,0,126,255],
+          [168,0,125,255],
+          [168,0,124,255],
+          [167,0,123,255],
+          [166,0,122,255],
+          [165,0,121,255],
+          [165,0,120,255],
+          [164,0,119,255],
+          [164,0,118,255],
+          [163,0,117,255],
+          [162,0,116,255],
+          [162,0,115,255],
+          [161,0,114,255],
+          [160,0,113,255],
+          [159,0,112,255],
+          [159,0,111,255],
+          [158,0,110,255],
+          [157,0,109,255],
+          [157,0,108,255],
+          [156,0,107,255],
+          [155,0,106,255],
+          [155,0,105,255],
+          [154,0,104,255],
+          [153,0,103,255],
+          [153,0,102,255],
+          [152,0,101,255],
+          [151,0,100,255],
+          [150,0,99,255],
+          [150,0,98,255],
+          [149,0,97,255],
+          [148,0,96,255],
+          [148,0,95,255],
+          [147,0,94,255],
+          [147,0,93,255],
+          [146,0,91,255],
+          [145,0,90,255],
+          [144,0,89,255],
+          [144,0,88,255],
+          [143,0,87,255],
+          [142,0,86,255],
+          [141,0,84,255],
+          [141,0,83,255],
+          [140,0,82,255],
+          [140,0,81,255],
+          [139,0,80,255],
+          [139,0,79,255],
+          [138,0,78,255],
+          [137,0,77,255],
+          [136,0,76,255],
+          [135,0,75,255],
+          [135,0,74,255],
+          [134,0,73,255],
+          [133,0,72,255],
+          [133,0,71,255],
+          [132,0,70,255],
+          [132,0,69,255],
+          [131,0,68,255],
+          [130,0,67,255],
+          [130,0,66,255]
+        ]
+      },
+      "slp_1h":{
+        "resolution": 1,
+        "min": 980,
+        "max": 1050,        
+        "value_fixed": 0,
+        "unit": "hPa",
+        "class":[980,990,1000,1010,1020,1030,1040,1050],
+        "colorBar":[
+          [160,3,6,255],
+          [172,3,5,255],
+          [183,3,4,255],
+          [195,2,3,255],
+          [207,2,2,255],
+          [215,5,2,255],
+          [222,10,2,255],
+          [228,15,1,255],
+          [235,19,1,255],
+          [241,25,1,255],
+          [243,34,1,255],
+          [245,42,0,255],
+          [247,50,0,255],
+          [250,59,0,255],
+          [250,69,0,255],
+          [250,80,0,255],
+          [250,91,0,255],
+          [250,101,0,255],
+          [250,113,0,255],
+          [250,125,0,255],
+          [250,137,0,255],
+          [250,148,0,255],
+          [250,160,0,255],
+          [251,171,3,255],
+          [251,181,6,255],
+          [251,192,9,255],
+          [252,202,12,255],
+          [252,210,20,255],
+          [252,217,31,255],
+          [251,224,41,255],
+          [251,232,51,255],
+          [231,237,67,255],
+          [174,240,94,255],
+          [118,244,121,255],
+          [62,247,148,255],
+          [6,250,175,255],
+          [5,241,188,255],
+          [3,232,202,255],
+          [2,223,215,255],
+          [1,213,229,255],
+          [1,203,236,255],
+          [3,190,240,255],
+          [5,178,244,255],
+          [7,166,248,255],
+          [8,154,251,255],
+          [9,142,250,255],
+          [9,130,249,255],
+          [9,118,249,255],
+          [10,106,248,255],
+          [8,95,247,255],
+          [7,85,245,255],
+          [5,75,243,255],
+          [3,65,242,255],
+          [4,54,239,255],
+          [8,43,235,255],
+          [13,31,230,255],
+          [17,20,226,255],
+          [21,10,221,255],
+          [21,8,210,255],
+          [21,7,199,255],
+          [20,5,188,255],
+          [20,3,177,255],
+          [21,3,166,255],
+          [22,3,155,255],
+          [23,2,144,255],
+          [24,2,134,255],
+          [27,2,124,255],
+          [32,2,117,255],
+          [36,1,110,255],
+          [41,1,103,255]
+        ]
+      },
+      "pressure_dt1h":{
+        "resolution": 0.5,
+        "class":[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5],
+        "min": -5,
+        "max": 5,        
+        "value_fixed": 1,
+        "unit": "hPa",
+        "colorBar":[
+          [184,3,3,255],
+          [208,5,2,255],
+          [230,18,1,255],
+          [245,39,1,255],
+          [249,65,0,255],
+          [250,94,0,255],
+          [250,132,0,255],
+          [250,167,2,255],
+          [251,192,10,255],
+          [252,223,30,255],
+          [176,238,85,255],
+          [81,241,146,255],
+          [2,231,203,255],
+          [2,196,241,255],
+          [6,167,249,255],
+          [8,131,249,255],
+          [9,92,246,255],
+          [7,63,239,255],
+          [15,31,229,255],
+          [19,12,205,255]
+        ]
+      },
+      "pressure_dt24h":{
+        "resolution": 1,
+        "class":[-10,-8,-6,-4,-2,0,2,4,6,8,10],
+        "min": -10,
+        "max": 10,        
+        "value_fixed": 1,
+        "unit": "hPa",
+        "colorBar":[
+          [129,4,61,255],
+          [148,5,54,255],
+          [167,4,27,255],
+          [193,6,3,255],
+          [228,16,1,255],
+          [243,44,0,255],
+          [249,81,0,255],
+          [250,124,1,255],
+          [250,170,4,255],
+          [252,208,23,255],
+          [176,232,82,255],
+          [81,235,154,255],
+          [3,215,221,255],
+          [7,170,246,255],
+          [9,122,248,255],
+          [9,78,243,255],
+          [10,40,229,255],
+          [20,9,203,255],
+          [22,3,161,255],
+          [32,2,125,255]
+        ]
+      },
+      "rh_1h":{
+        "resolution": 5,
+        "min": 0,
+        "max": 100,        
+        "value_fixed": 0,
+        "class":[0, 50, 60, 70, 80, 90, 100],
+        "unit": "%",
+        "colorBar":[
+          [255,255,255,0],
+          [255,255,255,0],
+          [255,255,255,0],
+          [255,255,255,0],
+          [255,255,255,0],
+          [255,255,255,0],
+          [255,255,255,0],
+          [255,255,255,0],
+          [255,255,255,0],
+          [255,255,255,0],
+          [213,237,136,255],
+          [193,229,123,255],
+          [173,220,111,255],
+          [150,210,104,255],
+          [125,199,101,255],
+          [99,188,98,255],
+          [72,174,92,255],
+          [39,159,83,255],
+          [20,142,75,255],
+          [10,123,65,255]
+        ]
+      }
+  },
+
+  "settings": {
+    "polRObj": {
+      "disabled": "",
+      "label": "默认指标",
+      "type": "RadioBtns",
+      "default": "aqi",
+      "options": [
+        {
+          "label": "AQI",
+          "value": "aqi",
+          "unit": "",
+          "MaxValue": 500,
+          "MinValue": 0
+        },
+        {
+          "label": "PM₂.₅",
+          "value": "pm25",
+          "unit": "(μg/m³)",
+          "MaxValue": 500,
+          "MinValue": 0
+        },
+        {
+          "label": "PM₁₀",
+          "value": "pm10",
+          "unit": "(μg/m³)",
+          "MaxValue": 600,
+          "MinValue": 0
+        },
+        {
+          "label": "SO₂",
+          "value": "so2",
+          "unit": "(μg/m³)",
+          "MaxValue": 800,
+          "MinValue": 0
+        },
+        {
+          "label": "NO₂",
+          "value": "no2",
+          "unit": "(μg/m³)",
+          "MaxValue": 400,
+          "MinValue": 0
+        },
+        {
+          "label": "CO",
+          "value": "co",
+          "unit": "(mg/m3)",
+          "MaxValue": 10,
+          "MinValue": 0
+        },
+        {
+          "label": "O₃",
+          "value": "o3",
+          "unit": "(μg/m³)",
+          "MaxValue": 400,
+          "MinValue": 0
+        }
+      ]
+    },
+    "areaRObj": {
+      "disabled": "",
+      "label": "默认区域",
+      "type": "RadioBtns",
+      "default": "d1",
+      "options": [
+        {
+          "label": "中国",
+          "value": "d1"
+        },
+        {
+          "label": "华东",
+          "value": "d2"
+        },
+        {
+          "label": "江苏",
+          "value": "d3"
+        }
+      ]
+    },
+    "polCObj": {
+      "disabled": "",
+      "label": "默认指标",
+      "type": "CheckBoxs",
+      "default": [
+        "aqi",
+        "pm25"
+      ],
+      "options": [
+        {
+          "label": "AQI",
+          "value": "aqi"
+        },
+        {
+          "label": "PM2.5",
+          "value": "pm25"
+        },
+        {
+          "label": "PM10",
+          "value": "pm10"
+        },
+        {
+          "label": "SO2",
+          "value": "so2"
+        },
+        {
+          "label": "NO2",
+          "value": "no2"
+        },
+        {
+          "label": "CO",
+          "value": "co"
+        },
+        {
+          "label": "O3",
+          "value": "o3"
+        }
+      ]
+    },
+    "modelRObj": {
+      "disabled": "",
+      "label": "默认模式",
+      "type": "RadioBtns",
+      "default": "naqpms",
+      "options": [
+        {
+          "label": "NAQPMS",
+          "value": "naqpms"
+        },
+        {
+          "label": "CMAQ",
+          "value": "cmaq"
+        },
+        {
+          "label": "CAMx",
+          "value": "camx"
+        },
+        {
+          "label": "WRF-chem",
+          "value": "wrfch"
+        }
+      ]
+    },
+    "modelCObj": {
+      "disabled": "",
+      "label": "评估模式",
+      "type": "CheckBoxs",
+      "default": [
+        "naqpms",
+        "cmaq"
+      ],
+      "options": [
+        {
+          "label": "NAQPMS",
+          "value": "naqpms"
+        },
+        {
+          "label": "CMAQ",
+          "value": "cmaq"
+        },
+        {
+          "label": "CAMx",
+          "value": "camx"
+        },
+        {
+          "label": "WRF-Chem",
+          "value": "wrfchem"
+        }
+      ]
+    },
+    "reviewDayNum": {
+      "disabled": "",
+      "label": "回顾时长",
+      "type": "InputNumber",
+      "default": 7,
+      "min": 5,
+      "max": 15
+    },
+    "cityStaTreeObj": {
+      "disabled": "",
+      "label": "城市站点",
+      "type": "Tree",
+      "default": [
+        {
+          "label": "南京市",
+          "code": "1",
+          "type": "city",
+          "children": [
+            {
+              "label": "监测站",
+              "code": "10",
+              "type": "station"
+            }
+          ]
+        },
+        {
+          "label": "无锡市",
+          "code": "2",
+          "type": "city",
+          "children": [
+            {
+              "label": "站点1",
+              "code": "20",
+              "type": "station"
+            },
+            {
+              "label": "站点2",
+              "code": "21",
+              "type": "station"
+            }
+          ]
+        },
+        {
+          "label": "徐州市",
+          "code": "3",
+          "type": "city",
+          "children": [
+            {
+              "label": "站点3",
+              "code": "31",
+              "type": "station"
+            },
+            {
+              "label": "站点4",
+              "code": "32",
+              "type": "station"
+            }
+          ]
+        }
+      ],
+      "data": [
+        {
+          "label": "南京市",
+          "code": "1",
+          "type": "city",
+          "children": [
+            {
+              "label": "监测站",
+              "code": "10",
+              "type": "station"
+            }
+          ]
+        },
+        {
+          "label": "无锡市",
+          "code": "2",
+          "type": "city",
+          "children": [
+            {
+              "label": "站点1",
+              "code": "20",
+              "type": "station"
+            },
+            {
+              "label": "站点2",
+              "code": "21",
+              "type": "station"
+            }
+          ]
+        },
+        {
+          "label": "徐州市",
+          "code": "3",
+          "type": "city",
+          "children": [
+            {
+              "label": "站点3",
+              "code": "31",
+              "type": "station"
+            },
+            {
+              "label": "站点4",
+              "code": "32",
+              "type": "station"
+            }
+          ]
+        }
+      ]
+    },
+    "opacity": {
+      "disabled": "",
+      "label": "地图不透明度",
+      "type": "Slider",
+      "default": 80
+    },
+    "modelSwitchTime": {
+      "disabled": "",
+      "label": "时次切换时间",
+      "type": "Time",
+      "default": "14:00"
+    },
+    "mapType": {
+      "disabled": "",
+      "label": "地图默认类型",
+      "type": "RadioBtns",
+      "default": "Geoq.Normal.PurplishBlue",
+      "options": [
+        {
+          "label": "矢量图",
+          "value": "Geoq.Normal.PurplishBlue"
+        },
+        {
+          "label": "地形图",
+          "value": "terrain"
+        },
+        {
+          "label": "遥感图",
+          "value": "raster"
+        }
+      ]
+    },
+    "mapExtent": {
+      "disabled": "",
+      "label": "地图默认范围",
+      "type": "Map",
+      "default": "19.973348786110613,70.48828125000001,48.45835188280866,136.40625000000003"
+    },
+    "globalUpdate": {
+      "disabled": "",
+      "label": "全系统更新",
+      "type": "Switch",
+      "default": false
+    }
+  }
+}

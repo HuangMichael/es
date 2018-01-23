@@ -1,0 +1,65 @@
+
+
+.wrfForecast_TimeCondition .el-radio-group{
+	border:0px!important;
+}
+
+#wrfForecast_TimeControl ._3clear_sampletimeControl{
+        border-top: 8px solid rgba(46,46,46,0.2);
+        border-bottom: 8px solid rgba(46,46,46,0.2);
+    }
+
+
+
+#wrfForecast_MapDiv .leaflet-left{
+	top:70px!important;
+	left: 11px!important;
+}
+
+#wrfForecast_MapDiv .leaflet-control-zoom{
+	margin:0px !important;
+}
+
+
+#wrfForecast_MapDiv .basemaps.leaflet-control{
+	margin-left: -6px;
+	margin-top: 4px;
+}
+
+
+.wrfForecast_legend .legendPanel{
+	margin:10px 0px;
+}
+
+#wrfForecast_Pol_MapDiv .leaflet-left{
+	top:70px!important;
+	left: 11px!important;
+}
+
+#wrfForecast_Pol_MapDiv .leaflet-control-zoom{
+	margin:0px !important;
+}
+
+
+#wrfForecast_Pol_MapDiv .basemaps.leaflet-control{
+	margin-left: -6px;
+	margin-top: 4px;
+}
+
+
+
+.wrfForecast_unfull .menuPanel .el-switch__label{
+	float: left;
+	color: #04e7e1;
+	margin: 0px 10px;
+	margin-top: -2px;
+}
+
+.wrfForecast_unfull .menuPanel .el-switch__core{
+	margin-top: -5px;
+}
+
+.wrfForecast_unfull .groupSelect{
+	text-align: left;
+}
+

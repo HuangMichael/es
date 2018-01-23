@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "stationcode": 3203821082, "stationname": "宝应", "stationtyp": null, "station_lo": 119.450000, "station_la": 32.800000, "citycode": 321023, "cityname": "宝应", "provincena": "江苏省", "remarks": null }, "geometry": { "type": "Point", "coordinates": [ 13297113.1752565279603, 3868787.298098510596901 ] } },
+{ "type": "Feature", "properties": { "stationcode": 3207001014, "stationname": "滨海", "stationtyp": null, "station_lo": 119.850000, "station_la": 33.800000, "citycode": 320922, "cityname": "滨海", "provincena": "江苏省", "remarks": null }, "geometry": { "type": "Point", "coordinates": [ 13341640.97157383710146, 4001978.423556836787611 ] } },
+{ "type": "Feature", "properties": { "stationcode": 3201001140, "stationname": "常熟", "stationtyp": null, "station_lo": 119.470000, "station_la": 32.180000, "citycode": 320581, "cityname": "常熟", "provincena": "江苏省", "remarks": null }, "geometry": { "type": "Point", "coordinates": [ 13299339.565072393044829, 3786961.685284385457635 ] } },
+{ "type": "Feature", "properties": { "stationcode": 3203241080, "stationname": "常熟", "stationtyp": null, "station_lo": 120.770000, "station_la": 31.650000, "citycode": 320581, "cityname": "常熟", "provincena": "江苏省", "remarks": null }, "geometry": { "type": "Point", "coordinates": [ 13444054.903103647753596, 3717454.866091994568706 ] } },
+{ "type": "Feature", "properties": { "stationcode": 3206841138, "stationname": "常州", "stationtyp": null, "station_lo": 119.980000, "station_la": 31.880000, "citycode": 320400, "cityname": "常州", "provincena": "江苏省", "remarks": null }, "geometry": { "type": "Point", "coordinates": [ 13356112.50537696480751, 3747569.049349604640156 ] } }
+]
+}

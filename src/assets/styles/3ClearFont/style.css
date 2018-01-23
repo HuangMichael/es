@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?xzsp8f');
+  src:  url('fonts/icomoon.eot?xzsp8f#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?xzsp8f') format('truetype'),
+    url('fonts/icomoon.woff?xzsp8f') format('woff'),
+    url('fonts/icomoon.svg?xzsp8f#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-3clear-"], [class*=" icon-3clear-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-3clear-home:before {
+  content: "\e900";
+}
+.icon-3clear-menu:before {
+  content: "\e901";
+}
+.icon-3clear-city:before {
+  content: "\e902";
+}
+.icon-3clear-curve-e:before {
+  content: "\e903";
+}
+.icon-3clear-weather-c:before {
+  content: "\e904";
+}
+.icon-3clear-radar-c:before {
+  content: "\e905";
+}
+.icon-3clear-weather-d:before {
+  content: "\e906";
+}
+.icon-3clear-menu-b:before {
+  content: "\e907";
+}
+.icon-3clear-curve-a:before {
+  content: "\e908";
+}
+.icon-3clear-Leaf:before {
+  content: "\e909";
+}
+.icon-3clear-wind:before {
+  content: "\e90a";
+}
+.icon-3clear-temperature:before {
+  content: "\e90b";
+}
+.icon-3clear-humidity:before {
+  content: "\e90c";
+}
+.icon-3clear-rain-c:before {
+  content: "\e90d";
+}
+.icon-3clear-pressure:before {
+  content: "\e90e";
+}
+.icon-3clear-curve-c:before {
+  content: "\e90f";
+}
+.icon-3clear-curve-d:before {
+  content: "\e910";
+}
+.icon-3clear-Full-screen:before {
+  content: "\e911";
+}
+.icon-3clear-Full-screen-b:before {
+  content: "\e912";
+}
+.icon-3clear-radar:before {
+  content: "\e913";
+}
+.icon-3clear-curve-b:before {
+  content: "\e914";
+}
+.icon-3clear-rain:before {
+  content: "\e915";
+}
+.icon-3clear-rain-b:before {
+  content: "\e916";
+}
+.icon-3clear-weather:before {
+  content: "\e917";
+}
+.icon-3clear-weather-b:before {
+  content: "\e918";
+}
+.icon-3clear-wind-b:before {
+  content: "\e919";
+}

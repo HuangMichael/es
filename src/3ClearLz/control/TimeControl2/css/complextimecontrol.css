@@ -1,0 +1,276 @@
+﻿
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, main, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline; /* background: transparent; */
+}
+
+._3clear_complextimeControl {
+    height: 53px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: right;
+    margin: 0 auto;
+    cursor: pointer;
+    background: #666;
+    color: #f8f8f8;
+    z-index: 800;
+}
+
+@media only screen and (max-width:800px) {
+    ._3clear_complextimeControl {
+        width: 100%;
+    }
+}
+
+._3clear_complextimeControl_timeSliderOuter {
+    position: relative;
+    display: table-cell;
+    width: 100%;
+}
+
+._3clear_complextimeControl_timeProgress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: 0;
+    /*background-color: #d28b28;*/
+    -webkit-transition: width .3s;
+    transition: width .3s;
+    overflow-y:none!important;
+    overflow-x:none!important;
+}
+
+._3clear_complextimeControl_timeHour {
+    cursor: ew-resize;
+    border-radius: 5px;
+    padding: 2px 7px;
+    position: absolute;
+    top: -26px;
+    right: 0;
+    transform: translateX(50%);
+    background-color: rgba(0,0,0,0.6);
+    z-index: 799;
+    white-space: nowrap;
+}
+
+._3clear_complextimeControl_hoverProgress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: 0;
+    border-right: 3px solid #000;
+}
+
+._3clear_complextimeControl_timeSlider {
+    width: 100%;
+    display: table;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+._3clear_complextimeControl_hoverHour {
+    cursor: ew-resize;
+    border-radius: 5px;
+    padding: 2px 7px;
+    position: absolute;
+    top: -26px;
+    right: 0;
+    transform: translateX(50%);
+    background-color: rgba(0,0,0,0.6);
+    z-index: 799;
+    white-space: nowrap;
+}
+
+.hide {
+    display: none;
+}
+
+._3clear_complextimeControl_timeElement {
+    line-height: 20px;
+    text-align: center;
+    z-index: 10;
+    padding-top: 8px;
+    position: relative;
+    display: table-cell;
+    border-left: 1px solid #9c9c9c;
+    white-space: nowrap;
+}
+
+@media only screen and (max-width:600px) {
+    ._3clear_complextimeControl_timeElement {
+        font-size: 12px;
+        padding: 0 5px;
+        height: 52px;
+        vertical-align: middle;
+    }
+}
+
+._3clear_complextimeControl_timeElement:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+@media(hover:on-demand) {
+    ._3clear_complextimeControl_timeElement:hover {
+        background: 0;
+    }
+}
+
+._3clear_complextimeControl_three-hourly-time-steps {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    line-height:25px;
+}
+
+
+@media only screen and (max-width:600px) {
+    ._3clear_complextimeControl_three-hourly-time-steps {
+        display: none;
+    }
+}
+
+._3clear_complextimeControl_slider-3h-time-step {
+    display: table-cell;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+    ._3clear_complextimeControl_slider-3h-time-step:last-child {
+        border: 0;
+    }
+
+    ._3clear_complextimeControl_slider-3h-time-step:nth-child(even) {
+        background-color: #3d393c;
+    }
+
+    ._3clear_complextimeControl_slider-3h-time-step:nth-child(odd) {
+        background-color: #505457;
+    }
+
+    ._3clear_complextimeControl_slider-3h-time-step:hover {
+        background: #858585;
+    }
+
+
+._3clear_complextimeControl_timeElement:first-of-type {
+    border-left: 0;
+}
+
+._3clear_complextimeControl_timeElement.nav-arrows {
+    padding: 0 6px;
+    min-width: 15px;
+    vertical-align: middle;
+}
+
+    ._3clear_complextimeControl_timeElement.nav-arrows.stacked {
+        display: block;
+        border: 0;
+        height: 26px;
+        line-height: 26px;
+        padding-top: 0;
+    }
+
+        ._3clear_complextimeControl_timeElement.nav-arrows.stacked:first-of-type {
+            border-bottom: 1px solid #9c9c9c;
+        }
+
+    ._3clear_complextimeControl_timeElement.nav-arrows .glyph.backward::before {
+        margin-right: -0.4em;
+    }
+
+    ._3clear_complextimeControl_timeElement.nav-arrows .glyph.forward::before {
+        margin-left: .1em;
+    }
+
+    /*._3clear_complextimeControl_timeElement.nav-arrows.prev::before, ._3clear_complextimeControl_timeElement.nav-arrows.next::after {
+        font-family: "meteoblue";
+        content: "\00e04e";
+        display: inline-block;
+        vertical-align: middle;
+        width: .5em;
+    }*/
+
+    ._3clear_complextimeControl_timeElement.nav-arrows.prev::before {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+        margin-right: .1em;
+    }
+
+    ._3clear_complextimeControl_timeElement.nav-arrows.next::after {
+        margin-left: .1em;
+    }
+
+
+
+._3clear_complextimeControl_timeElement.elementGroup {
+    padding-top: 0;
+    vertical-align: top;
+}
+
+    ._3clear_complextimeControl_timeElement.elementGroup:hover {
+        background: 0;
+    }
+
+@media only screen and (max-width:600px) {
+    ._3clear_complextimeControl_timeElement.elementGroup {
+        display: none;
+    }
+}
+
+._3clear_complextimeControl_timeElement.dayElement:last-of-type, ._3clear_complextimeControl_timeElement.dayElement:first-of-type {
+    position: relative;
+}
+
+    ._3clear_complextimeControl_timeElement.dayElement:last-of-type:after, ._3clear_complextimeControl_timeElement.dayElement:first-of-type:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 15%;
+        pointer-events: none;
+    }
+
+    ._3clear_complextimeControl_timeElement.dayElement:last-of-type:after {
+        right: 0;
+        background: linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,0.3));
+    }
+
+    ._3clear_complextimeControl_timeElement.dayElement:first-of-type:before {
+        left: 0;
+        background: linear-gradient(90deg,rgba(0,0,0,0.3),rgba(0,0,0,0));
+    }
+
+
+@media only screen and (max-width:600px) {
+    ._3clear_complextimeControl_timeElement.nav-arrows.glyph.pause,._3clear_complextimeControl_timeElement.nav-arrows.glyph.play {
+        display: none;
+    }
+}
+
+
+._3clear_complextimeControl_timeElement.nav-arrows.glyph.pause {
+    background: url(../image/pause.png)no-repeat center;
+}
+
+._3clear_complextimeControl_timeElement.nav-arrows.glyph.play {
+    background: url(../image/play.png)no-repeat center;
+}
+
+._3clear_complextimeControl_timeProgress_item{
+    height: 100%;
+    width:0px;
+    position: absolute;
+    left:0px;
+    width: 0px;
+}
+
+._3clear_complextimeControl_timeElement_switchBtn{
+    background: url(../image/switch.png)no-repeat center;
+}
+

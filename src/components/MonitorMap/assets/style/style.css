@@ -1,0 +1,47 @@
+.monitorDisMapWrap .orderBtn {
+    padding: 18px 0 20px 0;
+    text-align: center;
+}
+
+.monitorDisMapWrap .orderBtn .el-radio-button__inner {
+    width: 108px !important;
+}
+
+.monitorDisMapWrap .el-table {
+    color: #fff !important;
+}
+
+.monitorDisMapWrap .el-table thead {
+    color: #04e7e1 !important;
+}
+
+.monitorDisMapWrap .leaflet-left .leaflet-control {
+    margin-left: 0;
+}
+
+.monitorDisMapWrap .leaflet-top .leaflet-control {
+    margin-top: 0;
+}
+
+.monitorDisMapWrap .leaflet-control-zoom {
+    top: 70px !important;
+    left: 11px !important;
+}
+
+.monitorDisMapWrap .basemaps.leaflet-control{
+    top: 76px !important;
+    left: 5px !important;
+}
+
+
+.monitorDisMapWrap .leaflet-control-zoom-in,.monitorDisMapWrap .leaflet-control-zoom-out {
+    background-color: rgba(7, 28, 66, 0.7) !important;
+}
+
+
+.monitorDisMapWrap .el-table--small td,.monitorDisMapWrap .el-table--small th {
+    padding: 5px 0;
+}
+
+
+

@@ -1,0 +1,280 @@
+{
+  "name": "test",
+  "settings": {
+    "polRObj": {
+      "disabled": "",
+      "label": "默认指标",
+      "type": "RadioBtns",
+      "default": "aqi",
+      "options": [
+        {
+          "label": "AQI",
+          "value": "aqi"
+        },
+        {
+          "label": "PM2.5",
+          "value": "pm25"
+        },
+        {
+          "label": "PM10",
+          "value": "pm10"
+        },
+        {
+          "label": "SO2",
+          "value": "so2"
+        },
+        {
+          "label": "NO2",
+          "value": "no2"
+        },
+        {
+          "label": "CO",
+          "value": "co"
+        },
+        {
+          "label": "O3",
+          "value": "o3"
+        }
+      ]
+    },
+    "dataTypeObj":{
+    	"disabled": "",
+      "label": "默认数据类型",
+      "type": "RadioBtns",
+      "default": "hour",
+      "options": [
+        {
+          "label": "小时",
+          "value": "hour"
+        },
+        {
+          "label": "日均",
+          "value": "day"
+        }
+      ]
+    },
+    "areaRObj": {
+      "disabled": "",
+      "label": "默认区域",
+      "type": "RadioBtns",
+      "default": "d01",
+      "options": [
+        {
+          "label": "中国",
+          "value": "d01"
+        },
+        {
+          "label": "华东",
+          "value": "d02"
+        },
+        {
+          "label": "江苏",
+          "value": "d03"
+        }
+      ]
+    },
+    "hourProductObj":{
+    	  "disabled": "",
+      "label": "默认模式",
+      "type": "RadioBtns",
+      "default": "aqi",
+      "options":[
+      	{
+      		"label":"AQI",
+      		"value":"aqi",
+      		"id":"J020"
+      	},
+      	{
+      		"label":"PM₂.₅",
+      		"value":"pm25",
+      		"id":"J005"
+      	},
+      	{
+      		"label":"PM₁₀",
+      		"value":"pm10",
+      		"id":"J002"
+      	},
+      	{
+      		"label":"SO₂",
+      		"value":"so2",
+      		"id":"J000"
+      	},
+      	{
+      		"label":"NO₂",
+      		"value":"no2",
+      		"id":"J001"
+      	},
+      	{
+      		"label":"CO",
+      		"value":"co",
+      		"id":"J003"
+      	},
+      	{
+      		"label":"O₃",
+      		"value":"o3",
+      		"id":"J004"
+      	},
+      	{
+      		"label":"沙尘",
+      		"value":"sanddust",
+      		"id":"J014"
+      	},
+      	{
+      		"label":"海盐",
+      		"value":"seasalt",
+      		"id":"J015"
+      	},
+      	{
+      		"label":"首要污染物",
+      		"value":"primarypollutant",
+      		"id":"J019"
+      	},
+      	{
+      		"label":"消光系数",
+      		"value":"ext",
+      		"id":"J022"
+      	}
+      ]
+    },
+    "dayProductObj":{
+    		  "disabled": "",
+      "label": "默认模式",
+      "type": "RadioBtns",
+      "default": "aqi",
+      "options":[
+      	{
+      		"label":"AQI",
+      		"value":"aqi",
+      		"id":"J021"
+      	},
+      	{
+      		"label":"PM₂.₅",
+      		"value":"pm25",
+      		"id":"J010"
+      	},
+      	{
+      		"label":"PM₁₀",
+      		"value":"pm10",
+      		"id":"J008"
+      	},
+      	{
+      		"label":"SO₂",
+      		"value":"so2",
+      		"id":"J006"
+      	},
+      	{
+      		"label":"NO₂",
+      		"value":"no2",
+      		"id":"J007"
+      	},
+      	{
+      		"label":"CO",
+      		"value":"co",
+      		"id":"J009"
+      	},
+      	{
+      		"label":"O₃_8h",
+      		"value":"o3",
+      		"id":"J013"
+      	},
+      	{
+      		"label":"沙尘",
+      		"value":"sanddust",
+      		"id":"J016"
+      	},
+      	{
+      		"label":"海盐",
+      		"value":"seasalt",
+      		"id":"J017"
+      	},
+      	{
+      		"label":"首要污染物",
+      		"value":"primarypollutant",
+      		"id":"J018"
+      	},
+      	{
+      		"label":"消光系数",
+      		"value":"ext",
+      		"id":"J023"
+      	}
+      ]
+    },
+    "modelRObj": {
+      "disabled": "",
+      "label": "默认模式",
+      "type": "RadioBtns",
+      "default": "naqpms",
+      "options": [
+        {
+          "label": "NAQPMS",
+          "value": "naqpms"
+        },
+        {
+          "label": "CMAQ",
+          "value": "cmaq"
+        },
+        {
+          "label": "CAMx",
+          "value": "camx"
+        },
+        {
+          "label": "WRF-chem",
+          "value": "wrfchem"
+        }
+      ]
+    },
+    "modelSwitchTime": {
+      "disabled": "",
+      "label": "时次切换时间",
+      "type": "Time",
+      "default": "14:00"
+    },
+  
+    "globalUpdate": {
+      "disabled": "",
+      "label": "全系统更新",
+      "type": "Switch",
+      "default": false
+    },
+    "08ModelObj": {
+      "disabled": "",
+      "label": "08时默认模式",
+      "type": "RadioBtns",
+      "default": "naqpms",
+      "options": [
+        {
+          "label": "NAQPMS",
+          "value": "naqpms"
+        },
+        {
+          "label": "CMAQ",
+          "value": "cmaq"
+        }
+      ]
+    },
+    "20ModelObj": {
+      "disabled": "",
+      "label": "08时默认模式",
+      "type": "RadioBtns",
+      "default": "naqpms",
+      "options": [
+        {
+          "label": "NAQPMS",
+          "value": "naqpms"
+        },
+        {
+          "label": "CMAQ",
+          "value": "cmaq"
+        },
+        {
+          "label": "CAMx",
+          "value": "camx"
+        },
+        {
+          "label": "WRF-chem",
+          "value": "wrfchem"
+        }
+      ]
+    }
+  }
+}

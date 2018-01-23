@@ -1,0 +1,7 @@
+.CityContrastAnalyse .titlePanel-title{
+	z-index: 100;
+	/*图表滑动的时候遮住了*/
+}
+.CityContrastAnalyse .el-checkbox.is-bordered+.el-checkbox.is-bordered{
+	margin-left: 2px;
+}

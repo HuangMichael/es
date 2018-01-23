@@ -1,0 +1,2906 @@
+{
+	"name": "WrfPredict",
+	"settings": {
+		"globalUpdate": {
+			"disabled": "",
+			"label": "全系统更新",
+			"type": "Switch",
+			"default": false
+		},
+		"sourceOption": {
+			"disabled": "",
+			"label": "来源",
+			"type": "RadioBtns",
+			"default": 0,
+			"data": [
+				{
+					"label": "单站",
+					"value": 0,
+					"cName": "类别",
+					"default": 0,
+					"iconName":"oneStation",
+					"data": [
+						{
+							"label": "GRAPES_MESO",
+							"value": 0,
+							"cName": "类型",
+							"default": 0,
+							"data": [
+								{
+									"label": "相对湿度+温度+风垂直剖面（南京）",
+									"value": 0,
+									"title": "相对湿度+温度+风垂直剖面（南京）",
+									"id": "C061",
+									"times": 2
+								}, {
+									"label": "SKEW-T（南京）",
+									"value": 1,
+									"title": "SKEW-T（南京）",
+									"id": "C062",
+									"times": 2
+								}, {
+									"label": "风温湿压时间序列（南京）",
+									"value": 2,
+									"title": "风温湿压时间序列（南京）",
+									"id": "C063",
+									"times": 2
+								}
+							]
+						}
+					]
+				}, 
+				{
+				
+					"label": "欧洲中心（细网格）",
+					"value": 1,
+					"cName": "类别",
+					"default": 0,
+					"iconName":"euStation",
+					"data":[
+						{
+							"label": "500hPa高度场",
+							"value": 0,
+							"cName": "类型",
+							"title": "500hPa高度场",
+							"id":"C130",
+							"times": 2
+							
+						},{
+							"label": "风场+相对湿度",
+							"value": 1,
+							"cName": "层次",
+							"default": 0,
+							"data":[
+									
+										{
+											"label": "925hPa",
+											"value": 0,
+											
+											"title": "925hpa风场+相对湿度",
+											"id":"C131",
+											"times": 2
+										},
+										{
+											"label": "850hPa",
+											"value": 1,
+											
+											"title": "850hpa风场+相对湿度",
+											"id":"C132",
+											"times": 2
+										},
+										{
+											"label": "700hPa",
+											"value": 2,
+											
+											"title": "700hpa风场+相对湿度",
+											"id":"C133",
+											"times": 2
+										}
+									
+									
+							]
+						},{
+							"label": "降水",
+							"value": 2,
+							"cName": "类型",
+							"default": 0,
+							"data":[
+								{
+											"label": "3小时",
+											"value": 0,
+											
+											"title": "3小时累计降水量",
+											"id":"C134",
+											"times": 2
+										},
+										{
+											"label": "6小时",
+											"value": 1,
+											
+											"title": "6小时累计降水量",
+											"id":"C135",
+											"times": 2
+										},
+										{
+											"label": "12小时",
+											"value": 2,
+											
+											"title": "12小时累计降水量",
+											"id":"C136",
+											"times": 2
+										},
+										{
+											"label": "24小时",
+											"value": 3,
+											
+											"title": "24小时累计降水量",
+											"id":"C137",
+											"times": 2
+										}
+							]
+						},{
+											"label": "K指数",
+											"value": 3,
+											
+											"title": "K指数",
+											"id":"C138",
+											"times": 2
+						},{
+											"label": "对流有效位能",
+											"value": 4,
+											
+											"title": "对流有效位能",
+											"id":"C139",
+											"times": 2
+						},{
+											"label": "大雾综合图",
+											"value": 5,
+											
+											"cName": "类型",
+											
+											"default":0,
+											
+											"data":[
+												{
+												"label": "综合图1",
+												"value": 0,
+												
+												"title": "大雾综合图1",
+												"id":"C140",
+												"times": 2
+												},
+												{
+												"label": "综合图2",
+												"value": 1,
+												
+												"title": "大雾综合图2",
+												"id":"C141",
+												"times": 2
+												}
+											]
+						}
+					]
+				},
+				{
+					"label": "中央气象台",
+					"value": 2,
+					"cName": "类别",
+					"default": 0,
+					"iconName":"cnStation",
+					"data": [
+						{
+							"label": "1-7天降水量",
+							"value": 0,
+							"cName": "类型",
+							"default": 0,
+							"data": [
+								{
+									"label": "24小时",
+									"value": 0,
+									"title": "24小时降水",
+									"id": "C001",
+									"times": 0
+								}
+							]
+						}, {
+							"label": "1-7天气温",
+							"value": 1,
+							"cName": "类型",
+							"default": 0,
+							"data": [
+								{
+									"label": "最高",
+									"value": 0,
+									"title": "最高气温",
+									"id": "C065",
+									"times": 0
+								}, {
+									"label": "最低",
+									"value": 1,
+									"title": "最低气温",
+									"id": "C066",
+									"times": 0
+								}
+							]
+						}, {
+							"label": "环境气象",
+							"value": 2,
+							"cName": "类型",
+							"default": 0,
+							"data": [
+								{
+									"label": "雾",
+									"value": 0,
+									"title": "雾预报",
+									"id": "C006",
+									"times": 2
+								}, 
+								 {
+									"label": "霾",
+									"value": 1,
+									"title": "霾",
+									"id": "C007",
+									"times": 2
+								},{
+									"label": "沙尘",
+									"value": 2,
+									"title": "沙尘预报",
+									"id": "C008",
+									"times": 2
+								}, {
+									"label": "空气污染气象条件",
+									"value": 3,
+									"title": "空气污染气象条件预报图",
+									"id": "C009",
+									"times": 2
+								}
+							]
+						}, {
+							"label": "GRAPES模式",
+							"value": 3,
+							"cName": "类型",
+							"default": 0,
+							"data": [
+								{
+									"label": "K指数",
+									"value": 0,
+									"title": "K指数",
+									"id": "C058",
+									"times": 2
+								}, {
+									"label": "500hPa高度场+850hPa风场",
+									"value": 1,
+									"title": "500hPa高度场+850hPa风场",
+									"id": "C055",
+									"times": 2
+								}, {
+									"label": "500hPa高度+风场",
+									"value": 2,
+									"title": "500hPa高度+风场",
+									"id": "C059",
+									"times": 2
+								},{
+									"label": "850hPa相对湿度+风场",
+									"value": 3,
+									"title": "850hPa相对湿度+风场",
+									"id": "C069",
+									"times": 2
+								}, {
+									"label": "2m相对湿度",
+									"value": 4,
+									"title": "2m相对湿度",
+									"id": "C085",
+									"times": 2
+								}, {
+									"label": "风场",
+									"value": 5,
+									"cName": "层次",
+									"default": 0,
+									"data": [
+										{
+											"label": "500hPa",
+											"value": 0,
+											"title": "500hPa风场",
+											"id": "C081",
+											"times": 2
+										}, {
+											"label": "700hPa",
+											"value": 1,
+											"title": "700hPa风场",
+											"id": "C070",
+											"times": 2
+										}, {
+											"label": "850hPa",
+											"value": 2,
+											"title": "850hPa风场",
+											"id": "C082",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "温度平流",
+									"value": 6,
+									"cName": "层次",
+									"default": 0,
+									"data": [
+										{
+											"label": "500hPa",
+											"value": 0,
+											"title": "500hPa温度平流",
+											"id": "C076",
+											"times": 2
+										}, {
+											"label": "850hPa",
+											"value": 1,
+											"title": "850hPa温度平流",
+											"id": "C075",
+											"times": 2
+										}
+									]
+								},{
+									"label": "地面风场+1小时降水（华东）",
+											"value": 7,
+											"title": "地面风场+1小时降水（华东）",
+											"id": "C098",
+											"times": 2
+								
+								}
+							]
+						}, {
+							"label": "T639模式",
+							"value": 4,
+							"cName": "类型",
+							"default": 0,
+							"data": [
+								{
+									"label": "850hPa水汽输送",
+									"value": 0,
+									"title": "850hPa水汽输送",
+									"id": "C002",
+									"times": 2
+								}, {
+									"label": "水汽通量",
+									"value": 1,
+									"cName": "层次",
+									"default": 0,
+									"data": [
+										{
+											"label": "850hPa",
+											"value": 0,
+											"title": "850hPa水汽通量",
+											"id": "C077",
+											"times": 2
+										}, {
+											"label": "700hPa",
+											"value": 1,
+											"title": "700hPa水汽通量",
+											"id": "C004",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "850hPa相对湿度+风场",
+									"value": 2,
+									"title": "850hPa相对湿度+风场",
+									"id": "C003",
+									"times": 2
+								}, {
+									"label": "风场",
+									"value": 3,
+									"cName": "层次",
+									"default": 0,
+									"data": [
+										{
+											"label": "850hPa",
+											"value": 0,
+											"title": "850hPa风场",
+											"id": "C074",
+											"times": 2
+										}, {
+											"label": "700hPa",
+											"value": 1,
+											"title": "700hPa风场",
+											"id": "C005",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "500hPa高度+风场",
+									"value": 4,
+									"title": "500hPa高度+风场",
+									"id": "C068",
+									"times": 2
+								}, {
+									"label": "海平面气压",
+									"value": 5,
+									"title": "海平面气压",
+									"id": "C053",
+									"times": 2
+								}, {
+									"label": "500hPa高度场+850hPa风场",
+									"value": 6,
+									"title": "500hPa高度场+850hPa风场",
+									"id": "C067",
+									"times": 2
+								}, {
+									"label": "温度平流",
+									"value": 7,
+									"cName": "层次",
+									"default": 0,
+									"data": [
+										{
+											"label": "500hPa",
+											"value": 0,
+											"title": "500hPa温度平流",
+											"id": "C075",
+											"times": 2
+										}, {
+											"label": "850hPa",
+											"value": 1,
+											"title": "850hPa温度平流",
+											"id": "C076",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "比湿",
+									"value": 8,
+									"cName": "层次",
+									"default": 0,
+									"data": [
+										{
+											"label": "700hPa",
+											"value": 0,
+											"title": "700hPa比湿",
+											"id": "C078",
+											"times": 2
+										}, {
+											"label": "850hPa",
+											"value": 1,
+											"title": "850hPa比湿",
+											"id": "C079",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "K指数",
+									"value": 9,
+									"title": "K指数",
+									"id": "C080",
+									"times": 2
+								}, {
+									"label": "700hPa水汽通量散度",
+									"value": 10,
+									"title": "700hPa水汽通量散度",
+									"id": "C091",
+									"times": 2
+								}, {
+									"label": "500hPa涡度平流",
+									"value": 11,
+									"title": "500hPa涡度平流",
+									"id": "C092",
+									"times": 2
+								}, {
+									"label": "500hPa相对涡度",
+									"value": 12,
+									"title": "500hPa相对涡度",
+									"id": "C093",
+									"times": 2
+								}, {
+									"label": "700hPa假相当位温",
+									"value": 13,
+									"title": "700hPa假相当位温",
+									"id": "C094",
+									"times": 2
+								}, {
+									"label": "垂直速度",
+									"value": 14,
+									"cName": "层次",
+									"default": 0,
+									"data": [
+										{
+											"label": "500hPa",
+											"value": 0,
+											"title": "500hPa垂直速度",
+											"id": "C097",
+											"times": 2
+										}, {
+											"label": "700hPa",
+											"value": 1,
+											"title": "700hPa垂直速度",
+											"id": "C095",
+											"times": 2
+										}, {
+											"label": "850hPa",
+											"value": 2,
+											"title": "850hPa垂直速度",
+											"id": "C096",
+											"times": 2
+										}
+									]
+								}
+							]
+						}
+					]
+				}, {
+					"label": "欧洲中心",
+					"value": 3,
+					"cName": "类别",
+					"iconName":"euStation",
+					"default": 0,
+					"data": [
+						{
+							"label": "500hPa高度+850hPa温度",
+							"value": 0,
+							"title": "500hPa高度+850hPa温度",
+							"id": "C000",
+							"times": 2
+						}, {
+							"label": "海平面气压+850hPa风速",
+							"value": 1,
+							"title": "海平面气压+850hPa风速",
+							"id": "C072",
+							"times": 2
+						}
+					]
+				}, {
+					"label": "韩国气象厅",
+					"value": 4,
+					"cName": "类别",
+					"iconName":"koStation",
+					"default": 0,
+					"data": [
+						{
+							"label": "海平面气压+降水",
+							"value": 0,
+							"title": "海平面气压+降水",
+							"id": "C054",
+							"times": 2
+						}, {
+							"label": "500hPa高度+温度+涡度",
+							"value": 1,
+							"title": "500hPa高度+温度+涡度",
+							"id": "C021",
+							"times": 2
+						}, {
+							"label": "850hPa风场+温度+700hPa垂直速度",
+							"value": 2,
+							"title": "850hPa风场+温度+700hPa垂直速度",
+							"id": "C018",
+							"times": 2
+						}, {
+							"label": "沙尘预报",
+							"value": 3,
+							"title": "沙尘预报",
+							"id": "C056",
+							"times": 2
+						}, {
+							"label": "24小时预报",
+							"value": 4,
+							"title": "24小时预报",
+							"id": "C100",
+							"times": 2
+						}, {
+							"label": "海平面气压+降水（区域模式）",
+							"value": 5,
+							"title": "海平面气压+降水（区域模式）",
+							"id": "C099",
+							"times": 4
+						}, {
+							"label": "海平面气压+降水+温度（全球）",
+							"value": 6,
+							"title": "海平面气压+降水+温度（全球）",
+							"id": "C101",
+							"times": 4
+						}, {
+							"label": "500hPa高度+温度+涡度（全球）",
+							"value": 7,
+							"title": "500hPa高度+温度+涡度（全球）",
+							"id": "C102",
+							"times": 4
+						}
+					]
+				}, {
+					"label": "日本气象台",
+					"value": 5,
+					"cName": "类别",
+					"default": 0,
+					"iconName":"jaStation",
+					"data": [
+						{
+							"label": "地面形势预报",
+							"value": 0,
+							"title": "地面形势预报",
+							"id": "C022",
+							"times": 2
+						}, {
+							"label": "850hPa风场+温度+700hPa垂直速度",
+							"value": 1,
+							"title": "850hPa风场+温度+700hPa垂直速度",
+							"id": "C023",
+							"times": 2
+						}, {
+							"label": "500hPa温度+700hPa温度露点差",
+							"value": 2,
+							"title": "500hPa温度+700hPa温度露点差",
+							"id": "C024",
+							"times": 2
+						}, {
+							"label": "850hPa假相当位温",
+							"value": 3,
+							"title": "850hPa假相当位温",
+							"id": "C103",
+							"times": 2
+						}, {
+							"label": "500hPa高度+涡度",
+							"value": 4,
+							"title": "500hPa高度+涡度",
+							"id": "C025",
+							"times": 2
+						}, {
+							"label": "海平面气压+850hPa温度",
+							"value": 5,
+							"title": "海平面气压+850hPa温度",
+							"id": "C105",
+							"times": 1
+						}, {
+							"label": "周间预报",
+							"value": 6,
+							"title": "周间预报",
+							"id": "C106",
+							"times": 1
+						}
+					]
+				}, {
+					"label": "美国NCEP",
+					"value": 6,
+					"cName": "类别",
+					"default": 0,
+					"iconName":"usStation",
+					"data": [
+						{
+							"label": "500hPa高度+涡度",
+							"value": 0,
+							"title": "500hPa高度+涡度",
+							"id": "C026",
+							"times": 2
+						}, {
+							"label": "海平面气压+1000至500hPa厚度",
+							"value": 1,
+							"title": "海平面气压+1000至500hPa厚度",
+							"id": "C027",
+							"times": 2
+						}, {
+							"label": "24小时降水",
+							"value": 2,
+							"title": "降水",
+							"id": "C028",
+							"times": 2
+						}, {
+							"label": "850hPa温度+相对湿度+流线",
+							"value": 3,
+							"title": "850hPa温度+相对湿度+流线",
+							"id": "C029",
+							"times": 2
+						}, {
+							"label": "200hPa流场",
+							"value": 4,
+							"title": "200hPa流场",
+							"id": "C030",
+							"times": 2
+						}, {
+							"label": "大气可降水量+对流有效位能",
+							"value": 5,
+							"title": "大气可降水量+对流有效位能",
+							"id": "C031",
+							"times": 2
+						}, {
+							"label": "高、中、低云覆盖>50%",
+							"value": 6,
+							"title": "高、中、低云覆盖>50%",
+							"id": "C032",
+							"times": 2
+						}
+					]
+				}, {
+					"label": "香港天文台",
+					"value": 7,
+					"cName": "类别",
+					"default": 0,
+					"iconName":"hkStation",
+					"data": [
+						{
+							"label": "地面温度",
+							"value": 0,
+							"title": "地面温度",
+							"id": "C033",
+							"times": 4
+						}, {
+							"label": "海平面气压",
+							"value": 1,
+							"title": "海平面气压",
+							"id": "C034",
+							"times": 4
+						}, {
+							"label": "地面相对湿度+流线",
+							"value": 2,
+							"title": "地面相对湿度+流线",
+							"id": "C035",
+							"times": 4
+						}, {
+							"label": "6小时累计降水",
+							"value": 3,
+							"title": "6小时累计降水",
+							"id": "C037",
+							"times": 4
+						}, {
+							"label": "风场",
+							"value": 4,
+							"cName": "层次",
+							"default": 0,
+							"data": [
+								{
+									"label": "地面",
+									"value": 0,
+									"title": "6小时累计降水",
+									"id": "C036",
+									"times": 4
+								}, {
+									"label": "850hPa",
+									"value": 1,
+									"title": "850hPa风场",
+									"id": "C038",
+									"times": 4
+								}, {
+									"label": "700hPa",
+									"value": 2,
+									"title": "700hPa风场",
+									"id": "C040",
+									"times": 4
+								}, {
+									"label": "500hPa",
+									"value": 3,
+									"title": "500hPa风场",
+									"id": "C042",
+									"times": 4
+								}
+							]
+						}, {
+							"label": "850hPa涡度+流线",
+							"value": 5,
+							"title": "850hPa涡度+流线",
+							"id": "C039",
+							"times": 4
+						}, {
+							"label": "700hPa相对湿度+流线",
+							"value": 6,
+							"title": "700hPa相对湿度+流线",
+							"id": "C041",
+							"times": 4
+						}, {
+							"label": "500hPa高度",
+							"value": 7,
+							"title": "500hPa高度",
+							"id": "C043",
+							"times": 4
+						}
+					]
+				}, {
+					"label": "台湾省气象局",
+					"value": 8,
+					"cName": "类别",
+					"default": 0,
+					"iconName":"twStation",
+					"data": [
+						{
+							"label": "海平面气压+12小时累计降水",
+							"value": 0,
+							"title": "海平面气压+12小时累计降水",
+							"id": "C087",
+							"times": 2
+						}, {
+							"label": "2m温度",
+							"value": 1,
+							"title": "2m温度",
+							"id": "C088",
+							"times": 2
+						}, {
+							"label": "高度+风场+温度",
+							"value": 2,
+							"cName": "层次",
+							"default": 0,
+							"data": [
+								{
+									"label": "850hPa",
+									"value": 0,
+									"title": "850hPa高度+风场+温度",
+									"id": "C044",
+									"times": 2
+								}, {
+									"label": "700hPa",
+									"value": 0,
+									"title": "700hPa高度+风场+温度",
+									"id": "C050",
+									"times": 2
+								}
+							]
+						}, {
+							"label": "高度+相对湿度",
+							"value": 3,
+							"cName": "层次",
+							"default": 0,
+							"data": [
+								{
+									"label": "850hPa",
+									"value": 0,
+									"title": "850hPa高度+相对湿度",
+									"id": "C045",
+									"times": 2
+								}, {
+									"label": "700hPa",
+									"value": 1,
+									"title": "700hPa高度+相对湿度",
+									"id": "C049",
+									"times": 2
+								}
+							]
+						}, {
+							"label": "850hPa流线+相对湿度",
+							"value": 4,
+							"title": "850hPa流线+相对湿度",
+							"id": "C046",
+							"times": 2
+						}, {
+							"label": "850hPa流场+涡度",
+							"value": 5,
+							"title": "850hPa流场+涡度",
+							"id": "C048",
+							"times": 2
+						}, {
+							"label": "500hPa高度+涡度",
+							"value": 6,
+							"title": "500hPa高度+涡度",
+							"id": "C071",
+							"times": 2
+						}, {
+							"label": "200hPa高度+风速",
+							"value": 7,
+							"title": "200hPa高度+风速",
+							"id": "C086",
+							"times": 2
+						}
+					]
+				}, {
+					"label": "英国天气在线",
+					"value": 9,
+					"cName": "类别",
+					"iconName":"ukStation",
+					"default": 0,
+					"data": [
+						{
+							"label": "紫外线预报图",
+							"value": 0,
+							"title": "紫外线预报图",
+							"id": "C060",
+							"times": -1
+						}
+					]
+				}, {
+					"label": "TEMIS",
+					"value": 10,
+					"cName": "类别",
+					"iconName":"temisStation",
+					"default": 0,
+					"data": [
+						{
+							"label": "全球紫外线指数预报",
+							"value": 0,
+							"title": "全球紫外线指数预报",
+							"id": "C057",
+							"times": -1
+						}
+					]
+				}, {
+					"label": "Tropical tidbits",
+					"value": 11,
+					"cName": "类别",
+					"default": 0,
+					"iconName":"ttStation",
+					"data": [
+						{
+							"label": "欧洲中心",
+							"value": 0,
+							"cName": "类型",
+							"default": 0,
+							"data": [
+								{
+									"label": "850温度+风场+海平面气压中心",
+									"value": 0,
+									"title": "850温度+风场+海平面气压中心",
+									"id": "C107",
+									"times": 2
+								}, {
+									"label": "500hPa高度+海平面气压",
+									"value": 1,
+									"title": "500hPa高度+海平面气压",
+									"id": "C108",
+									"times": 2
+								}, {
+									"label": "850hPa风速+海平面气压",
+									"value": 2,
+									"title": "850hPa风速+海平面气压",
+									"id": "C109",
+									"times": 2
+								}
+							]
+						}, {
+							"label": "日本JMA",
+							"value": 1,
+							"cName": "类型",
+							"default": 0,
+							"data": [
+								{
+									"label": "850hPa温度+风场+海平面气压中心",
+									"value": 0,
+									"title": "850hPa温度+风场+海平面气压中心",
+									"id": "C110",
+									"times": 1
+								}, {
+									"label": "500hPa高度+海平面气压",
+									"value": 1,
+									"title": "500hPa高度+海平面气压",
+									"id": "C111",
+									"times": 1
+								}, {
+									"label": "850hPa高度+风场+海平面气压中心",
+									"value": 2,
+									"title": "500hPa高度+海平面气压",
+									"id": "C112",
+									"times": 1
+								}, {
+									"label": "500hPa高度+气旋涡度+风场",
+									"value": 3,
+									"title": "500hPa高度+海平面气压",
+									"id": "C113",
+									"times": 1
+								}, {
+									"label": "250hPa流场",
+									"value": 4,
+									"title": "250hPa流场",
+									"id": "C114",
+									"times": 1
+								}
+							]
+						}, {
+							"label": "美国NCEP",
+							"value": 2,
+							"cName": "类型",
+							"default": 0,
+							"data": [
+								{
+									"label": "850hPa温度+风场+海平面气压中心",
+									"value": 0,
+									"title": "850hPa温度+风场+海平面气压中心",
+									"id": "C115",
+									"times": 4
+								}, {
+									"label": "500hPa高度+海平面气压",
+									"value": 1,
+									"title": "500hPa高度+海平面气压",
+									"id": "C116",
+									"times": 4
+								}, {
+									"label": "850hPa高度+风场+海平面气压中心",
+									"value": 2,
+									"title": "500hPa高度+海平面气压",
+									"id": "C117",
+									"times": 4
+								}, {
+									"label": "500hPa高度+气旋涡度+风场",
+									"value": 3,
+									"title": "500hPa高度+海平面气压",
+									"id": "C118",
+									"times": 4
+								}, {
+									"label": "2m温度",
+									"value": 4,
+									"title": "2m温度",
+									"id": "C119",
+									"times": 4
+								}, {
+									"label": "250hPa流场",
+									"value": 5,
+									"title": "250hPa流场",
+									"id": "C120",
+									"times": 4
+								}
+							]
+						}, {
+							"label": "加拿大CMC",
+							"value": 3,
+							"cName": "类型",
+							"default": 0,
+							"data": [
+								{
+									"label": "850hPa温度+风场+海平面气压中心",
+									"value": 0,
+									"title": "850hPa温度+风场+海平面气压中心",
+									"id": "C121",
+									"times": 2
+								}, {
+									"label": "500hPa高度+海平面气压",
+									"value": 1,
+									"title": "500hPa高度+海平面气压",
+									"id": "C122",
+									"times": 2
+								}, {
+									"label": "850hPa高度+风场+海平面气压中心",
+									"value": 2,
+									"title": "500hPa高度+海平面气压",
+									"id": "C123",
+									"times": 2
+								}, {
+									"label": "500hPa高度+气旋涡度+风场",
+									"value": 3,
+									"title": "500hPa高度+海平面气压",
+									"id": "C124",
+									"times": 2
+								}, {
+									"label": "2m温度",
+									"value": 4,
+									"title": "2m温度",
+									"id": "C125",
+									"times": 2
+								}, {
+									"label": "250hPa流场",
+									"value": 5,
+									"title": "250hPa流场",
+									"id": "C126",
+									"times": 2
+								}
+							]
+						}, {
+							"label": "美国NAVGEM",
+							"value": 4,
+							"cName": "类型",
+							"default": 0,
+							"data": [
+								{
+									"label": "500hPa高度+海平面气压",
+									"value": 0,
+									"title": "500hPa高度+海平面气压",
+									"id": "C127",
+									"times": 4
+								}, {
+									"label": "850hPa高度+风场+海平面气压中心",
+									"value": 1,
+									"title": "500hPa高度+海平面气压",
+									"id": "C128",
+									"times": 4
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"basicOption": {
+			"disabled": "",
+			"label": "要素",
+			"type": "RadioBtns",
+			"default": 0,
+			"data": [
+				{
+					"label": "单站",
+					"value": 0,
+					"cName": "数据源",
+					"default": 0,
+					"iconName":"oneStation",
+					"data": [
+						{
+							"label": "中央气象台",
+							"value": 0,
+							"cName": "类型",
+							"default": 0,
+							"data": [
+								{
+									"label": "相对湿度+温度+风垂直剖面（南京）",
+									"value": 0,
+									"title": "相对湿度+温度+风垂直剖面（南京）",
+									"id": "C061",
+									"times": 2
+								}, {
+									"label": "SKEW-T（南京）",
+									"value": 1,
+									"title": "SKEW-T（南京）",
+									"id": "C062",
+									"times": 2
+								}, {
+									"label": "风温湿压时间序列（南京）",
+									"value": 2,
+									"title": "风温湿压时间序列（南京）",
+									"id": "C063",
+									"times": 2
+								}
+							]
+						}
+					]
+				}, {
+					"label": "风",
+					"value": 1,
+					"cName": "层次",
+					"iconName":"windBtnIcon",
+					"default": 0,
+					"data": [
+						{
+							"label": "500hPa",
+							"value": 0,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "中央气象台",
+									"value": 0,
+									"cName": "类别",
+									"default": 0,
+									"data": [
+										{
+											"label": "GRAPES模式",
+											"value": 0,
+											"title": "500hPa风场",
+											"id": "C081",
+											"times": 2
+										}, {
+											"label": "T639",
+											"value": 1,
+											"title": "500hPa风场+高度",
+											"id": "",
+											"times": 4
+										}
+									]
+								}, {
+									"label": "美国NCEP",
+									"value": 1,
+									"title": "500hPa高度+气旋涡度+风场",
+									"id": "C118",
+									"times": 4
+								}, {
+									"label": "香港天文台",
+									"value": 2,
+									"title": "500hPa风场",
+									"id": "C042",
+									"times": 4
+								}
+							]
+						}, {
+							"label": "700hPa",
+							"value": 1,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+											"label": "欧洲中心细网格",
+											"value": 0,
+											"title": "700hPa风场+相对湿度",
+											"id": "C133",
+											"times": 2
+								},
+								{
+									"label": "中央气象台",
+									"value": 1,
+									"cName": "类别",
+									"default": 0,
+									"data": [
+										{
+											"label": "GRAPES模式",
+											"value": 0,
+											"title": "700hPa风场",
+											"id": "C070",
+											"times": 4
+										}, {
+											"label": "T639",
+											"value": 1,
+											"title": "700hPa风场",
+											"id": "C005",
+											"times": 4
+										}
+									]
+								}, {
+									"label": "香港天文台",
+									"value": 2,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+
+										{
+											"label": "风场",
+											"value": 0,
+											"title": "700hPa风场",
+											"id": "C040",
+											"times": 4
+										}, {
+											"label": "相对湿度+流线",
+											"value": 1,
+											"title": "700hPa相对湿度+流线",
+											"id": "C041",
+											"times": 4
+										}
+									]
+								}, {
+									"label": "台湾省气象局",
+									"value": 3,
+									"title": "700hPa高度+风场+温度",
+									"id": "C050",
+									"times": 4
+								}
+							]
+						}, {
+							"label": "850hPa",
+							"value": 2,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+							{
+											"label": "欧洲中心细网格",
+											"value": 0,
+											"title": "850hPa风场+相对湿度",
+											"id": "C132",
+											"times": 2
+								},
+								{
+									"label": "中央气象台",
+									"value": 1,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "500hPa高度+850hPa风场",
+											"value": 0,
+											"title": "500hPa高度+850hPa风场",
+											"id": "C069",
+											"times": 2
+										}, {
+											"label": "相对湿度+风场",
+											"value": 1,
+											"title": "850hPa相对湿度+850hPa风场",
+											"id": "C069",
+											"times": 2
+										}, {
+											"label": "风场",
+											"value": 2,
+											"title": "850hPa风场",
+											"id": "C038",
+											"times": 4
+										}
+									]
+								}, {
+									"label": "美国NCEP",
+									"value": 2,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "850hPa温度+风场+海平面气压",
+											"value": 0,
+											"title": "850hPa温度+风场+海平面气压",
+											"id": "C115",
+											"times": 4
+										}, {
+											"label": "850hPa高度+风场+海平面气压",
+											"value": 1,
+											"title": "850hPa高度+风场+海平面气压",
+											"id": "C117",
+											"times": 4
+										}
+									]
+								}, {
+									"label": "香港天文台",
+									"value": 3,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "风场",
+											"value": 0,
+											"title": "850hPa风场",
+											"id": "C038",
+											"times": 4
+										}, {
+											"label": "涡度+流线",
+											"value": 1,
+											"title": "850hPa涡度+流线",
+											"id": "C039",
+											"times":4
+										}
+									]
+								}, {
+									"label": "台湾省气象局",
+									"value": 4,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "高度+风场+温度",
+											"value": 0,
+											"title": "850hPa高度+风场+温度",
+											"id": "C044",
+											"times": 2
+										}, {
+											"label": "流线+相对湿度",
+											"value": 1,
+											"title": "850hPa流线+相对湿度",
+											"id": "C046",
+											"times": 2
+										}, {
+											"label": "流场",
+											"value": 2,
+											"title": "850hPa流场",
+											"id": "C047",
+											"times": 2
+										}, {
+											"label": "流场+涡度",
+											"value": 3,
+											"title": "850hPa流场+涡度",
+											"id": "C048",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "欧洲中心",
+									"value": 5,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "温度+风场+海平面气压中心",
+											"value": 0,
+											"title": "温度+风场+海平面气压中心",
+											"id": "C107",
+											"times": 2
+										}, {
+											"label": "850hPa风速+海平面气压",
+											"value": 1,
+											"title": "850hPa风速+海平面气压",
+											"id": "C109",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "日本JMA",
+									"value": 6,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "850hPa温度+风场+海平面气压",
+											"value": 0,
+											"title": "850hPa温度+风场+海平面气压",
+											"id": "C110",
+											"times": 1
+										}, {
+											"label": "850hPa高度+风场+海平面气压",
+											"value": 1,
+											"title": "850hPa高度+风场+海平面气压",
+											"id": "C112",
+											"times": 1
+										}
+									]
+								}, {
+									"label": "加拿大CMC",
+									"value": 7,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "850hPa温度+风场+海平面气压",
+											"value": 0,
+											"title": "850hPa温度+风场+海平面气压",
+											"id": "C121",
+											"times": 2
+										}, {
+											"label": "850hPa高度+风场+海平面气压",
+											"value": 1,
+											"title": "850hPa高度+风场+海平面气压",
+											"id": "C123",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "美国NAVGEM",
+									"value": 8,
+									"title": "850hPa高度+风场+海平面气压",
+									"id": "C128",
+									"times": 4
+								}
+							]
+						}, 
+						{
+									"label": "925hPa",
+									"value": 3,
+									"cName": "数据源",
+									"default": 0,
+									"data":[
+										{
+											"label": "欧洲中心（细网格）",
+											"value": 0,
+											"title": "925hPa风场+相对湿度",
+											"id": "C131",
+											"times": 2
+										}
+									]
+						},
+						{
+							"label": "地面",
+							"value": 4,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+							 {
+									"label": "香港天文台",
+									"value": 0,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "地面风场",
+											"value": 0,
+											"title": "地面风场",
+											"id": "C036",
+											"times": 4
+										},
+										{
+											"label": "相对湿度+流线",
+											"value": 1,
+											"title": "相对湿度+流线",
+											"id": "C035",
+											"times": 4
+										}
+									]
+								},{
+									"label": "中央气象台",
+									"value": 1,
+									"cName": "类型",
+									"default": 0,
+									"data":[
+										{
+											"label": "地面风场+1小时降水（华东）",
+											"value": 0,
+											"title": "地面风场+1小时降水（华东）",
+											"id": "C098",
+											"times": 2
+										}
+									
+									]
+								
+								
+								}
+							]
+						}
+					]
+				}, {
+					"label": "温度",
+					"value": 2,
+					"cName": "层次",
+					"iconName":"temBtnIcon",
+					"default": 0,
+					"data": [
+						{
+							"label": "500hPa",
+							"value": 0,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "中央气象台",
+									"value": 0,
+									"cName": "类别",
+									"default": 0,
+									"data": [
+										{
+											"label": "GRAPES模式",
+											"value": 0,
+											"title": "500hPa温度平流",
+											"id": "C083",
+											"times":2
+										}, {
+											"label": "T639",
+											"value": 1,
+											"title": "850hPa温度平流",
+											"id": "C076",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "韩国气象厅",
+									"value": 1,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "高度+温度+涡度",
+											"value": 0,
+											"title": "500hPa高度+温度+涡度",
+											"id": "C021",
+											"times": 2
+										}, {
+											"label": "高度+温度+涡度（全球）",
+											"value": 1,
+											"title": "500hPa高度+温度+涡度（全球）",
+											"id": "C102",
+											"times":4
+										}
+									]
+								}, {
+									"label": "日本气象厅",
+									"value": 2,
+									"title": "500hPa温度+700hPa温度露点差",
+									"id": "C024",
+									"times": 2
+								}
+							]
+						}, {
+							"label": "700hPa",
+							"value": 1,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+
+									"label": "台湾省气象局",
+									"value": 0,
+									"title": "700hPa高度+风场+温度",
+									"id": "C050",
+									"times": 2
+								}
+							]
+						}, {
+							"label": "850hPa",
+							"value": 2,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "中央气象台",
+									"value": 0,
+									"cName": "类别",
+									"default": 0,
+									"data": [
+										{
+											"label": "GRAPES模式",
+											"value": 0,
+											"title": "500hPa温度平流",
+											"id": "C083",
+											"times": 2
+										}, {
+											"label": "T639",
+											"value": 1,
+											"title": "850hPa温度平流",
+											"id": "C076",
+											"times": 2
+										}
+									]	
+								}, {
+									"label": "欧洲中心",
+									"value": 1,
+									"title": "850hPa温度+风场+海平面气压中心",
+									"id": "C107",
+									"times": 2
+								}, {
+									"label": "韩国气象厅",
+									"value": 2,
+									"title": "850hPa风场+温度+700hPa垂直速度",
+									"id": "C018",
+									"times": 2
+								}, {
+									"label": "日本气象厅",
+									"value": 3,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "850hPa风场+温度+700hPa垂直速度",
+											"value": 0,
+											"title": "850hPa风场+温度+700hPa垂直速度",
+											"id": "C023",
+											"times": 2
+										}, {
+											"label": "海平面气压+850hPa温度",
+											"value": 1,
+											"title": "海平面气压+850hPa温度",
+											"id": "C105",
+											"times": 1
+										}
+									]
+								}, {
+									"label": "日本JMA",
+									"value": 4,
+									"title": "850hPa温度+风场+海平面气压",
+									"id": "C110",
+									"times":1
+								}, {
+									"label": "美国NCEP",
+									"value": 5,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "850hPa温度+风场+海平面气压",
+											"value": 0,
+											"title": "850hPa温度+风场+海平面气压",
+											"id": "C115",
+											"times":4
+										}, {
+											"label": "850hPa温度+相对湿度+流线",
+											"value": 1,
+											"title": "850hPa温度+相对湿度+流线",
+											"id": "C029",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "香港天文台",
+									"value": 6,
+									"title": "850hPa涡度+流线",
+									"id": "C039",
+									"times": 4
+								}, {
+									"label": "台湾省气象局",
+									"value": 7,
+									"title": "850hPa高度+风场+温度",
+									"id": "C044",
+									"times": 2
+								}, {
+									"label": "加拿大",
+									"value": 8,
+									"title": "850hPa温度+风场+海平面气压中心",
+									"id": "C121",
+									"times": 2
+								}
+							]
+						}, {
+							"label": "地面",
+							"value": 3,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "中央气象台",
+									"value": 0,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "最高气温",
+											"value": 0,
+											"title": "1-7日最高气温",
+											"id": "C065",
+											"times": 0
+										}, {
+											"label": "最低气温",
+											"value": 1,
+											"title": "1-7日最低气温",
+											"id": "C066",
+											"times": 0
+										}
+									]
+								}, {
+									"label": "美国NCEP",
+									"value": 1,
+									"title": "2m温度",
+									"id": "C119",
+									"times": 4
+								}, {
+									"label": "香港天文台",
+									"value": 2,
+									"title": "地面温度",
+									"id": "C033",
+									"times": 4
+								}, {
+									"label": "台湾省气象局",
+									"value": 3,
+									"title": "2m温度",
+									"id": "C088",
+									"times": 2
+								}, {
+									"label": "加拿大CMC",
+									"value": 4,
+									"title": "2m温度",
+									"id": "C125",
+									"times": 2
+								}
+							]
+						}
+					]
+				}, {
+					"label": "湿度",
+					"value": 3,
+					"cName": "层次",
+					"iconName":"humBtnIcon",
+					"default": 0,
+					"data": [
+
+						{
+							"label": "700hPa",
+							"value": 0,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+													"label": "欧洲中心（细网格）",
+													"value": 0,
+													"title": "700hPa风场+相对湿度",
+													"id": "C133",
+													"times": 2
+								},
+								{
+									"label": "中央气象台",
+									"value": 1,
+									"cName": "类别",
+									"default": 0,
+									"data": [
+										{
+											"label": "T639",
+											"value": 0,
+											"cName": "类型",
+											"default": 0,
+											"data": [
+												{
+													"label": "水汽通量",
+													"value": 0,
+													"title": "700hPa水汽通量",
+													"id": "C004",
+													"times": 2
+												}, {
+													"label": "比湿",
+													"value": 1,
+													"title": "700hPa比湿",
+													"id": "C078",
+													"times": 2
+												}, {
+													"label": "水汽通量散度",
+													"value": 2,
+													"title": "700hPa水汽通量散度",
+													"id": "C091",
+													"times": 2
+												}
+											]
+										}
+									]
+								}, {
+									"label": "日本气象厅",
+									"value": 2,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "500hPa温度+700hPa温度露点差",
+											"value": 0,
+											"title": "500hPa温度+700hPa温度露点差",
+											"id": "C024",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "香港天文台",
+									"value": 3,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "相对湿度+流线",
+											"value": 0,
+											"title": "700hPa相对湿度+流线",
+											"id": "C041",
+											"times": 4
+										}
+									]
+								}, {
+									"label": "台湾省气象局",
+									"value": 4,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "高度+相对湿度",
+											"value": 0,
+											"title": "700hPa高度+相对湿度",
+											"id": "C049",
+											"times": 2
+										}
+									]
+								}
+							]
+						}, {
+							"label": "850hPa",
+							"value": 1,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+							{
+													"label": "欧洲中心（细网格）",
+													"value": 0,
+													"title": "850hPa风场+相对湿度",
+													"id": "C132",
+													"times": 2
+								},
+								{
+									"label": "中央气象台",
+									"value": 1,
+									"cName": "类别",
+									"default": 0,
+									"data": [
+										{
+											"label": "GRAPES模式",
+											"value": 0,
+											"cName": "类型",
+											"default": 0,
+											"data": [
+												{
+													"label": "相对湿度+风场",
+													"value": 0,
+													"title": "850hPa相对湿度+风场",
+													"id": "C069",
+													"times": 2
+												}
+											]
+										}, {
+											"label": "GRAPES模式",
+											"value": 1,
+											"cName": "类型",
+											"default": 0,
+											"data": [
+												{
+													"label": "水汽输送",
+													"value": 0,
+													"title": "850hPa水汽输送",
+													"id": "C002",
+													"times": 2
+												}, {
+													"label": "水汽通量",
+													"value": 1,
+													"title": "850hPa水汽通量",
+													"id": "C077",
+													"times": 2
+												}, {
+													"label": "风场+相对湿度",
+													"value": 2,
+													"title": "850hPaF风场+相对湿度",
+													"id": "C003",
+													"times": 2
+												}, {
+													"label": "比湿",
+													"value": 3,
+													"title": "850hPa比湿",
+													"id": "C079",
+													"times": 2
+												}
+											]
+										}
+									]
+								}, {
+									"label": "美国NCEP",
+									"value": 2,
+									"title": "850hPa温度+相对湿度+流线",
+									"id": "C029",
+									"times": 2
+								}, {
+									"label": "台湾省气象局",
+									"value":3,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "高度+相对湿度",
+											"value": 0,
+											"title": "850hPa高度+相对湿度",
+											"id": "C045",
+											"times": 2
+										}, {
+											"label": "a线+相对湿度",
+											"value": 1,
+											"title": "850hPa流线+相对湿度",
+											"id": "C046",
+											"times": 2
+										}
+									]
+								}
+							]
+						},
+							{
+							"label": "925hPa",
+							"value": 2,
+							"cName": "数据源",
+							"default": 0,
+							"data": [{
+										"label": "欧洲中心（细网格）",
+											"value": 0,
+											"title": "925hPa风场+相对湿度",
+											"id": "C131",
+											"times": 2
+										}
+									
+							]
+							},
+						 {
+							"label": "地面",
+							"value": 3,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "中央气象台",
+									"value": 0,
+									"title": "2m相对湿度",
+									"id": "C119",
+									"times": 4
+								}, {
+									"label": "香港天文台",
+									"value": 1,
+									"title": "相对湿度+流线",
+									"id": "C035",
+									"times": 4
+								}
+							]
+						}
+					]
+				}, {
+					"label": "气压（位势高度）",
+					"value": 4,
+					"cName": "层次",
+					"default": 0,
+					"iconName":"pressBtnIcon",
+					"data": [
+						{
+							"label": "500hPa",
+							"value": 0,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								
+								{
+									"label": "欧洲中心（细网格）",
+									"value": 0,
+									"cName": "类别",
+									"default": 0,
+									"data":[
+													{"label": "500hPa高度场",
+													"value": 0,
+													"title": "500hPa高度场",
+													"id": "C130",
+													"times": 2
+													}
+									]
+								},
+								{
+									"label": "中央气象台",
+									"value": 1,
+									"cName": "类别",
+									"default": 0,
+									"data": [
+										{
+											"label": "GRAPES模式",
+											"value": 0,
+											"cName": "类型",
+											"default": 0,
+											"data": [
+												{
+													"label": "500hPa高度+850hPa风场",
+													"value": 0,
+													"title": "500hPa高度+850hPa风场",
+													"id": "C069",
+													"times": 2
+												}, {
+													"label": "500hPa高度+风场",
+													"value": 1,
+													"title": "500hPa高度+850hPa风场",
+													"id": "C068",
+													"times": 2
+												}
+											]
+										}, {
+											"label": "T639",
+											"value": 1,
+											"cName": "类型",
+											"default": 0,
+											"data": [
+												{
+													"label": "500hPa高度+850hPa风场",
+													"value": 0,
+													"title": "500hPa高度+850hPa风场",
+													"id": "C055",
+													"times": 2
+												}, {
+													"label": "500hPa高度+风场",
+													"value": 1,
+													"title": "500hPa高度+850hPa风场",
+													"id": "C059",
+													"times": 2
+												}
+											]
+										}
+									]
+								}, {
+									"label": "欧洲中心",
+									"value": 2,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "500hPa高度+850hPa温度",
+											"value": 0,
+											"title": "500hPa高度+850hPa温度",
+											"id": "C000",
+											"times": 2
+										}, {
+											"label": "500hPa高度+海平面气压",
+											"value": 1,
+											"title": "500hPa高度+海平面气压",
+											"id": "C108",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "韩国气象厅",
+									"value": 3,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "高度+温度+涡度",
+											"value": 0,
+											"title": "500hPa高度+温度+涡度",
+											"id": "C021",
+											"times": 2
+										}, {
+											"label": "高度+温度+涡度（全球）",
+											"value": 1,
+											"title": "500hPa高度+温度+涡度（全球）",
+											"id": "C102",
+											"times": 4
+										}
+									]
+								}, {
+									"label": "日本气象厅",
+									"value": 4,
+									"title": "500hPa高度+涡度",
+									"id": "C104",
+									"times":2
+								}, {
+									"label": "日本JMA",
+									"value": 5,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "500hPa高度+海平面气压",
+											"value": 0,
+											"title": "500hPa高度+海平面气压",
+											"id": "C111",
+											"times": 1
+										}, {
+											"label": "高度+气旋涡度+风场",
+											"value": 1,
+											"title": "500hPa高度+气旋涡度+风场",
+											"id": "C113",
+											"times":1
+										}
+									]
+								}, {
+									"label": "美国NCEP",
+									"value": 6,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "高度+涡度",
+											"value": 0,
+											"title": "500hPa高度+涡度",
+											"id": "C026",
+											"times": 2
+										}, {
+											"label": "500hPa高度+海平面气压",
+											"value": 1,
+											"title": "500hPa高度+海平面气压",
+											"id": "C116",
+											"times": 4
+										}, {
+											"label": "高度+气旋涡度+风场",
+											"value": 2,
+											"title": "500hPa高度+气旋涡度+风场",
+											"id": "C118",
+											"times": 4
+										}
+									]
+								}, {
+									"label": "香港天文台",
+									"value": 7,
+									"title": "500hPa高度",
+									"id": "C043",
+									"times": 4
+								}, {
+									"label": "台湾省气象局",
+									"value": 8,
+									"title": "500hPa高度+涡度",
+									"id": "C071",
+									"times": 2
+								}, {
+									"label": "加拿大CMC",
+									"value": 9,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "500hPa高度+海平面气压",
+											"value": 0,
+											"title": "500hPa高度+海平面气压",
+											"id": "C122",
+											"times": 2
+										}, {
+											"label": "高度+气旋涡度+风场",
+											"value": 1,
+											"title": "500hPa高度+气旋涡度+风场",
+											"id": "C124",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "美国NAVGEM",
+									"value": 10,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "500hPa+海平面气压",
+											"value": 0,
+											"title": "500hPa+海平面气压",
+											"id": "C127",
+											"times": 4
+										}
+									]
+								}
+							]
+						}, {
+							"label": "700hPa",
+							"value": 1,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "台湾省气象局",
+									"value": 0,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "高度+相对湿度",
+											"value": 0,
+											"title": "700hPa高度+相对湿度",
+											"id": "C049",
+											"times": 2
+										}, {
+											"label": "高度+风场+温度",
+											"value": 1,
+											"title": "700hPa高度+风场+温度",
+											"id": "C050",
+											"times": 2
+										}
+									]
+								}
+							]
+						}, {
+							"label": "850hPa",
+							"value": 2,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "日本JMA",
+									"value": 0,
+									"title": "850hPa高度+风场+海平面气压中心",
+									"id": "C112",
+									"times": 1
+								}, {
+									"label": "美国NCEP",
+									"value": 1,
+									"title": "850hPa高度+风场+海平面气压中心",
+									"id": "C117",
+									"times": 4
+								}, {
+									"label": "台湾省气象局",
+									"value": 2,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "高度+风场+温度",
+											"value": 0,
+											"title": "850hPa高度+风场+温度",
+											"id": "C044",
+											"times": 2
+										}, {
+											"label": "高度+相对湿度",
+											"value": 1,
+											"title": "850hPa高度+相对湿度",
+											"id": "C045",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "加拿大",
+									"value": 3,
+									"title": "850hPa高度+风场+海平面气压中心",
+									"id": "C123",
+									"times": 2
+								}, {
+									"label": "美国NAVGEM",
+									"value": 4,
+									"title": "850hPa高度+风场+海平面气压中心",
+									"id": "C128",
+									"times": 4
+								}
+							]
+						}, {
+							"label": "地面",
+							"value": 3,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "中央气象台",
+									"value": 0,
+									"cName": "类别",
+									"default": 0,
+									"data": [
+										 {
+											"label": "T639",
+											"value": 0,
+											"title": "海平面气压",
+											"id": "C053",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "欧洲中心",
+									"value": 1,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "850hPa风速+海平面气压",
+											"value": 0,
+											"title": "850hPa风速+海平面气压",
+											"id": "C109",
+											"times": 2
+										}, {
+											"label": "500hPa高度+海平面气压",
+											"value": 1,
+											"title": "500hPa高度+海平面气压",
+											"id": "C108",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "韩国气象厅",
+									"value": 2,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "海平面气压+降水",
+											"value": 0,
+											"title": "海平面气压+降水",
+											"id": "C054",
+											"times": 2
+										}, {
+											"label": "海平面气压+降水（区域模式）",
+											"value": 1,
+											"title": "海平面气压+降水（区域模式）",
+											"id": "C099",
+											"times": 4
+										}, {
+											"label": "海平面气压+温度+降水（全球）",
+											"value": 2,
+											"title": "海平面气压+温度+降水（全球）",
+											"id": "C101",
+											"times": 4
+										}
+									]
+								}, {
+
+									"label": "日本气象厅",
+									"value": 3,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										 {
+											"label": "海平面气压+850hPa温度",
+											"value": 0,
+											"title": "海平面气压+850hPa温度",
+											"id": "C105",
+											"times": 1
+										}
+									]
+								}, {
+									"label": "日本JMA",
+									"value": 4,
+									"title": "500hPa高度+海平面气压",
+									"id": "C111",
+									"times": 1
+								}, {
+
+									"label": "美国NCEP",
+									"value": 5,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "500hPa高度+海平面气压",
+											"value": 0,
+											"title": "500hPa高度+海平面气压",
+											"id": "C116",
+											"times": 4
+										}, {
+											"label": "海平面气压+1000至500hPa厚度",
+											"value": 1,
+											"title": "海平面气压+1000至500hPa厚度",
+											"id": "C027",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "香港天文台",
+									"value": 6,
+									"title": "海平面气压",
+									"id": "C034",
+									"times": 4
+								}, {
+									"label": "台湾省气象局",
+									"value": 7,
+									"title": "海平面气压+12小时累计降水",
+									"id": "C087",
+									"times": 2
+								}, {
+									"label": "美国NAVGEM",
+									"value": 8,
+									"title": "500hPa+海平面气压",
+									"id": "C127",
+									"times": 4
+								}
+							]
+						}
+					]
+				}, {
+					"label": "降水",
+					"value": 5,
+					"cName": "数据源",
+					"iconName":"rainBtnIcon",
+					"default": 0,
+					"data": [
+						{
+						"label": "欧洲中心（细网格）",
+							"value": 0,
+							"cName": "类型",
+							"default": 0,
+							"data": [
+								{
+									"label": "3小时",
+									"value": 0,
+									"title": "3小时降水",
+									"id": "C134",
+									"times": 0
+								}, {
+									"label": "6小时",
+									"value": 1,
+									"title": "6小时降水",
+									"id": "C135",
+									"times": 2
+								}, {
+									"label": "12小时",
+									"value": 2,
+									"title": "12小时降水",
+									"id": "C136",
+									"times": 2
+								}, {
+									"label": "24小时",
+									"value": 3,
+									"title": "24小时降水",
+									"id": "C137",
+									"times": 2
+								}
+							]
+						},
+						{
+							"label": "中央气象台",
+							"value": 1,
+							"cName": "类型",
+							"default": 0,
+							"data": [
+								{
+									"label": "24小时",
+									"value": 0,
+									"title": "24小时降水",
+									"id": "C001",
+									"times": 0
+								}, {
+									"label": "6小时",
+									"value": 1,
+									"title": "6小时降水",
+									"id": "C073",
+									"times": 2
+								}, {
+									"label": "1小时",
+									"value": 2,
+									"title": "地面风场+1小时降水（华东）",
+									"id": "C098",
+									"times": 2
+								}
+							]
+						}, {
+							"label": "韩国气象厅",
+							"value": 2,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "海平面气压+降水",
+									"value": 0,
+									"title": "海平面气压+降水",
+									"id": "C054",
+									"times":2
+								}, {
+									"label": "海平面气压+降水（区域模式）",
+									"value": 1,
+									"title": "海平面气压+降水（区域模式）",
+									"id": "C066",
+									"times": 0
+								}, {
+									"label": "海平面气压+温度+降水（全球）",
+									"value": 2,
+									"title": "海平面气压+温度+降水（全球）",
+									"id": "C101",
+									"times":4
+								}
+							]
+						},  {
+							"label": "美国NCEP",
+							"value": 3,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "高度+涡度",
+									"value": 0,
+									"title": "500hPa高度+涡度",
+									"id": "C026",
+									"times": 2
+								}, {
+									"label": "高度+气旋涡度+风场",
+									"value": 1,
+									"title": "高度+气旋涡度+风场",
+									"id": "C118",
+									"times": 4
+								}
+							]
+						}, {
+							"label": "香港天文台",
+							"value": 4,
+							"title": "6小时累计降水",
+							"id": "C037",
+							"times": 4
+						}, {
+							"label": "台湾省气象局",
+							"value": 5,
+							"title": "海平面气压+12小时累计降水",
+							"id": "C087",
+							"times": 2
+						}
+					]
+				}, {
+					"label": "涡度",
+					"value": 6,
+					"cName": "层次",
+					"iconName":"vortBtnIcon",
+					"default": 0,
+					"data": [
+						{
+							"label": "500hPa",
+							"value": 0,
+							"cName": "层次",
+							"default": 0,
+							"data": [
+								{
+									"label": "T639",
+									"value": 0,
+									"title": "500hPa涡度平流",
+									"id": "C092",
+									"times": 2
+								}, {
+									"label": "韩国气象厅",
+									"value": 1,
+									"title": "500hPa高度+温度+涡度",
+									"id": "C021",
+									"times": 2
+								}, {
+									"label": "日本气象厅",
+									"value": 2,
+									"title": "500hPa高度+涡度",
+									"id": "C021",
+									"times": 2
+								}, {
+									"label": "日本JMA",
+									"value": 3,
+									"title": "500hPa高度+气旋涡度+风场",
+									"id": "C021",
+									"times": 2
+								}, {
+									"label": "美国ncep",
+									"value": 4,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "高度+涡度",
+											"value": 0,
+											"title": "500hPa高度+涡度",
+											"id": "C026",
+											"times": 2
+										}, {
+											"label": "高度+气旋涡度+风场",
+											"value": 1,
+											"title": "500hPa高度+气旋涡度+风场",
+											"id": "118",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "台湾气象局",
+									"value": 5,
+									"title": "500hPa高度+涡度",
+									"id": "C071",
+									"times": 2
+								}, {
+									"label": "加拿大",
+									"value": 6,
+									"title": "500hPa高度+气旋涡度+风场",
+									"id": "C124",
+									"times": 2
+								}
+							]
+						}, {
+							"label": "850hPa",
+							"value": 1,
+							"cName": "层次",
+							"default": 0,
+							"data": [
+								{
+									"label": "香港天文台",
+									"value": 0,
+									"title": "850hPa涡度+流线",
+									"id": "C039",
+									"times": 4
+								}, {
+									"label": "台湾气象局",
+									"value": 1,
+									"title": "850hPa流场+涡度",
+									"id": "C048",
+									"times": 2
+								}
+							]
+						}
+					]
+				}, {
+					"label": "环境气象",
+					"value": 7,
+					"cName": "数据源",
+					"iconName":"enweaBtnIcon",
+					"default": 0,
+					"data": [
+						{
+							"label": "欧洲中心（细网格）",
+							"value": 0,
+							"cName": "数据源",
+							"default": 0,
+							"data":[
+								{
+									"label": "大雾综合图1",
+									"value": 0,
+									"title": "大雾综合图1",
+									"id": "C140",
+									"times": 2
+								},
+								{
+									"label": "大雾综合图2",
+									"value": 1,
+									"title": "大雾综合图2",
+									"id": "C141",
+									"times": 2
+								}
+							]
+						},
+						{
+							"label": "中央气象台",
+							"value": 1,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "雾",
+									"value": 0,
+									"title": "雾预报",
+									"id": "C006",
+									"times": 2
+								}, 
+								 {
+									"label": "霾",
+									"value": 1,
+									"title": "霾",
+									"id": "C007",
+									"times": 2
+								},{
+									"label": "沙尘",
+									"value": 2,
+									"title": "沙尘预报",
+									"id": "C008",
+									"times": 2
+								}, {
+									"label": "空气污染气象条件",
+									"value": 3,
+									"title": "空气污染气象条件预报图",
+									"id": "C009",
+									"times": 2
+								}
+							]
+						}, {
+							"label": "韩国气象厅",
+							"value": 2,
+							"title": "沙尘预报",
+							"id": "C056",
+							"times": 2
+						}
+					]
+				}, {
+					"label": "其他",
+					"value": 8,
+					"cName": "数据源",
+					"default": 0,
+					"iconName":"othBtnIcon",
+					"data": [
+					{
+							"label": "欧洲中心（细网格）",
+							"value": 0,
+							"cName": "数据源",
+							"default": 0,
+							"data":[
+								{
+									"label": "K指数",
+									"value": 0,
+									"title": "K指数",
+									"id": "C138",
+									"times": 2
+								},
+								{
+									"label": "对流有效位能",
+									"value": 1,
+									"title": "对流有效位能",
+									"id": "C139",
+									"times": 2
+								}
+							]
+						},
+						{
+							"label": "中央气象台",
+							"value": 1,
+							"cName": "类别",
+							"default": 0,
+							"data": [
+								{
+									"label": "GRAPES模式",
+									"value": 0,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "k指数",
+											"value": 0,
+											"title": "k指数",
+											"id": "C058",
+											"times": 2
+										}
+									]
+								}, {
+									"label": "T639",
+									"value": 1,
+									"cName": "类型",
+									"default": 0,
+									"data": [
+										{
+											"label": "k指数",
+											"value": 0,
+											"title": "k指数",
+											"id": "C080",
+											"times": 2
+										}, {
+											"label": "700hPa假相当位温",
+											"value": 1,
+											"title": "700hPa假相当位温",
+											"id": "C094",
+											"times": 2
+										}, {
+											"label": "850hPa垂直速度",
+											"value": 2,
+											"title": "850hPa垂直速度",
+											"id": "C096",
+											"times": 2
+										}, {
+											"label": "700hPa垂直速度",
+											"value": 3,
+											"title": "700hPa垂直速度",
+											"id": "C095",
+											"times": 2
+										}, {
+											"label": "500hPa垂直速度",
+											"value": 4,
+											"title": "500hPa垂直速度",
+											"id": "C097",
+											"times": 2
+										}
+									]
+								}
+							]
+						}, {
+							"label": "韩国气象厅",
+							"value": 2,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "24小时天气预报图",
+									"value": 0,
+									"title": "24小时天气预报图",
+									"id": "C100",
+									"times": 2
+								}
+							]
+						}, {
+							"label": "日本气象厅",
+							"value": 3,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "地面形势预报",
+									"value": 0,
+									"title": "地面形势预报",
+									"id": "C022",
+									"times": 2
+								}, {
+									"label": "700hPa垂直速度+850hPa温度+风场",
+									"value": 1,
+									"title": "700hPa垂直速度+850hPa温度+风场",
+									"id": "C089",
+									"times": 2
+								}, {
+									"label": "周间预报",
+									"value": 2,
+									"title": "周间预报",
+									"id": "C106",
+									"times": 1
+								}, {
+									"label": "850hPa假相当位温",
+									"value": 3,
+									"title": "850hPa假相当位温",
+									"id": "C103",
+									"times": 2
+								}
+							]
+						}, {
+							"label": "美国NCEP",
+							"value": 4,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "海平面气压+1000至500hPa厚度",
+									"value": 0,
+									"title": "海平面气压+1000至500hPa厚度",
+									"id": "C027",
+									"times":2
+								}, {
+									"label": "可降水量+对流有效位能（cape）",
+									"value": 1,
+									"title": "可降水量+对流有效位能（cape）",
+									"id": "C028",
+									"times": 2
+								}, {
+									"label": "高、中、低云覆盖>50%",
+									"value": 2,
+									"title": "高、中、低云覆盖>50%",
+									"id": "C032",
+									"times": 2
+								}
+							]
+						}, {
+							"label": "英国天气在线",
+							"value": 5,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "紫外线预报图",
+									"value": 0,
+									"title": "紫外线预报图",
+									"id": "C060",
+									"times": -1
+								}
+							]
+						}, {
+							"label": "TEMIS",
+							"value": 6,
+							"cName": "数据源",
+							"default": 0,
+							"data": [
+								{
+									"label": "全球紫外线指数预报",
+									"value": 0,
+									"title": "全球紫外线指数预报",
+									"id": "C057",
+									"times": -1
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	},
+	"timeStatus": {
+		"type_0": {
+			"default": "08",
+			"data": [
+				{
+					"label": "08时",
+					"value": "08"
+				}
+			]
+		},
+		"type_1": {
+			"default": "20",
+			"data": [
+				{
+					"label": "20时",
+					"value": "20"
+				}
+			]
+		},
+		"type_2": {
+			"default": "08",
+			"data": [
+				{
+					"label": "08时",
+					"value": "08"
+				}, {
+					"label": "20时",
+					"value": "20"
+				}
+			]
+		},
+		"type_4": {
+			"default": "02",
+			"data": [
+				{
+					"label": "02时",
+					"value": "02"
+				}, {
+					"label": "08时",
+					"value": "08"
+				}, {
+					"label": "14时",
+					"value": "14"
+				}, {
+					"label": "20时",
+					"value": "20"
+				}
+			]
+		}
+	}
+}

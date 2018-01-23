@@ -1,0 +1,320 @@
+@import url("element-ui-override-blue.css");
+@import url("./3ClearFont/style.css");
+
+#app,
+body,
+html {
+    height: 100%;
+    width: 100%;
+    background-color: #09102b;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei" !important;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+    width: 10px;
+    /*height: 16px;*/
+    background-color: #21282e;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #21282e;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #50575d;
+}
+
+.main-body {
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/main/bg.png");
+}
+
+.main-body .content {
+    /*background-color: blueviolet;*/
+    position: absolute;
+    left: 0;
+    top: 80px;
+    right: 0;
+    bottom: 0;
+}
+
+.main-body .content .content-header {
+    height: 64px;
+    width: 100%;
+    background-image: url("../images/main/header.png");
+    border: solid 1px #323232;
+}
+
+.main-base .content .content-body {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #20282e;
+    border: solid 1px #323232;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.main-base .content .content-body .data {
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    right: 11px;
+    bottom: 11px;
+    background-color: #11171d;
+    border: solid 1px #323232;
+
+}
+
+/*map style*/
+
+.map-point {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    z-index: 800;
+}
+
+.leaflet-div-icon {
+    background: rgba(0, 0, 0, 0) !important;
+    border: 1px solid rgba(0, 0, 0, 0) !important;
+}
+
+.point-info {
+    background: rgba(255, 255, 255, 0.6) none repeat scroll 0 0;
+    color: #fff;
+    border-radius: 9px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    font-size: 0;
+    font-family: "Microsoft YaHei";
+    position: relative;
+    height: 16px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+
+.map-point-value {
+    position: absolute;
+    top: -2px;
+    height: 16px;
+    line-height: 16px;
+    width: 26px;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 0 1px;
+    display: inline-block;
+    font-weight: bolder;
+    color: #000;
+}
+
+.map-point-marker {
+    position: absolute;
+    display: inline;
+    cursor: inherit;
+    background: rgb(255, 170, 0);
+    padding: 1px;
+    white-space: nowrap;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-family: arial, sans-serif;
+    z-index: -7938782;
+    color: rgb(40, 0, 77);
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    user-select: none;
+}
+
+.map-point-marker.city {
+    font-size: 14px;
+    line-height: 22px;
+    width: 35px;
+    height: 22px;
+}
+
+.map-point-marker.sta {
+    font-size: 12px;
+    line-height: 19px;
+    width: 28px;
+    height: 19px;
+}
+
+.map-point-arrow {
+    text-align: center;
+    width: 0px;
+    height: 0px;
+    border-left: 8px solid transparent;
+    border-top: 8px solid;
+    border-right: 8px solid transparent;
+    color: #fa0;
+    position: absolute;
+}
+
+.map-point-arrow.city {
+    margin: 5px auto;
+    margin-top: -1px;
+    margin-left: 10px
+}
+
+.map-point-arrow.sta {
+    margin: 3px auto;
+    margin-top: -1px;
+    margin-left: 7px
+}
+
+.map-point-label {
+    position: absolute;
+    display: inline;
+    cursor: inherit;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgb(153, 153, 153);
+    padding: 2px;
+    white-space: nowrap;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 12px;
+    line-height: 18px;
+    font-family: arial, sans-serif;
+    z-index: -7938782;
+    color: black;
+    width: auto;
+    text-align: center;
+    height: 18px;
+    user-select: none;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-left: 37px;
+}
+
+.map-point-label.sta {
+    font-size: 12px;
+    line-height: 15px;
+    height: 15px;
+    margin-left: 30px;
+}
+
+.map-point-label.city {
+    font-size: 12px;
+    line-height: 18px;
+    height: 18px;
+    margin-left: 37px;
+}
+
+span.bplz-sta-type {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+
+    display: inline-block;
+    line-height: 24px;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 8px;
+     font-size: 12px;
+    /* font-weight: bold; */
+    color: #fff;
+}
+
+
+/*站点类型样式*/
+span.bplz-sta-type-country {
+    background-color:rgba(255,0,22,0.4);
+    border: 1px solid rgba(255,0,22,1);
+}
+
+span.bplz-sta-type-city {
+    background-color:rgba(0,244,32,0.4);
+    border: 1px solid rgba(0,244,32,1);
+}
+
+span.bplz-sta-type-refer {
+    background-color:rgba(250,236,1,0.4);
+    border: 1px solid rgba(250,236,1,1);
+}
+
+span.bplz-sta-type-bg {
+    background-color:rgba(245,177,8,0.4);
+    border: 1px solid rgba(245,177,8,1);
+}
+
+span.bplz-sta-type-county {
+    background-color:rgba(0,246,210,0.4);
+    border: 1px solid rgba(0,246,210,1);
+}
+
+span.bplz-sta-type-bian{
+    background-color:rgba(0,158,255,0.4);
+    border: 1px solid rgba(0,158,255,1);
+}
+
+/*地图缩放按钮样式*/
+.leaflet-bar{
+    border: none !important;
+}
+
+.leaflet-bar a, .leaflet-bar a:hover{
+    border: none !important;
+}
+
+.leaflet-touch .leaflet-bar a {
+    width: 26px !important;
+    height: 28px !important;
+    line-height: 28px !important;
+}
+
+.leaflet-control-zoom-in {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: #fff !important;
+}
+
+.leaflet-control-zoom-out {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: #fff !important;
+
+}
+
+.leaflet-top-pane{
+    z-index: 550 !important;
+}
+
+.leaflet-canvas-icon-layer{
+    z-index: 200 !important;
+
+}
+
+canvas.leaflet-cancas{
+    z-index: 105 !important;
+}
+
+
+
+canvas.leaflet-layer{
+    /*z-index: 260 !important;*/
+}
+
+
+
+
+
+

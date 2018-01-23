@@ -1,0 +1,3 @@
+#cityPredictDayTable .el-table__expanded-cell[class*=cell] {
+    padding: 0 0 0 48px !important;
+}

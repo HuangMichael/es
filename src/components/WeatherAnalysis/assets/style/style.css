@@ -1,0 +1,37 @@
+
+.WeatherAnalysis .leaflet-control-zoom {
+	top: 62px !important;
+    left: 2px !important;
+}
+.WeatherAnalysis .leaflet-control-zoom a{
+	color: #04e7e1 !important;
+}
+.WeatherAnalysis .leaflet-control-navbar{
+	top: 55px !important;
+	left: 2px !important;
+	color: #04e7e1 !important;
+}
+.WeatherAnalysis .leaflet-bar a, .leaflet-bar a:hover{
+	background-color: #0a1220;
+}
+.WeatherAnalysis .el-radio-button__inner{
+	width: 80px;
+}
+.WeatherAnalysis .el-switch{
+	top: -3px;
+	left:5px;
+}
+.WeatherAnalysis .el-switch__label{
+	float: left;
+	margin-left: 4px;
+    margin-right: 5px;
+	color: #fff;
+}
+/*.WeatherAnalysis .el-switch__core{
+    height: 16px;
+	border: none;
+}
+.el-switch__core .el-switch__button {
+	width: 14px;
+	height: 14px;
+}*/

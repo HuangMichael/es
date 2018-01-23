@@ -1,0 +1,1383 @@
+{
+	"name": "test",
+	"polTarget": "aqi,cityname,pm10_1h,pm25_1h,so2_1h,no2_1h,co_1h,o3_1h",
+	"weaTarget": "tem_2m_24h_max,tem_2m_24h_min,hum_2m_24h,windspeed_10m_24h,winddirect_10m_24h,rain_24h_total,pbl_24h",
+	"tableColumns": [
+		{
+			"prop": "datadate",
+			"label": "日期",
+			"align": "center",
+			"sortable": false,
+			"width": 100
+		},
+		{
+			"prop": "model",
+			"label": "模式",
+			"align": "center",
+			"sortable": false
+		},
+		{
+			"prop": "",
+			"label": "SO₂ 24小时平均",
+			"align": "center",
+			"sortable": false,
+			"children": [
+				{
+					"prop": "so2_24h",
+					"label": "浓度",
+					"align": "center",
+					"sortable": false,
+					"width": 60
+				},
+				{
+					"prop": "so2_24h_iaqi",
+					"label": "分指数",
+					"align": "center",
+					"sortable": false,
+					"width": 60
+				}
+			]
+		},
+		{
+			"prop": "",
+			"label": "NO₂ 24小时平均",
+			"align": "center",
+			"sortable": false,
+			"children": [
+				{
+					"prop": "no2_24h",
+					"label": "浓度",
+					"align": "center",
+					"sortable": false,
+					"width": 60
+				},
+				{
+					"prop": "no2_24h_iaqi",
+					"label": "分指数",
+					"align": "center",
+					"sortable": false,
+					"width": 60
+				}
+			]
+		},
+		{
+			"prop": "",
+			"label": "PM₁₀ 24小时平均",
+			"align": "center",
+			"sortable": false,
+			"children": [
+				{
+					"prop": "pm10_24h",
+					"label": "浓度",
+					"align": "center",
+					"sortable": false,
+					"width": 60
+				},
+				{
+					"prop": "pm10_24h_iaqi",
+					"label": "分指数",
+					"align": "center",
+					"sortable": false,
+					"width": 60
+				}
+			]
+		},
+		{
+			"prop": "",
+			"label": "PM₂.₅ 24小时平均",
+			"align": "center",
+			"sortable": false,
+			"children": [
+				{
+					"prop": "pm25_24h",
+					"label": "浓度",
+					"align": "center",
+					"sortable": false,
+					"width": 60
+				},
+				{
+					"prop": "pm25_24h_iaqi",
+					"label": "分指数",
+					"align": "center",
+					"sortable": false,
+					"width": 60
+				}
+			]
+		},
+		{
+			"prop": "",
+			"label": "CO 24小时平均",
+			"align": "center",
+			"sortable": false,
+			"children": [
+				{
+					"prop": "co_24h",
+					"label": "浓度",
+					"align": "center",
+					"sortable": false,
+					"width": 60
+				},
+				{
+					"prop": "co_24h_iaqi",
+					"label": "分指数",
+					"align": "center",
+					"sortable": false,
+					"width": 60
+				}
+			]
+		},
+		{
+			"prop": "",
+			"label": "O₃ 最大1小时平均",
+			"align": "center",
+			"sortable": false,
+			"children": [
+				{
+					"prop": "o3_1h_max",
+					"label": "浓度",
+					"align": "center",
+					"sortable": false,
+					"width": 60
+				},
+				{
+					"prop": "o3_1h_max_iaqi",
+					"label": "分指数",
+					"align": "center",
+					"sortable": false,
+					"width": 60
+				}
+			]
+		},
+		{
+			"prop": "",
+			"label": "O₃ 最大8小时平均",
+			"align": "center",
+			"sortable": false,
+			"children": [
+				{
+					"prop": "o3_8h_max",
+					"label": "浓度",
+					"align": "center",
+					"sortable": false,
+					"width": 60
+				},
+				{
+					"prop": "o3_8h_max_iaqi",
+					"label": "分指数",
+					"align": "center",
+					"sortable": false,
+					"width": 60
+				}
+			]
+		},
+		{
+			"prop": "aqi",
+			"label": "AQI",
+			"align": "center",
+			"sortable": false,
+			"width": 60
+		},
+		{
+			"prop": "primary_pollutant",
+			"label": "首要污染物",
+			"align": "center",
+			"sortable": false
+		},
+		{
+			"prop": "aqi_level",
+			"label": "污染等级",
+			"align": "center",
+			"sortable": false
+		}
+	],
+	"settings": {
+		"areaRObj": {
+			"disabled": "",
+			"label": "默认区域",
+			"type": "RadioBtns",
+			"default": "d3",
+			"options": [
+				{
+					"label": "中国",
+					"value": "d1"
+				},
+				{
+					"label": "华东",
+					"value": "d2"
+				},
+				{
+					"label": "江苏",
+					"value": "d3"
+				}
+			]
+		},
+		"cityStaTreeObj": {
+			"disabled": "",
+			"label": "城市站点",
+			"type": "Tree",
+			"checked": [
+				0
+			],
+			"default": [
+				{
+					"label": "南京市",
+					"code": "320100",
+					"type": "city",
+					"children": [
+						{
+							"label": "南京江宁",
+							"code": "1140",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "南京仙林",
+							"code": "1141",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "南京友联",
+							"code": "1177",
+							"type": "station",
+							"stype": "边"
+						},
+						{
+							"label": "草场门",
+							"code": "20",
+							"type": "station"
+						},
+						{
+							"label": "溧水永阳",
+							"code": "782",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "高淳淳溪",
+							"code": "870",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "瑞金路",
+							"code": "871",
+							"type": "station"
+						},
+						{
+							"label": "玄武湖",
+							"code": "872",
+							"type": "station"
+						},
+						{
+							"label": "中华门",
+							"code": "879",
+							"type": "station"
+						},
+						{
+							"label": "山西路",
+							"code": "880",
+							"type": "station"
+						},
+						{
+							"label": "迈皋桥",
+							"code": "881",
+							"type": "station"
+						},
+						{
+							"label": "仙林大学城",
+							"code": "882",
+							"type": "station"
+						},
+						{
+							"label": "奥体中心",
+							"code": "883",
+							"type": "station"
+						},
+						{
+							"label": "浦口",
+							"code": "884",
+							"type": "station"
+						},
+						{
+							"label": "六合雄州",
+							"code": "918",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "江宁彩虹桥",
+							"code": "943",
+							"type": "station",
+							"stype": "省"
+						}
+					]
+				},
+				{
+					"label": "无锡市",
+					"code": "320200",
+					"type": "city",
+					"children": [
+						{
+							"label": "无锡太科园",
+							"code": "1142",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "无锡新渎社区",
+							"code": "1143",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "宜兴大港",
+							"code": "1178",
+							"type": "station",
+							"stype": "边"
+						},
+						{
+							"label": "东亭",
+							"code": "833",
+							"type": "station"
+						},
+						{
+							"label": "虹桥邮政",
+							"code": "837",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "宜兴市环保局",
+							"code": "855",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "荣巷",
+							"code": "869",
+							"type": "station"
+						},
+						{
+							"label": "雪浪",
+							"code": "878",
+							"type": "station"
+						},
+						{
+							"label": "旺庄",
+							"code": "885",
+							"type": "station"
+						},
+						{
+							"label": "漆塘",
+							"code": "886",
+							"type": "station"
+						},
+						{
+							"label": "堰桥",
+							"code": "887",
+							"type": "station"
+						},
+						{
+							"label": "黄巷",
+							"code": "910",
+							"type": "station"
+						},
+						{
+							"label": "五星公园",
+							"code": "929",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "第二实验小学",
+							"code": "930",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "宜园",
+							"code": "932",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "曹张",
+							"code": "97",
+							"type": "station"
+						}
+					]
+				},
+				{
+					"label": "徐州市",
+					"code": "320300",
+					"type": "city",
+					"children": [
+						{
+							"label": "徐州屯里",
+							"code": "1144",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "徐州龙襄生态园",
+							"code": "1145",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "沛县鹿楼",
+							"code": "1166",
+							"type": "station",
+							"stype": "农"
+						},
+						{
+							"label": "睢宁沙集",
+							"code": "1167",
+							"type": "station",
+							"stype": "农"
+						},
+						{
+							"label": "丰县沙庄桥",
+							"code": "1179",
+							"type": "station",
+							"stype": "边"
+						},
+						{
+							"label": "桃园路",
+							"code": "58",
+							"type": "station"
+						},
+						{
+							"label": "铜山区招生办",
+							"code": "783",
+							"type": "station"
+						},
+						{
+							"label": "沛县正阳路",
+							"code": "800",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "黄河新村",
+							"code": "806",
+							"type": "station"
+						},
+						{
+							"label": "淮塔",
+							"code": "807",
+							"type": "station"
+						},
+						{
+							"label": "丰县环保局",
+							"code": "808",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "新沂市监测站",
+							"code": "854",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "邳州市监测站",
+							"code": "868",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "农科院",
+							"code": "874",
+							"type": "station"
+						},
+						{
+							"label": "新城区",
+							"code": "898",
+							"type": "station"
+						},
+						{
+							"label": "鼓楼区政府",
+							"code": "899",
+							"type": "station"
+						},
+						{
+							"label": "红叶北路",
+							"code": "916",
+							"type": "station",
+							"stype": "省"
+						}
+					]
+				},
+				{
+					"label": "常州市",
+					"code": "320400",
+					"type": "city",
+					"children": [
+						{
+							"label": "常州洛阳中心小学",
+							"code": "1146",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "常州西夏墅",
+							"code": "1147",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "溧阳天目湖",
+							"code": "1168",
+							"type": "station",
+							"stype": "农"
+						},
+						{
+							"label": "市监测站",
+							"code": "206",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "行政中心",
+							"code": "830",
+							"type": "station"
+						},
+						{
+							"label": "钟楼",
+							"code": "831",
+							"type": "station"
+						},
+						{
+							"label": "东门子站",
+							"code": "849",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "金坛区环境监测站",
+							"code": "857",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "经开区",
+							"code": "876",
+							"type": "station"
+						},
+						{
+							"label": "武进监测站",
+							"code": "888",
+							"type": "station"
+						},
+						{
+							"label": "安家",
+							"code": "907",
+							"type": "station"
+						},
+						{
+							"label": "金坛区自来水公司",
+							"code": "926",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "燕山子站",
+							"code": "928",
+							"type": "station",
+							"stype": "创"
+						}
+					]
+				},
+				{
+					"label": "苏州市",
+					"code": "320500",
+					"type": "city",
+					"children": [
+						{
+							"label": "苏州石湖路",
+							"code": "1148",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "苏州科技学院",
+							"code": "1149",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "常熟蒋巷",
+							"code": "1169",
+							"type": "station",
+							"stype": "农"
+						},
+						{
+							"label": "昆山淀山湖",
+							"code": "1180",
+							"type": "station",
+							"stype": "边"
+						},
+						{
+							"label": "太湖野外观测站",
+							"code": "1182",
+							"type": "station",
+							"stype": "边"
+						},
+						{
+							"label": "南门",
+							"code": "242",
+							"type": "station"
+						},
+						{
+							"label": "海虞子站",
+							"code": "841",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "张家港市监测站",
+							"code": "842",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "昆山第二中学",
+							"code": "843",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "吴江区环保局",
+							"code": "847",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "太仓市监测站",
+							"code": "865",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "彩香",
+							"code": "866",
+							"type": "station"
+						},
+						{
+							"label": "轧钢厂",
+							"code": "867",
+							"type": "station"
+						},
+						{
+							"label": "上方山",
+							"code": "889",
+							"type": "station"
+						},
+						{
+							"label": "相城区",
+							"code": "890",
+							"type": "station"
+						},
+						{
+							"label": "吴中区",
+							"code": "891",
+							"type": "station"
+						},
+						{
+							"label": "苏州新区",
+							"code": "892",
+							"type": "station"
+						},
+						{
+							"label": "苏州工业园区",
+							"code": "893",
+							"type": "station"
+						},
+						{
+							"label": "教师进修学校",
+							"code": "933",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "科教新城实验小学",
+							"code": "934",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "开发区",
+							"code": "935",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "震川中学",
+							"code": "936",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "城北小学",
+							"code": "937",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "菱塘子站",
+							"code": "938",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "兴福子站",
+							"code": "939",
+							"type": "station",
+							"stype": "创"
+						}
+					]
+				},
+				{
+					"label": "南通市",
+					"code": "320600",
+					"type": "city",
+					"children": [
+						{
+							"label": "南通先锋镇",
+							"code": "1150",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "南通陈桥中学",
+							"code": "1151",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "通州东社中学",
+							"code": "1170",
+							"type": "station",
+							"stype": "农"
+						},
+						{
+							"label": "虹桥",
+							"code": "781",
+							"type": "station"
+						},
+						{
+							"label": "城中",
+							"code": "832",
+							"type": "station"
+						},
+						{
+							"label": "启东监测站",
+							"code": "834",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "星湖花园",
+							"code": "835",
+							"type": "station"
+						},
+						{
+							"label": "海门市监测站",
+							"code": "836",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "通州区监测站",
+							"code": "839",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "海安县监测站",
+							"code": "846",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "如皋市监测站",
+							"code": "864",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "南郊",
+							"code": "894",
+							"type": "station"
+						},
+						{
+							"label": "紫琅学院",
+							"code": "895",
+							"type": "station"
+						},
+						{
+							"label": "如东职校",
+							"code": "925",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "社会福利院",
+							"code": "931",
+							"type": "station",
+							"stype": "创"
+						}
+					]
+				},
+				{
+					"label": "连云港市",
+					"code": "320700",
+					"type": "city",
+					"children": [
+						{
+							"label": "连云港东西连岛",
+							"code": "1152",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "连云港大圣湖",
+							"code": "1153",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "赣榆塔山水库",
+							"code": "1181",
+							"type": "station",
+							"stype": "边"
+						},
+						{
+							"label": "连云港市监测站",
+							"code": "346",
+							"type": "station"
+						},
+						{
+							"label": "赣榆区新城小学",
+							"code": "784",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "灌南县环保局",
+							"code": "785",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "灌云县监测站",
+							"code": "786",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "德源药业",
+							"code": "809",
+							"type": "station"
+						},
+						{
+							"label": "胡沟管理处",
+							"code": "810",
+							"type": "station"
+						},
+						{
+							"label": "矿山设计院",
+							"code": "811",
+							"type": "station"
+						},
+						{
+							"label": "东海县监测站",
+							"code": "829",
+							"type": "station",
+							"stype": "省"
+						}
+					]
+				},
+				{
+					"label": "淮安市",
+					"code": "320800",
+					"type": "city",
+					"children": [
+						{
+							"label": "淮安淮阴师院",
+							"code": "1154",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "淮安食品学院",
+							"code": "1155",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "涟水县监测站",
+							"code": "787",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "金湖县监测站",
+							"code": "788",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "新华书店",
+							"code": "860",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "淮河大桥",
+							"code": "861",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "淮安市监测站",
+							"code": "863",
+							"type": "station"
+						},
+						{
+							"label": "北京南路",
+							"code": "897",
+							"type": "station"
+						},
+						{
+							"label": "楚州区监测站",
+							"code": "914",
+							"type": "station"
+						},
+						{
+							"label": "淮阴区监测站",
+							"code": "915",
+							"type": "station"
+						},
+						{
+							"label": "钵池山",
+							"code": "962",
+							"type": "station"
+						}
+					]
+				},
+				{
+					"label": "盐城市",
+					"code": "320900",
+					"type": "city",
+					"children": [
+						{
+							"label": "盐城职教园",
+							"code": "1156",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "盐城新洋工业园",
+							"code": "1157",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "盐城保护区",
+							"code": "1171",
+							"type": "station",
+							"stype": "农"
+						},
+						{
+							"label": "环保职工楼",
+							"code": "789",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "教育中心",
+							"code": "790",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "阜宁中学南校区",
+							"code": "791",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "建湖二中",
+							"code": "792",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "盐城市监测站",
+							"code": "816",
+							"type": "station"
+						},
+						{
+							"label": "盐城电厂",
+							"code": "818",
+							"type": "station"
+						},
+						{
+							"label": "大丰区卫校",
+							"code": "859",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "开发区管委会",
+							"code": "877",
+							"type": "station"
+						},
+						{
+							"label": "宝龙广场",
+							"code": "896",
+							"type": "station"
+						},
+						{
+							"label": "市人社局",
+							"code": "941",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "射阳县环境监测站",
+							"code": "942",
+							"type": "station",
+							"stype": "省"
+						}
+					]
+				},
+				{
+					"label": "扬州市",
+					"code": "321000",
+					"type": "city",
+					"children": [
+						{
+							"label": "教师进修学校",
+							"code": "1021",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "扬州汤汪",
+							"code": "1158",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "扬州西湖",
+							"code": "1159",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "宝应运西",
+							"code": "1172",
+							"type": "station",
+							"stype": "农"
+						},
+						{
+							"label": "扬州市监测站",
+							"code": "211",
+							"type": "station"
+						},
+						{
+							"label": "邗江监测站",
+							"code": "814",
+							"type": "station"
+						},
+						{
+							"label": "五台山医院",
+							"code": "815",
+							"type": "station"
+						},
+						{
+							"label": "城东财政所",
+							"code": "817",
+							"type": "station"
+						},
+						{
+							"label": "仪征市环保局",
+							"code": "820",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "高邮市监测站",
+							"code": "828",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "宝应县环保局",
+							"code": "856",
+							"type": "station",
+							"stype": "省"
+						}
+					]
+				},
+				{
+					"label": "镇江市",
+					"code": "321100",
+					"type": "city",
+					"children": [
+						{
+							"label": "镇江平昌小学",
+							"code": "1160",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "镇江万科中学",
+							"code": "1161",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "丹阳肇巷",
+							"code": "1173",
+							"type": "station",
+							"stype": "农"
+						},
+						{
+							"label": "市疾控中心",
+							"code": "158",
+							"type": "station"
+						},
+						{
+							"label": "丹阳市环境监测站",
+							"code": "844",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "房家坝",
+							"code": "845",
+							"type": "station",
+							"stype": "创"
+						},
+						{
+							"label": "职教中心",
+							"code": "848",
+							"type": "station"
+						},
+						{
+							"label": "丹徒区监测站",
+							"code": "850",
+							"type": "station"
+						},
+						{
+							"label": "新区办事处",
+							"code": "900",
+							"type": "station"
+						},
+						{
+							"label": "扬中市环保局",
+							"code": "923",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "消防指挥中心",
+							"code": "924",
+							"type": "station",
+							"stype": "省"
+						}
+					]
+				},
+				{
+					"label": "泰州市",
+					"code": "321200",
+					"type": "city",
+					"children": [
+						{
+							"label": "泰州天德湖",
+							"code": "1162",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "泰州罡阳",
+							"code": "1163",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "兴化李中",
+							"code": "1174",
+							"type": "station",
+							"stype": "农"
+						},
+						{
+							"label": "公园路",
+							"code": "824",
+							"type": "station"
+						},
+						{
+							"label": "姜堰区政府广场",
+							"code": "825",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "靖江实验学校",
+							"code": "826",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "兴化环境监测站",
+							"code": "827",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "新区信访局",
+							"code": "840",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "莲花",
+							"code": "851",
+							"type": "station"
+						},
+						{
+							"label": "留学生创业园",
+							"code": "875",
+							"type": "station"
+						},
+						{
+							"label": "王营",
+							"code": "901",
+							"type": "station"
+						}
+					]
+				},
+				{
+					"label": "宿迁市",
+					"code": "321300",
+					"type": "city",
+					"children": [
+						{
+							"label": "宿迁技师学院",
+							"code": "1164",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "宿迁银控公司",
+							"code": "1165",
+							"type": "station",
+							"stype": "质"
+						},
+						{
+							"label": "宿迁嶂山闸",
+							"code": "1175",
+							"type": "station",
+							"stype": "农"
+						},
+						{
+							"label": "沭阳县广文局",
+							"code": "793",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "生态公园",
+							"code": "794",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "宿迁学院",
+							"code": "812",
+							"type": "station"
+						},
+						{
+							"label": "市供电局",
+							"code": "813",
+							"type": "station"
+						},
+						{
+							"label": "泗洪县环境监测站",
+							"code": "853",
+							"type": "station",
+							"stype": "省"
+						},
+						{
+							"label": "宿迁中学",
+							"code": "873",
+							"type": "station"
+						},
+						{
+							"label": "宿豫区环保局",
+							"code": "904",
+							"type": "station"
+						}
+					]
+				}
+			]
+		},
+		"modelSwitchTime": {
+			"disabled": "",
+			"label": "时次切换时间",
+			"type": "Time",
+			"default": "18:00"
+		},
+		"08ModelObj": {
+			"disabled": "",
+			"label": "08时默认模式",
+			"type": "RadioBtns",
+			"default": "naqpms",
+			"options": [
+				{
+					"label": "NAQPMS",
+					"value": "naqpms"
+				},
+				{
+					"label": "CMAQ",
+					"value": "cmaq"
+				}
+			]
+		},
+		"20ModelObj": {
+			"disabled": "",
+			"label": "20时默认模式",
+			"type": "RadioBtns",
+			"default": "naqpms",
+			"options": [
+				{
+					"label": "NAQPMS",
+					"value": "naqpms"
+				},
+				{
+					"label": "CMAQ",
+					"value": "cmaq"
+				},
+				{
+					"label": "CAMx",
+					"value": "camx"
+				},
+				{
+					"label": "WRF-Chem",
+					"value": "wrfch"
+				}
+			]
+		},
+		"globalUpdate": {
+			"disabled": "",
+			"label": "全系统更新",
+			"type": "Switch",
+			"default": false
+		}
+	}
+}

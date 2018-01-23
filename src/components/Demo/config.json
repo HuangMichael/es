@@ -1,0 +1,344 @@
+{
+  "name": "test",
+  "settings": {
+    "polRObj": {
+      "disabled": "",
+      "label": "默认指标",
+      "type": "RadioBtns",
+      "default": "aqi",
+      "options": [
+        {
+          "label": "AQI",
+          "value": "aqi"
+        },
+        {
+          "label": "PM2.5",
+          "value": "pm25"
+        },
+        {
+          "label": "PM10",
+          "value": "pm10"
+        },
+        {
+          "label": "SO2",
+          "value": "so2"
+        },
+        {
+          "label": "NO2",
+          "value": "no2"
+        },
+        {
+          "label": "CO",
+          "value": "co"
+        },
+        {
+          "label": "O3",
+          "value": "o3"
+        }
+      ]
+    },
+    "areaRObj": {
+      "disabled": "",
+      "label": "默认区域",
+      "type": "RadioBtns",
+      "default": "d1",
+      "options": [
+        {
+          "label": "中国",
+          "value": "d1"
+        },
+        {
+          "label": "华东",
+          "value": "d2"
+        },
+        {
+          "label": "江苏",
+          "value": "d3"
+        }
+      ]
+    },
+    "polCObj": {
+      "disabled": "",
+      "label": "默认指标",
+      "type": "CheckBoxs",
+      "default": [
+        "aqi",
+        "pm25"
+      ],
+      "options": [
+        {
+          "label": "AQI",
+          "value": "aqi"
+        },
+        {
+          "label": "PM2.5",
+          "value": "pm25"
+        },
+        {
+          "label": "PM10",
+          "value": "pm10"
+        },
+        {
+          "label": "SO2",
+          "value": "so2"
+        },
+        {
+          "label": "NO2",
+          "value": "no2"
+        },
+        {
+          "label": "CO",
+          "value": "co"
+        },
+        {
+          "label": "O3",
+          "value": "o3"
+        }
+      ]
+    },
+    "modelRObj": {
+      "disabled": "",
+      "label": "默认模式",
+      "type": "RadioBtns",
+      "default": "naqpms",
+      "options": [
+        {
+          "label": "NAQPMS",
+          "value": "naqpms"
+        },
+        {
+          "label": "CMAQ",
+          "value": "cmaq"
+        },
+        {
+          "label": "CAMx",
+          "value": "camx"
+        },
+        {
+          "label": "WRF-chem",
+          "value": "wrfchem"
+        }
+      ]
+    },
+    "modelCObj": {
+      "disabled": "",
+      "label": "评估模式",
+      "type": "CheckBoxs",
+      "default": [
+        "naqpms",
+        "cmaq"
+      ],
+      "options": [
+        {
+          "label": "NAQPMS",
+          "value": "naqpms"
+        },
+        {
+          "label": "CMAQ",
+          "value": "cmaq"
+        },
+        {
+          "label": "CAMx",
+          "value": "camx"
+        },
+        {
+          "label": "WRF-chem",
+          "value": "wrfchem"
+        }
+      ]
+    },
+    "reviewDayNum": {
+      "disabled": "",
+      "label": "回顾时长",
+      "type": "InputNumber",
+      "default": 7,
+      "min": 5,
+      "max": 15
+    },
+    "cityStaTreeObj": {
+      "disabled": "",
+      "label": "城市站点",
+      "type": "Tree",
+      "default": [
+        {
+          "label": "南京市",
+          "code": "1",
+          "type": "city",
+          "children": [
+            {
+              "label": "监测站",
+              "code": "10",
+              "type": "station"
+            }
+          ]
+        },
+        {
+          "label": "无锡市",
+          "code": "2",
+          "type": "city",
+          "children": [
+            {
+              "label": "站点1",
+              "code": "20",
+              "type": "station"
+            },
+            {
+              "label": "站点2",
+              "code": "21",
+              "type": "station"
+            }
+          ]
+        },
+        {
+          "label": "徐州市",
+          "code": "3",
+          "type": "city",
+          "children": [
+            {
+              "label": "站点3",
+              "code": "31",
+              "type": "station"
+            },
+            {
+              "label": "站点4",
+              "code": "32",
+              "type": "station"
+            }
+          ]
+        }
+      ],
+      "data": [
+        {
+          "label": "南京市",
+          "code": "1",
+          "type": "city",
+          "children": [
+            {
+              "label": "监测站",
+              "code": "10",
+              "type": "station"
+            }
+          ]
+        },
+        {
+          "label": "无锡市",
+          "code": "2",
+          "type": "city",
+          "children": [
+            {
+              "label": "站点1",
+              "code": "20",
+              "type": "station"
+            },
+            {
+              "label": "站点2",
+              "code": "21",
+              "type": "station"
+            }
+          ]
+        },
+        {
+          "label": "徐州市",
+          "code": "3",
+          "type": "city",
+          "children": [
+            {
+              "label": "站点3",
+              "code": "31",
+              "type": "station"
+            },
+            {
+              "label": "站点4",
+              "code": "32",
+              "type": "station"
+            }
+          ]
+        }
+      ]
+    },
+    "opacity": {
+      "disabled": "",
+      "label": "地图不透明度",
+      "type": "Slider",
+      "default": 80
+    },
+    "modelSwitchTime": {
+      "disabled": "",
+      "label": "时次切换时间",
+      "type": "Time",
+      "default": "14:00"
+    },
+    "mapType": {
+      "disabled": "",
+      "label": "地图默认类型",
+      "type": "RadioBtns",
+      "default": "Geoq.Normal.PurplishBlue",
+      "options": [
+        {
+          "label": "矢量图",
+          "value": "Geoq.Normal.PurplishBlue"
+        },
+        {
+          "label": "地形图",
+          "value": "terrain"
+        },
+        {
+          "label": "遥感图",
+          "value": "raster"
+        }
+      ]
+    },
+    "mapExtent": {
+      "disabled": "",
+      "label": "地图默认范围",
+      "type": "Map",
+      "default": "19.973348786110613,70.48828125000001,48.45835188280866,136.40625000000003"
+    },
+    "globalUpdate": {
+      "disabled": "",
+      "label": "全系统更新",
+      "type": "Switch",
+      "default": false
+    },
+    "08ModelObj": {
+      "disabled": "",
+      "label": "08时默认模式",
+      "type": "RadioBtns",
+      "default": "naqpms",
+      "options": [
+        {
+          "label": "NAQPMS",
+          "value": "naqpms"
+        },
+        {
+          "label": "CMAQ",
+          "value": "cmaq"
+        }
+      ]
+    },
+    "20ModelObj": {
+      "disabled": "",
+      "label": "08时默认模式",
+      "type": "RadioBtns",
+      "default": "naqpms",
+      "options": [
+        {
+          "label": "NAQPMS",
+          "value": "naqpms"
+        },
+        {
+          "label": "CMAQ",
+          "value": "cmaq"
+        },
+        {
+          "label": "CAMx",
+          "value": "camx"
+        },
+        {
+          "label": "WRF-chem",
+          "value": "wrfchem"
+        }
+      ]
+    }
+  }
+}

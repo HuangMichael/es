@@ -1,0 +1,394 @@
+﻿* {
+    padding: 0px;
+    margin: 0px;
+    font-family: "微软雅黑";
+    font-size: 14px;
+}
+
+
+
+.fa-2x{
+	font-size: 1.6em;
+}
+
+._3clear_imageControl {
+    width: 100%;
+    height: 100%;
+    font-family: 微软雅黑;
+    overflow-x: hidden;
+    background-image: url(../image/background.png);
+    background-color: rgba(19,49,87,0.83);
+}
+
+._3clear_imageControl_smallview {
+    position: absolute;
+    width: 188px;
+    top: 12px;
+    bottom: 52px;
+    left: 12px;
+    /*background-color: blue;*/
+    border: 1px solid #01f5f0;
+    /*display: none;*/
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgba(4,231,225,0.2);
+}
+
+._3clear_imageControl_bigview {
+    position: absolute;
+    left: 218px;
+    top: 12px;
+    bottom: 52px;
+    right: 12px;
+    /*background-color: #112B4F;*/
+    /*border: 1px solid #CCCCCC;*/
+    text-align: center;
+}
+
+._3clear_imageControl_smallview_middlecontent {
+    position: absolute;
+    top: 28px;
+    bottom: 28px;
+    /*width: 170px;*/
+    left: 12px;
+    right: 12px;
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+._3clear_imageControl_smallview_left_top {
+    position: absolute;
+    width: 33px;
+    height: 15px;
+    background: url(../image/left.png) no-repeat;
+    top: -6px;
+    left: -6px;
+}
+
+._3clear_imageControl_smallview_right_top {
+    position: absolute;
+    width: 33px;
+    height: 15px;
+    background: url(../image/right.png) no-repeat;
+    top: -6px;
+    right: -11px;
+}
+
+
+._3clear_imageControl_smallview_middlecontent ul {
+    position: relative;
+    /*margin-top: -10px;*/
+    width: 100%;
+}
+
+    ._3clear_imageControl_smallview_middlecontent ul li {
+        height: 160px;
+        /*width: 156px;*/
+        width: 100%;
+        margin: 6px 0px;
+        list-style: none;
+        /*border: 2px solid #DDDDDD;*/
+        cursor: pointer;
+    }
+
+        ._3clear_imageControl_smallview_middlecontent ul li ._3clear_imageControl_smallview_pic_item {
+            width: 148px;
+            height: 120px;
+            /*margin: 1px auto;*/
+            padding: 7px;
+            border: 1px solid rgba(1,245,240,0.13);
+        }
+
+        ._3clear_imageControl_smallview_middlecontent ul li ._3clear_imageControl_smallview_pic_item:hover{
+            border: 1px solid #01f5f0 !important;
+        }
+
+    ._3clear_imageControl_smallview_middlecontent ul ._3clear_imageControl_smallview_pic_item_selected {
+        border: 1px solid #01f5f0 !important;
+    }
+
+._3clear_imageControl_smallview_pic_item_left_top {
+    float: left;
+    background: url(../image/lefttop.png);
+    height: 6px;
+    width: 6px;
+    margin-top: -8px;
+    margin-left: -8px;
+}
+
+._3clear_imageControl_smallview_pic_item_right_top {
+    float: right;
+    background: url(../image/righttop.png);
+    height: 6px;
+    width: 6px;
+    margin-top: -8px;
+    margin-right: -8px;
+}
+
+._3clear_imageControl_smallview_pic_item_left_bottom {
+    float: left;
+    background: url(../image/leftbottom.png);
+    height: 6px;
+    width: 6px;
+    margin-top: 122px;
+    margin-left: -8px;
+}
+
+._3clear_imageControl_smallview_pic_item_right_bottom {
+    float: right;
+    background: url(../image/rightbottom.png);
+    height: 6px;
+    width: 6px;
+    margin-top: 122px;
+    margin-right: -8px;
+}
+
+
+
+._3clear_imageControl_smallview_middlecontent ul li ._3clear_imageControl_smallview_pic_item img {
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+._3clear_imageControl_smallview_middlecontent ul li ._3clear_imageControl_smallview_time {
+    margin-top: 3px;
+    width: 162px;
+    height: 23px;
+    line-height: 23px;
+    color: #01f5f0;
+    background-color: rgba(14,44,80,0.5);
+}
+
+    ._3clear_imageControl_smallview_middlecontent ul li ._3clear_imageControl_smallview_time:hover {
+        /*color: #075983;*/
+    }
+
+._3clear_imageControl_operate {
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    height: 40px;
+    line-height: 40px;
+    background-color: rgba(225,225,225,0.16);
+    overflow: hidden;
+    float: right;
+    text-align: center;
+}
+
+._3clear_imageControl_operate_lb {
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    color: #C7BD0F;
+    margin-left: 12px;
+}
+
+._3clear_imageControl_operate_btn {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 40px;
+    height: 40px;
+    width: 40px;
+    background-color: blue;
+    margin: auto 10px;
+    cursor: pointer;
+}
+
+._3clear_imageControl_operate_view_btn {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 40px !important;
+    height: 40px;
+    width: 40px;
+    margin: auto 6px;
+    cursor: pointer;
+    text-align: center;
+    color: #04E7E1;
+}
+
+._3clear_imageControl_operate_view_btn:hover{
+opacity: 0.6;
+}
+
+._3clear_imageControl_operate_btn_speed {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 26px;
+    height: 26px;
+    width: 165px;
+    margin-left: 30px;
+    text-align: center;
+    /*border: 1px solid #DCCF07;*/
+}
+
+
+._3clear_imageControl_operate_btn_speed_item {
+    float: left;
+    line-height: 26px;
+    height: 26px;
+    width: 55px;
+    cursor: pointer;
+}
+
+._3clear_imageControl_operate_btn_speed_item:hover{
+opacity: 0.6;
+}
+
+._3clear_imageControl_operate_btn_speed_item_selected {
+    background: #029fde;
+    background: linear-gradient(to right, #02a2de 50%, #0255de 100%);
+    color: #fff;
+}
+
+._3clear_imageControl_operate_btn_speed_item_no_selected {
+    background-color: rgba(14,44,80,0.5);
+    color: #01f5f0;
+}
+
+._3clear_imageControl_operate_btn_left {
+    /*float: left;*/
+}
+
+._3clear_imageControl_operate_btn_right {
+    float: right;
+}
+
+._3clear_imageControl_operate_view_panel {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+}
+
+._3clear_imageControl_operate_pre_picitem {
+    background: url(../image/L.png) no-repeat 5px 5px;
+}
+
+._3clear_imageControl_operate_next_picitem {
+    background: url(../image/R.png) no-repeat 5px 5px;
+}
+
+._3clear_imageControl_operate_stop {
+    background: url(../image/play.png) no-repeat;
+}
+
+._3clear_imageControl_operate_play {
+    background: url(../image/stop.png) no-repeat;
+}
+
+._3clear_imageControl_previewpanel {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background-color: #000;
+    filter: alpha(opacity=75);
+    -moz-opacity: 0.75;
+    opacity: 0.75;
+    z-index: 8887;
+    display: none;
+}
+
+._3clear_imageControl_previewpanel_content {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    right: 20px;
+    margin: 0px auto;
+    background-color: white;
+    z-index: 8888;
+    display: none;
+}
+
+._3clear_imageControl_previewpanel_content_head {
+    width: 100%;
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+    /*border-bottom: 1px solid #000;*/
+}
+
+._3clear_imageControl_previewpanel_content_head_close {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    background: url("../image/exitfullScrnBtn.png") no-repeat;
+    cursor: pointer;
+    float: right;
+    margin: 5px 5px;
+}
+
+._3clear_imageControl_previewpanel_map {
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    text-align: center;
+}
+
+._3clear_imageControl_out {
+    -moz-user-select: none !important; /*火狐*/
+    -webkit-user-select: none !important; /*webkit浏览器*/
+    -ms-user-select: none !important; /*IE10*/
+    -khtml-user-select: none !important; /*早期浏览器*/
+    user-select: none !important;
+}
+
+._3clear_imageControl_over {
+    -moz-user-select: auto !important; /*火狐*/
+    -webkit-user-select: auto !important; /*webkit浏览器*/
+    -ms-user-select: auto !important; /*IE10*/
+    -khtml-user-select: auto !important; /*早期浏览器*/
+    user-select: auto !important;
+}
+
+
+._3clear_imageControl_canvasBackGround {
+    background: url(../image/timg.gif) no-repeat center !important;
+}
+
+
+._3clear_imageControl_smallview_first_page {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    width: 100%;
+    color: #01f5f0;
+    cursor: pointer;
+}
+
+    ._3clear_imageControl_smallview_first_page:hover {
+        opacity: 0.7;
+    }
+
+._3clear_imageControl_smallview_last_page {
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    color: #01f5f0;
+    cursor: pointer;
+}
+
+    ._3clear_imageControl_smallview_last_page:hover {
+        opacity: 0.7;
+    }
