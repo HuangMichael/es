@@ -18,7 +18,6 @@ import echarts  from 'echarts'
 
 //jsx
 import {tplFunction} from '3clear/jsx/treeStationMarker.js'
-
 import 'libs/Scrollbar/jquery.mCustomScrollbar.css';
 import {scrollbar} from 'libs/Scrollbar/jquery.mCustomScrollbar.js'
 import {mousewheel} from 'libs/Scrollbar/jquery.mousewheel.min.js'
@@ -48,38 +47,15 @@ export default {
 			models: [],//可选模式
 			polType: "",
 			polTypes: [],
-			area: '',//默认区域
-			areas: [],//可选区域
-			pDate: '',//产品日期
-			pDateOptions: {
-				disabledDate(time) {
-					return time.getTime() > Date.now();
-				}
-			},
-			switchTime: '',//模式时效切换临界时间
-			timeOptions: [],
-			time: '20:00:00',//时次
-			currIntervalNum: 7,
 			currSelectObj: {},//当前树种选中的节点对象
-
 //ajax 请求的原始数据
 			originData: [],
-
 			tableColumns: [],
 			tableData: [],
 			chartData: [],
 			tableMaxHt: 500,
-
-			othersModels: [],//表格中当前被收起来的模式
-			currTableData: [],
-
-			wrfData: [],
-			tmpWrfData: [],
-
 			treeData: [],
 			expandKeys: [],
-
-
 			defaultProps: {
 				children: 'children',
 				label: 'label'
@@ -116,14 +92,19 @@ export default {
 		}
 	},
 
+	/**
+	 *创建之后执行
+	 */
 	created() {
 		this.rightPanelWidth = this.toggleStatus === "close" ? 0 : this.$$appConfig.layout.rightPanel.width;
-		// this.initChart();this.initTable()
 		console.log("created");
 		this.$$resize(this.onResize);
 		this.$$getConfig(this.onGetConfig);
 	},
 
+	/**
+	 *挂载之后执行
+	 */
 	mounted() {
 		this.$nextTick(() => {
 			this.$$lib_$("#DataRangeContrastTable .el-table__body-wrapper.is-scroll-left").mCustomScrollbar();
@@ -142,22 +123,6 @@ export default {
 		_getConfigPro(obj, pro) {
 			return this.config.settings[obj][pro];
 		},
-
-		/**
-		 * 获取当前模式在当前区域下的预报时长
-		 * @private
-		 */
-		_getCurrIntervalNum() {
-			let currModelInfo = this.$$appConfig.prjInfo.modelInfo.model.filter((item) => {
-				return item.value === this.model;
-			});
-			if (currModelInfo.length > 0) {
-				let interval = currModelInfo[0]['interval'];
-				let areaNum = Number(this.area.substr(1, 1)) - 1;
-				this.currIntervalNum = interval[areaNum];
-			}
-		},
-
 		/**
 		 * 获取当前模块配置文件
 		 * @param config json格式的配置信息
@@ -172,24 +137,6 @@ export default {
 			this.treeDataChecked = this._getConfigPro('cityStaTreeObj', 'checked');
 			this.switchTime = this._getConfigPro('modelSwitchTime', 'default');
 			this.tableColumns = this.config.tableColumns;
-
-			let tmpTime = this.switchTime.split(':')[0];
-			let currTime = new Date().getHours();
-			let pDtFormat = 'yyyy-MM-dd';
-			if (tmpTime <= currTime)//到了模式切换的临界时间
-			{
-				this.pDate = dateUtils.dateToStr(pDtFormat, new Date());
-				this.time = this.$$appConfig.prjInfo.modelInfo.predictTime[0]['value'];
-				this.timeOptions = [this.$$appConfig.prjInfo.modelInfo.predictTime[0]];
-			}
-			else {
-				let nowDate = new Date();
-				nowDate.setDate(nowDate.getDate() - 1);
-				this.pDate = dateUtils.dateToStr(pDtFormat, nowDate);
-				this.time = this.$$appConfig.prjInfo.modelInfo.predictTime[1]['value'];
-				this.timeOptions = this.$$appConfig.prjInfo.modelInfo.predictTime;
-			}
-
 
 			//默认展开选中项节点
 			let tmpObj = this._deepCopy(this.treeData);
@@ -209,13 +156,10 @@ export default {
 
 			//根据当前选择的产品时间和时效显示模式;
 			this.getPolType();
-			this._getCurrIntervalNum();
-			// this.getCurrPredictDataInfo();
 		},
 
 		/**
-		 * 模式更改事件
-		 * @param model  当前选中模式
+		 * 污染物更改事件
 		 */
 		onPolTypeChange() {
 			//污染物切换时 同时切换数据列表数据和统计图表数据
@@ -227,6 +171,7 @@ export default {
 		/**
 		 * 按照日期对数据进行分组
 		 * @returns {Array}
+		 * @param ajaxData
 		 */
 		mapDailyDataByDay(ajaxData){
 			let dateArray = [];
@@ -234,9 +179,11 @@ export default {
 			let days = this.getXaxisData();
 			days.forEach(function (day) {
 				let filterArray = ajaxData.filter(function (item) {
-					return (item["datadate"].toString().substring(0, 10) == day);
+					let dateStr = item["datadate"].toString().substring(0, 10);
+					return (dateStr == day);
 				});
-				dateArray.push({"datadate": day, "dataList": filterArray});
+				let dateObj = {"datadate": day, "dataList": filterArray}
+				dateArray.push(dateObj);
 			});
 			return dateArray;
 		},
@@ -276,19 +223,13 @@ export default {
 			let endDateStr = dateUtils.dateToStr("yyyy-MM-dd", endDate);
 			dateStrArray[0] = beginDateStr + " 00:00:00";
 			dateStrArray[1] = endDateStr + " 00:00:00";
-
-			console.log("----获取时间----" + dateStrArray[0]);
-			console.log("----获取时间----" + dateStrArray[1]);
 			return dateStrArray;
 		},
 
 
 		/**
-		 *获取x轴的数据
+		 *获取x轴的数据 根据所选或者默认的时间段生成x轴
 		 * @returns {Array}
-		 * @param data
-		 * @param attr
-		 * @param legend
 		 */
 		getXaxisData(){
 			let xData = [];
@@ -308,6 +249,8 @@ export default {
 
 		/**
 		 * 封装成表格需要的数据
+		 * @param ajaxData 原始请求的数据
+		 * @return {Array} 按照格式封装成数组
 		 */
 		assembleTableData(ajaxData)
 		{
@@ -357,6 +300,8 @@ export default {
 
 		/**
 		 * 封装成图表需要的数据
+		 * @param ajaxData 原始数组
+		 * @return {Array} 返回封装数组
 		 */
 		assembleChartValue(ajaxData){
 			let dailyData = this.mapDailyDataByDay(ajaxData);
@@ -412,7 +357,6 @@ export default {
 				}
 			);
 			return enData;
-			// this.chartData = enData;
 		},
 
 
@@ -440,10 +384,11 @@ export default {
 
 		/**
 		 *根据图例生成多个series
-		 * @returns {null}
+		 * @returns {Array}
 		 * @param legend
 		 * @param data
 		 * @param chartType
+		 * @param polType
 		 */
 		createSeriesByLegend(legend, data, polType, chartType){
 			var series = [];
@@ -468,12 +413,9 @@ export default {
 
 
 		/**
-		 *
+		 *绘制统计图表
 		 */
 		drawChart(){
-			console.log("根据数据绘制图表-------------");
-			// this.getDailyChartValue();
-			// this.getAllDailyValue();
 			let legends = ["最小值", "平均值", "最大值"];
 			var series = this.createSeriesByLegend(legends, this.chartData, this.polType, "line");
 			let xData = this.getXaxisData();
@@ -532,6 +474,8 @@ export default {
 
 		/**
 		 * 封装生成时段统计的图表所需数据格式
+		 * @param dateStrArray
+		 * @return {*|Array}
 		 */
 		getDateRangeChartData(dateStrArray) {
 			let targets = "aqi,pm10_1h,pm25_1h,so2_1h,no2_1h,co_1h,o3_1h";
@@ -562,9 +506,10 @@ export default {
 			let polDef = this[polAPI]({data: polOption, fn: null});
 			let allDef = [polDef];
 			this.$$promiseAll.call(this, allDef, (res) => {
-				// console.log("ajax 请求的数据 -----------" + JSON.stringify(res[0]["data"]));
+				console.log("aaaaaaaaaaaaaa----");
 				this.originData = res[0]["data"];
 			}, (err) => {
+				console.log("b----bbbbbbbbbbbbbbbb");
 				this.originData = [];
 			});
 			return this.originData;
