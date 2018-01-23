@@ -505,14 +505,21 @@ export default {
 			console.log("polOption-------------" + JSON.stringify(polOption));
 			let polDef = this[polAPI]({data: polOption, fn: null});
 			let allDef = [polDef];
-			this.$$promiseAll.call(this, allDef, (res) => {
-				console.log("aaaaaaaaaaaaaa----");
-				this.originData = res[0]["data"];
-			}, (err) => {
-				console.log("b----bbbbbbbbbbbbbbbb");
-				this.originData = [];
+
+			this.$$promiseAll.call(this, allDef, responseArray => {
+				console.log(JSON.stringify(responseArray[0]["data"]));
+				// this.originData = responseArray[0]["data"];
+				// let dateStrArray = this.getDateStrArray();
+				// let ajaxData = this.getDateRangeChartData(dateStrArray);
+				// // this.dealRequestData(responseArray);
+				this.initTable(responseArray[0]["data"]);
+				this.initChart1(responseArray[0]["data"]);
+				// this.initChart();
+				// let dateStrArray = this.getDateStrArray();
+				// // this.ajaxData = this.getDateRangeChartData(dateStrArray);
+				// this.chartData = this.assembleChartValue(ajaxData);
+				// this.drawChart();
 			});
-			return this.originData;
 		},
 
 
@@ -565,13 +572,22 @@ export default {
 			this.drawChart();
 
 		},
+
+		/**
+		 * 初始化统计图
+		 */
+		initChart1(ajaxData){
+			// let dateStrArray = this.getDateStrArray();
+			// this.ajaxData = this.getDateRangeChartData(dateStrArray);
+			this.chartData = this.assembleChartValue(ajaxData);
+			this.drawChart();
+
+		},
 		/**
 		 *初始化表格
 		 */
-		initTable(){
-			// let dateStrArray = this.getDateStrArray();
-			// let ajaxData = this.getDateRangeChartData(dateStrArray);
-			this.tableData = this.assembleTableData(this.ajaxData);
+		initTable(ajaxData){
+			this.tableData = this.assembleTableData(ajaxData);
 		},
 
 
@@ -714,10 +730,11 @@ export default {
 	,
 	computed: {
 		titleContent: function () {
-			let dtFormat = 'MM月dd日';
-			let dtExt = this._getCurrPredictDtExtent(dtFormat);
+			let dateStr = this.getDateStrArray();
 			let currName = this.currSelectObj.label;
-			return currName + dtExt.stDateStr + '至' + dtExt.edDateStr;
+			let beginStr = dateStr[0].substr(0, 10);
+			let endStr = dateStr[1].substr(0, 10);
+			return currName + beginStr + '至' + endStr;
 		}
 		,
 		tableTitle: function () {
