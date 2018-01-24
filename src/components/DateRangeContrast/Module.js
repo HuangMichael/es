@@ -158,7 +158,6 @@ export default {
 		onPolTypeChange() {
 			//污染物切换时 同时切换数据列表数据和统计图表数据
 			this.initChart();
-			this.initTable();
 		},
 
 
@@ -535,7 +534,6 @@ export default {
 				}];
 			let polTypes = this.polTypes;
 			this.polType = polTypes[0]["value"];
-
 		},
 
 
@@ -586,38 +584,20 @@ export default {
 			this.initTable();
 		},
 
-
-		renderNodeContent(h, {node, data, store}) {
-			return tplFunction(h, {node, data, store});
-		},
-
-		/**
-		 * 根据时间获取数据
-		 * @param dtStr 时间字符串
-		 * @param data 数据集
-		 * @returns {Array.<T>|*} 查询到的数据集
-		 * @private
-		 */
-		_getDataByDate(dtStr, data) {
-			return data.filter((item) => {
-				return item.datadate === dtStr;
-			});
-		},
-
 		/**
 		 * 获取当前预报的起始和结束时间
 		 * @param dtFormat 指定返回的格式
 		 * @returns {{stDateStr: (*|string), edDateStr: (*|string)}}
 		 * @private
 		 */
-		_getCurrPredictDtExtent(dtFormat) {
-			let pDateObj = dateUtils.strToDate(this.pDate + ' 00:00:00');
-			let stDate = dateUtils.dateAdd('d', 1, pDateObj);
-			let edDate = dateUtils.dateAdd('d', this.currIntervalNum, pDateObj);
-			let stDateStr = dateUtils.dateToStr(dtFormat, stDate);
-			let edDateStr = dateUtils.dateToStr(dtFormat, edDate);
-			return {stDateStr, edDateStr}
-		},
+		// _getCurrPredictDtExtent(dtFormat) {
+		// 	let pDateObj = dateUtils.strToDate(this.pDate + ' 00:00:00');
+		// 	let stDate = dateUtils.dateAdd('d', 1, pDateObj);
+		// 	let edDate = dateUtils.dateAdd('d', this.currIntervalNum, pDateObj);
+		// 	let stDateStr = dateUtils.dateToStr(dtFormat, stDate);
+		// 	let edDateStr = dateUtils.dateToStr(dtFormat, edDate);
+		// 	return {stDateStr, edDateStr}
+		// },
 
 		/**
 		 * 深度copy对象
@@ -627,62 +607,12 @@ export default {
 		_deepCopy(data) {
 			return JSON.parse(JSON.stringify(data));
 		},
-
-
-		/**
-		 * 判断是否为周末或节假日
-		 * @param str 当前时间字符串
-		 * @returns {boolean}
-		 */
-		isHoliday: function (str) {
-			//todo 目前仅判断了是否为周六或周天 后续需要判断是否为节假日
-			return (str.indexOf('六') > -1 || str.indexOf('日') > -1)
-		},
-
-		/**
-		 * 根据IAQI或AQI渲染单元格样式
-		 * @param value IAQI AQI 值
-		 * @returns {*}
-		 */
-		styleObject(value) {
-			if ((typeof value) === 'string')
-				return {};
-			let colors = this.$$appConfig.prjInfo.gradeColors;
-			let bgColor = '#FFF';
-			let fontColor = '#000';
-			if (value === undefined || value === "--" || value === "-" || value === "" || value === null || value === -999) {
-				bgColor = colors[0];
-			} else if (value <= 50 && value >= 0) {
-				bgColor = colors[1];
-			} else if (value > 50 && value <= 100) {
-				bgColor = colors[2];
-			} else if (value > 100 && value <= 150) {
-				fontColor = '#FFF';
-				bgColor = colors[3];
-			} else if (value > 150 && value <= 200) {
-				fontColor = '#FFF';
-				bgColor = colors[4];
-			} else if (value > 200 && value <= 300) {
-				fontColor = '#FFF';
-				bgColor = colors[5];
-			} else {
-				fontColor = '#FFF';
-				bgColor = colors[6];
-			}
-			return {
-				backgroundColor: bgColor,
-				color: fontColor,
-				width: '100%'
-			};
-		},
-
 		/**
 		 * 视图大小更改事件
 		 */
 		onResize() {
 			let win_size_ht = this.$$lib_$(window).height();
 			this.tableMaxHt = win_size_ht - 457 - 25;
-
 		},
 
 		/**
@@ -719,9 +649,6 @@ export default {
 		if (this.isConfigLoaded) {
 			this.initChart();
 			this.initTable();
-
-
-			console.log("activated----------");
 		}
 		this.onResize();
 	},

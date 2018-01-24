@@ -103,6 +103,11 @@ export default new Router({
 				name: '时段对比',
 				icon: 'bar-chart',
 				component: DateRangeContrast
+			},{
+					path: 'compare',
+					name: '时段对比2',
+					icon: 'bar-chart',
+					component: DateRangeCompare
 			}]
 		},
 		{
