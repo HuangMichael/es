@@ -157,7 +157,7 @@ export default {
 		 */
 		onPolTypeChange() {
 			//污染物切换时 同时切换数据列表数据和统计图表数据
-			this.initChart();
+			this.reloadChartData();
 		},
 
 
@@ -227,8 +227,8 @@ export default {
 			let dateStrArray = this.getDateStrArray();
 			let startDate = dateUtils.strToDate(dateStrArray[0]);
 			let endDate = dateUtils.strToDate(dateStrArray[1]);
-			var diff = dateUtils.dateDiff("d", startDate, endDate);
-			for (var x = 0; x < diff; x++) {
+			let diff = dateUtils.dateDiff("d", startDate, endDate);
+			for (let x = 0; x < diff; x++) {
 				let day = dateUtils.dateToStr("yyyy-MM-dd", dateUtils.dateAdd("d", x, startDate));
 				if (!xData[day]) {
 					xData[x] = day;
@@ -263,11 +263,11 @@ export default {
 					//计算最大值 最小值 平均值
 					//求出日最大值  最小值   平均值
 					if (polArray.length > 0) {
-						var max = polArray[0];
-						var min = polArray[0];
-						var avg, sum = 0;
-						var len = polArray.length;
-						for (var i = 0; i < len; i++) {
+						let max = polArray[0];
+						let min = polArray[0];
+						let avg, sum = 0;
+						let len = polArray.length;
+						for (let i = 0; i < len; i++) {
 							let value = polArray[i];
 							//判断是否为数字 非数字参与运算时赋值0  显示时处理为“-”
 							min = (value > min) ? min : value;
@@ -310,11 +310,11 @@ export default {
 					});
 					//求出日最大值  最小值   平均值
 					if (valueArray.length > 0) {
-						var max = valueArray[0];
-						var min = valueArray[0];
-						var avg, sum = 0;
-						var len = valueArray.length;
-						for (var i = 0; i < len; i++) {
+						let max = valueArray[0];
+						let min = valueArray[0];
+						let avg, sum = 0;
+						let len = valueArray.length;
+						for (let i = 0; i < len; i++) {
 							let value = valueArray[i];
 							//判断是否为数字 非数字参与运算时赋值0  显示时处理为“-”
 							min = (value > min) ? min : value;
@@ -361,15 +361,14 @@ export default {
 		getDataByDataTypeAndPolType(dataArray, attr, polType, dataType)
 		{
 			dataType = dataType.split(",")[0];
-			var newArray = [];
-			for (var x in dataArray) {
+			let newArray = [];
+			for (let x of dataArray) {
 				if (dataArray[x][attr] == dataType && dataArray[x]["polType"] == polType) {
 					newArray.push(dataArray[x]);
 				}
 			}
 			return newArray;
-		}
-		,
+		},
 
 
 		/**
@@ -381,12 +380,12 @@ export default {
 		 * @param polType
 		 */
 		createSeriesByLegend(legend, data, polType, chartType){
-			var series = [];
-			for (var x = 0; x < legend.length; x++) {
-				var newArray = [];
+			let series = [];
+			for (let x = 0; x < legend.length; x++) {
+				let newArray = [];
 				if (legend[x]) {
 					let dataArray = this.getDataByDataTypeAndPolType(data, "dataTypeLabel", polType, legend[x]);
-					for (var i in dataArray) {
+					for (let i in dataArray) {
 						newArray[i] = dataArray[i]["monitorValue"];
 					}
 					series[x] = ({
@@ -407,7 +406,7 @@ export default {
 		 */
 		drawChart(){
 			let legends = ["最小值", "平均值", "最大值"];
-			var series = this.createSeriesByLegend(legends, this.chartData, this.polType, "line");
+			let series = this.createSeriesByLegend(legends, this.chartData, this.polType, "line");
 			let xData = this.getXaxisData();
 			this.charts = echarts.init(document.getElementById("chart"));
 			let options = {
@@ -547,11 +546,10 @@ export default {
 		},
 
 		/**
-		 * 初始化统计图
+		 * 刷新统计图数据
 		 */
-		reloadChartData(ajaxData){
-			this.chartData = this.assembleChartValue(ajaxData);
-			this.drawChart();
+		reloadChartData(){
+			this.chartData = this.assembleChartValue(this.ajaxData);
 		},
 		/**
 		 *初始化表格
