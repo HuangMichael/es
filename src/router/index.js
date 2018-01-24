@@ -15,6 +15,7 @@ const userList = () => import('components/User/list/Module.vue');
 const Edit = () => import('components/User/edit/Module.vue');
 const Demo = () => import('components/Demo/Module.vue');
 const DateRangeCompare = () => import('components/DateRangeCompare/Module.vue');
+const AirMonitorHour = () => import('components/AirMonitorHour/Module.vue');
 const CityPrediction = () => import('components/CityPrediction/Module.vue');
 const CityForecast = () => import('components/CityForecast/Module.vue');
 const CityContrastAnlayse = () => import('components/CityContrastAnlayse/Module.vue');
@@ -92,13 +93,18 @@ export default new Router({
 			icon: 'icon-3clear-curve-e',
 			component: Body,
 			redirect: to => {
-				return '/timerangecompare/hour'
+				return '/timerangecompare/day'
 			},
 			children: [{
-				path: 'hour',
+				path: 'day',
 				name: '时段对比',
 				icon: 'bar-chart',
 				component: DateRangeCompare
+			},{
+				path: 'hour',
+				name: '空气质量检测',
+				icon: 'bar-chart',
+				component: AirMonitorHour
 			}]
 		},
 		{
