@@ -93,7 +93,6 @@ export default {
 	 */
 	created() {
 		this.rightPanelWidth = this.toggleStatus === "close" ? 0 : this.$$appConfig.layout.rightPanel.width;
-		console.log("created");
 		this.$$resize(this.onResize);
 		this.$$getConfig(this.onGetConfig);
 	},

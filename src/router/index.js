@@ -96,13 +96,8 @@ export default new Router({
 				return '/timerangecompare/day'
 			},
 			children: [{
-				path: 'day',
-				name: '时段对比1',
-				icon: 'bar-chart',
-				component: TimeRangeCompare
-			}, {
 				path: 'hour',
-				name: '时段对比2',
+				name: '时段对比',
 				icon: 'bar-chart',
 				component: DateRangeContrast
 			}]
