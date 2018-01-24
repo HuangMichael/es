@@ -581,6 +581,10 @@ export default {
 			return JSON.parse(JSON.stringify(data));
 		},
 
+		renderNodeContent(h, {node, data, store}) {
+			return tplFunction(h, {node, data, store});
+		},
+
 		/**
 		 * 根据IAQI或AQI渲染单元格样式
 		 * @param value IAQI AQI 值

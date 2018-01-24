@@ -474,6 +474,10 @@ export default {
 		},
 
 
+		renderNodeContent(h, {node, data, store}) {
+			return tplFunction(h, {node, data, store});
+		},
+
 		/**
 		 * 封装生成时段统计的图表所需数据格式
 		 * @param dateStrArray
@@ -505,8 +509,10 @@ export default {
 			let polDef = this[polAPI]({data: polOption, fn: null});
 			let allDef = [polDef];
 			this.$$promiseAll.call(this, allDef, responseArray => {
-				this.initTable(responseArray[0]["data"]);
-				this.reloadChartData(responseArray[0]["data"]);
+
+				console.log(JSON.stringify(responseArray[0]["data"]));
+				// this.initTable(responseArray[0]["data"]);
+				// this.reloadChartData(responseArray[0]["data"]);
 			});
 		},
 
