@@ -100,7 +100,19 @@ export default new Router({
 				name: '时段对比',
 				icon: 'bar-chart',
 				component: DateRangeCompare
-			},{
+			}]
+		},
+
+
+		{
+			path: '/airmonitorhour',
+			name: '空气质量检测',
+			icon: 'icon-3clear-curve-e',
+			component: Body,
+			redirect: to => {
+				return '/airmonitorhour/hour'
+			},
+			children: [{
 				path: 'hour',
 				name: '空气质量检测',
 				icon: 'bar-chart',

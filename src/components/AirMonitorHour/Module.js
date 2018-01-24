@@ -32,7 +32,7 @@ export default {
 	data() {
 		return {
 			//模块基础数据信息
-			name: 'DateRangeCompare',
+			name: 'AirMonitorHour',
 			toggleStatus: 'open',
 			rightPanelWidth: this.$$appConfig.layout.rightPanel.width,
 			toggle: this.$$appConfig.layout.rightPanel.toggle,
@@ -87,7 +87,7 @@ export default {
 					return time.getTime() > Date.now();
 				}
 			},
-			timeRange: [dateUtils.dateAdd("d", -7, new Date()), new Date()]
+			timeRange: [dateUtils.dateAdd("d", -1, new Date()), new Date()]
 		}
 	},
 
@@ -247,49 +247,9 @@ export default {
 		 * @param ajaxData 原始请求的数据
 		 * @return {Array} 按照格式封装成数组
 		 */
-		assembleTableData(ajaxData)
-		{
-			let pols = ["aqi", "pm10", "pm25", "so2", "no2", "co", "o3"];
-			let dailyData = this.mapDailyDataByDay(ajaxData);
-			let polDataArray = []
-			dailyData.forEach(function (d) {
-				let tableDataObj = {};
-				var day = d["datadate"];
-				let keys = d["dataList"];
-				pols.forEach(function (p) {
-					let polArray = [];
-					tableDataObj["monitorDate"] = day.substr(0, 10);
-					keys.forEach(function (i) {
-						let colName = (p === 'aqi') ? p : p + "_1h";
-						polArray.push((i[colName] == -999) ? 0 : i[colName]);
-
-					});
-					//计算最大值 最小值 平均值
-					//求出日最大值  最小值   平均值
-					if (polArray.length > 0) {
-						var max = polArray[0];
-						var min = polArray[0];
-						var avg, sum = 0;
-						var len = polArray.length;
-						for (var i = 0; i < len; i++) {
-							let value = polArray[i];
-							//判断是否为数字 非数字参与运算时赋值0  显示时处理为“-”
-							min = (value > min) ? min : value;
-							max = (value < max) ? max : value;
-							sum += value;
-						}
-						min = (min) ? min : "-";
-						max = (max) ? max : "-"
-						avg = (sum) ? (sum / len).toFixed(2) : "-";
-						tableDataObj[p + "_min"] = min;
-						tableDataObj[p + "_max"] = max;
-						tableDataObj[p + "_avg"] = avg;
-					}
-				})
-				polDataArray.push(tableDataObj);
-
-			});
-			return polDataArray;
+		assembleTableData(ajaxData){
+			this.tableData = this.mapDailyDataByDay(ajaxData);
+			// return polDataArray;
 		},
 
 
@@ -510,8 +470,10 @@ export default {
 			let allDef = [polDef];
 			this.$$promiseAll.call(this, allDef, responseArray => {
 
-				console.log(JSON.stringify(responseArray[0]["data"]));
-				// this.initTable(responseArray[0]["data"]);
+				// console.log(JSON.stringify(responseArray[0]["data"]));
+
+				// this.tableData = responseArray[0]["data"];
+				this.initTable(responseArray[0]["data"]);
 				// this.reloadChartData(responseArray[0]["data"]);
 			});
 		},
@@ -554,7 +516,7 @@ export default {
 		 *初始化表格
 		 */
 		initTable(ajaxData){
-			this.tableData = this.assembleTableData(ajaxData);
+			this.tableData = ajaxData;
 		},
 
 		/**

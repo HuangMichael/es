@@ -53,7 +53,7 @@
 									:min-width="child.width"
 									:align="child.align" :sortable="child.sortable">
 									<template scope="scope">
-										<div>
+										<div  :style="scope.row">
 											{{scope.row[scope.column.property]}}
 										</div>
 									</template>
