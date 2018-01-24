@@ -70,7 +70,7 @@ export default {
 					onClick(picker) {
 						const end = new Date();
 						const start = new Date();
-						start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+						start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);git 
 						picker.$emit('pick', [start, end]);
 					}
 				}, {
@@ -81,7 +81,12 @@ export default {
 						start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
 						picker.$emit('pick', [start, end]);
 					}
-				}]
+				}],
+
+				//设置选择日期为今天以前
+				disabledDate(time) {
+					return time.getTime() > Date.now();
+				}
 			},
 			timeRange: [dateUtils.dateAdd("d", -7, new Date()), new Date()]
 		}
