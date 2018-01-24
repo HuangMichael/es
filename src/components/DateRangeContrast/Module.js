@@ -502,36 +502,15 @@ export default {
 		 * 选择当前显示的污染物
 		 */
 		getPolType() {
-			this.polTypes = [{
-				"label": "AQI",
-				"value": "aqi"
-			},
-				{
-					"label": "PM10",
-					"value": "pm10"
-				},
-				{
-					"label": "PM25",
-					"value": "pm25"
-				},
-				{
-					"label": "SO2",
-					"value": "so2"
-				},
-				{
-					"label": "NO2",
-					"value": "no2"
-				},
-				{
-					"label": "CO",
-					"value": "co"
-				},
-				{
-					"label": "O3",
-					"value": "o3"
-				}];
-			let polTypes = this.polTypes;
-			this.polType = polTypes[0]["value"];
+			let pols = ["aqi", "pm10", "so2", "no2", "co", "o3"];
+			for (let p of pols) {
+				let obj = {
+					"label": p.toUpperCase(),
+					"value": p
+				}
+				this.polTypes.push(obj);
+			}
+			this.polType = pols[0];
 		},
 
 
@@ -552,7 +531,7 @@ export default {
 			this.chartData = this.assembleChartValue(this.ajaxData);
 		},
 		/**
-		 *初始化表格
+		 *初始化表格数据
 		 */
 		initTable(ajaxData){
 			this.tableData = this.assembleTableData(ajaxData);
@@ -567,10 +546,7 @@ export default {
 		_deepCopy(data)
 		{
 			return JSON.parse(JSON.stringify(data));
-		}
-		,
-
-
+		},
 		/**
 		 * 点击目录树节点事件
 		 * @param data
@@ -580,21 +556,6 @@ export default {
 			this.initChart();
 			this.initTable();
 		},
-
-		/**
-		 * 获取当前预报的起始和结束时间
-		 * @param dtFormat 指定返回的格式
-		 * @returns {{stDateStr: (*|string), edDateStr: (*|string)}}
-		 * @private
-		 */
-		// _getCurrPredictDtExtent(dtFormat) {
-		// 	let pDateObj = dateUtils.strToDate(this.pDate + ' 00:00:00');
-		// 	let stDate = dateUtils.dateAdd('d', 1, pDateObj);
-		// 	let edDate = dateUtils.dateAdd('d', this.currIntervalNum, pDateObj);
-		// 	let stDateStr = dateUtils.dateToStr(dtFormat, stDate);
-		// 	let edDateStr = dateUtils.dateToStr(dtFormat, edDate);
-		// 	return {stDateStr, edDateStr}
-		// },
 
 		/**
 		 * 深度copy对象
@@ -638,15 +599,8 @@ export default {
 		chartTitle: function () {
 			return this.titleContent + '时间段对比统计图';
 		}
-	}
-	,
-
-
+	},
 	activated: function () {
-		if (this.isConfigLoaded) {
-			this.initChart();
-			this.initTable();
-		}
 		this.onResize();
 	},
 
