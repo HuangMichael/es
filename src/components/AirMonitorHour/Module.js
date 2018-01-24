@@ -171,7 +171,7 @@ export default {
 			let days = this.getXaxisData();
 			for (let day of days) {
 				let filterArray = ajaxData.filter(function (item) {
-					let dateStr = dateUtils.dateToStr("yyyy-MM-dd HH:mm:ss");
+					let dateStr = dateUtils.dateToStr("yyyy-MM-dd HH:mm:ss", item["datadate"]);
 					return (dateStr === day);
 				});
 				let dateObj = {"datadate": day, "dataList": filterArray};
@@ -188,7 +188,6 @@ export default {
 			//更新数据
 			this.initChart();
 			this.initTable();
-
 		},
 
 
@@ -198,19 +197,12 @@ export default {
 		 */
 		getDateStrArray(){
 			let dateStrArray = [];
-
-
-			console.log("chooseDate------------------------------" + JSON.stringify(this.chooseDate));
 			if (!this.chooseDate) {
 				this.chooseDate = new Date();
 			}
 			let beginDateStr = dateUtils.dateToStr("yyyy-MM-dd", this.chooseDate);
-			// let endDateStr = dateUtils.dateToStr("yyyy-MM-dd", dateUtils.dateAdd("d", 0, this.chooseDate));
 			dateStrArray[0] = beginDateStr + " 00:00:00";
 			dateStrArray[1] = beginDateStr + " 23:59:59";
-
-
-			console.log("dateStrArray-----------------" + JSON.stringify(dateStrArray));
 			return dateStrArray;
 		},
 
@@ -242,7 +234,6 @@ export default {
 		 */
 		assembleTableData(ajaxData){
 			this.tableData = this.mapDailyDataByDay(ajaxData);
-			// return polDataArray;
 		},
 
 
@@ -257,7 +248,6 @@ export default {
 				let key = (this.polType === 'aqi') ? this.polType : this.polType + "_1h";
 				(x[key]) ? yData.push(x[key]) : yData.push("-");
 			}
-			console.log("yData-------" + JSON.stringify(yData));
 			return yData;
 		},
 
@@ -299,8 +289,6 @@ export default {
 				if (legend[x]) {
 					let dataArray = this.getDataByDataTypeAndPolType(data, "dataTypeLabel", polType, legend[x]);
 					for (let data of dataArray) {
-
-						console.log("data---xxx--" + JSON.stringify(data));
 						newArray.push(data["monitorValue"]);
 					}
 					series[x] = ({
@@ -321,9 +309,11 @@ export default {
 		 *绘制统计图表
 		 */
 		drawChart(chartData){
-			let legends = [this.polType];
-			var series = this.createSeriesByLegend(legends, this.chartData, this.polType, "line");
 			let xData = this.getXaxisData();
+			let newXData = [];
+			for (let x of xData) {
+				newXData.push(x.substr(11, 13));
+			}
 			this.charts = echarts.init(document.getElementById("chart"));
 			let option = {
 
@@ -353,7 +343,7 @@ export default {
 				xAxis: [
 					{
 						type: 'category',
-						data: xData,
+						data: newXData,
 						axisLine: {
 							lineStyle: {
 								color: 'white',
