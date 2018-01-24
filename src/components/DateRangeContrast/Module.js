@@ -172,8 +172,8 @@ export default {
 			let days = this.getXaxisData();
 			days.forEach(function (day) {
 				let filterArray = ajaxData.filter(function (item) {
-					let dateStr = item["datadate"].toString().substring(0, 10);
-					return (dateStr === day);
+					let dateStr = item["datadate"].toString();
+					return (dateStr.startsWith(day));
 				});
 				let dateObj = {"datadate": day, "dataList": filterArray}
 				dateArray.push(dateObj);
