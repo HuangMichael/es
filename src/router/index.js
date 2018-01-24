@@ -93,7 +93,7 @@ export default new Router({
 			icon: 'icon-3clear-curve-e',
 			component: Body,
 			redirect: to => {
-				return '/timerangecompare/day'
+				return '/timerangecompare/hour'
 			},
 			children: [{
 				path: 'hour',
