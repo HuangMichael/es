@@ -176,7 +176,7 @@ export default {
 			let days = this.getXaxisData();
 			for (let day of days) {
 				let filterArray = ajaxData.filter(function (item) {
-					let dateStr = item["datadate"].toString().substring(0, 10);
+					let dateStr = dateUtils.dateToStr("yyyy-MM-dd HH:mm:ss");
 					return (dateStr === day);
 				});
 				let dateObj = {"datadate": day, "dataList": filterArray};
@@ -231,9 +231,9 @@ export default {
 			let dateStrArray = this.getDateStrArray();
 			let startDate = dateUtils.strToDate(dateStrArray[0]);
 			let endDate = dateUtils.strToDate(dateStrArray[1]);
-			var diff = dateUtils.dateDiff("d", startDate, endDate);
+			var diff = dateUtils.dateDiff("h", startDate, endDate);
 			for (var x = 0; x < diff; x++) {
-				let day = dateUtils.dateToStr("yyyy-MM-dd", dateUtils.dateAdd("d", x, startDate));
+				let day = dateUtils.dateToStr("yyyy-MM-dd HH:mm:ss", dateUtils.dateAdd("h", x, startDate));
 				if (!xData[day]) {
 					xData[x] = day;
 				}
@@ -259,59 +259,14 @@ export default {
 		 * @return {Array} 返回封装数组
 		 */
 		assembleChartValue(ajaxData){
-			let dailyData = this.mapDailyDataByDay(ajaxData);
-			let polType = this.polType;
-			//获取dataList 中对应的日期  对应的污染物的监测数据
-			let enData = [];
-			dailyData.forEach(function (item) {
-					let day = item["datadate"];
-					let dailyList = item["dataList"];
-					//遍历每小时的监测数据
-					let valueArray = [];
-					dailyList.forEach(function (hourData) {
-						let v = (polType == "aqi") ? hourData[polType] : hourData[polType + "_1h"];
-						v = (v == -999) ? 0 : v;
-						valueArray.push(v);
-					});
-					//求出日最大值  最小值   平均值
-					if (valueArray.length > 0) {
-						var max = valueArray[0];
-						var min = valueArray[0];
-						var avg, sum = 0;
-						var len = valueArray.length;
-						for (var i = 0; i < len; i++) {
-							let value = valueArray[i];
-							//判断是否为数字 非数字参与运算时赋值0  显示时处理为“-”
-							min = (value > min) ? min : value;
-							max = (value < max) ? max : value;
-							sum += value;
-						}
-						min = (min) ? min : "-";
-						max = (max) ? max : "-"
-						avg = (sum) ? (sum / len ).toFixed(2) : "-";
-						enData.push({
-							"monitorDate": day,
-							"monitorValue": min,
-							"polType": polType,
-							"dataType": "min",
-							"dataTypeLabel": "最小值"
-						}, {
-							"monitorDate": day,
-							"monitorValue": avg,
-							"polType": polType,
-							"dataType": "avg",
-							"dataTypeLabel": "平均值"
-						}, {
-							"monitorDate": day,
-							"monitorValue": max,
-							"polType": polType,
-							"dataType": "max",
-							"dataTypeLabel": "最大值"
-						});
-					}
-				}
-			);
-			return enData;
+			let pols = ["aqi", "pm10", "pm25", "so2", "no2", "co", "o3"];
+			let yData = [];
+			for (let x of ajaxData) {
+				let key = (this.polType === 'aqi') ? this.polType : this.polType + "_1h";
+				yData.push(x[key]);
+			}
+			console.log("yData-------" + JSON.stringify(yData));
+			return yData;
 		},
 
 
@@ -351,8 +306,8 @@ export default {
 				var newArray = [];
 				if (legend[x]) {
 					let dataArray = this.getDataByDataTypeAndPolType(data, "dataTypeLabel", polType, legend[x]);
-					for (var i in dataArray) {
-						newArray[i] = dataArray[i]["monitorValue"];
+					for (let data of dataArray) {
+						newArray.push(data["monitorValue"]);
 					}
 					series[x] = ({
 						symbol: 'none',  //这句就是去掉点的
@@ -371,28 +326,39 @@ export default {
 		/**
 		 *绘制统计图表
 		 */
-		drawChart(){
-			let legends = ["最小值", "平均值", "最大值"];
+		drawChart(chartData){
+			let legends = [this.polType];
 			var series = this.createSeriesByLegend(legends, this.chartData, this.polType, "line");
 			let xData = this.getXaxisData();
 			this.charts = echarts.init(document.getElementById("chart"));
-			let options = {
+			let option = {
+
+				color: ["#EBAC65", "#0e3FB5", "#5DE3E4"],
 				tooltip: {
 					trigger: 'axis'
 				},
+
 				legend: {
-					data: legends,
+					data: [this.polType],
 					textStyle: {    //图例文字的样式
 						color: '#5DE3E1',
 						fontSize: 12
 					}
 				},
-				color: ["#EBAC65", "#0e3FB5", "#5DE3E4"],
+				toolbox: {
+					show: false,
+					feature: {
+						mark: {show: true},
+						dataView: {show: true, readOnly: false},
+						magicType: {show: true, type: ['line']},
+						restore: {show: true},
+						saveAsImage: {show: true}
+					}
+				},
 				calculable: true,
 				xAxis: [
 					{
 						type: 'category',
-						boundaryGap: false,
 						data: xData,
 						axisLine: {
 							lineStyle: {
@@ -400,37 +366,55 @@ export default {
 								width: 1,//这里是为了突出显示加上的
 							}
 						},
+
 						axisLabel: {
 							color: "white"
 						},
 						splitLine: {
 							show: false
 						}
-						//去除网格线
 					}
 				],
 				yAxis: [
 					{
 						type: 'value',
-						axisLabel: {
-							formatter: '{value} ug/m³',
-							color: "white"
-						},
 						axisLine: {
 							lineStyle: {
 								color: 'white',
 								width: 1,//这里是为了突出显示加上的
 							}
 						},
+						axisLabel: {
+							formatter: '{value} ug/m³',
+							color: "white"
+						},
 						splitLine: {
 							show: false
 						}
 					}
 				],
-				series: series
+				series: [
+					{
+						symbol: 'none',  //这句就是去掉点的
+						smooth: true,  //这句就是让曲线变平滑的
+						name: this.polType,
+						type: 'line',
+						data: chartData,
+						markPoint: {
+							data: [
+								{type: 'max', name: '最大值'},
+								{type: 'min', name: '最小值'}
+							]
+						},
+						markLine: {
+							data: [
+								{type: 'average', name: '平均值'}
+							]
+						}
+					}
+				]
 			};
-			this.charts.setOption(options);
-
+			this.charts.setOption(option);
 		},
 
 
@@ -474,7 +458,7 @@ export default {
 
 				// this.tableData = responseArray[0]["data"];
 				this.initTable(responseArray[0]["data"]);
-				// this.reloadChartData(responseArray[0]["data"]);
+				this.reloadChartData(responseArray[0]["data"]);
 			});
 		},
 
@@ -502,7 +486,7 @@ export default {
 			let dateStrArray = this.getDateStrArray();
 			this.ajaxData = this.getDateRangeChartData(dateStrArray);
 			this.chartData = this.assembleChartValue(this.ajaxData);
-			this.drawChart();
+			this.drawChart(this.chartData);
 		},
 
 		/**
@@ -510,7 +494,7 @@ export default {
 		 */
 		reloadChartData(ajaxData){
 			this.chartData = this.assembleChartValue(ajaxData);
-			this.drawChart();
+			this.drawChart(this.chartData);
 		},
 		/**
 		 *初始化表格
@@ -610,16 +594,15 @@ export default {
 			let dateStr = this.getDateStrArray();
 			let currName = this.currSelectObj.label;
 			let beginStr = dateStr[0].substr(0, 10);
-			let endStr = dateStr[1].substr(0, 10);
-			return currName + beginStr + '至' + endStr;
+			return currName + beginStr;
 		}
 		,
 		tableTitle: function () {
-			return this.titleContent + '时间段对比数据表';
+			return this.titleContent + '空气质量检测数据表';
 		}
 		,
 		chartTitle: function () {
-			return this.titleContent + '时间段对比统计图';
+			return this.titleContent + '空气质量检测统计图';
 		}
 	}
 	,
