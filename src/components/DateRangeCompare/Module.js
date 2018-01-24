@@ -397,6 +397,7 @@ export default {
 					series[x] = ({
 						symbol: 'none',  //这句就是去掉点的
 						smooth: true,  //这句就是让曲线变平滑的
+						itemStyle: {normal: {areaStyle: {type: 'default'}}},
 						name: legend[x],
 						type: chartType,
 						data: newArray
@@ -571,40 +572,6 @@ export default {
 			this.initChart();
 			this.initTable();
 		},
-
-
-		renderNodeContent(h, {node, data, store}) {
-			return tplFunction(h, {node, data, store});
-		},
-
-		/**
-		 * 根据时间获取数据
-		 * @param dtStr 时间字符串
-		 * @param data 数据集
-		 * @returns {Array.<T>|*} 查询到的数据集
-		 * @private
-		 */
-		_getDataByDate(dtStr, data) {
-			return data.filter((item) => {
-				return item.datadate === dtStr;
-			});
-		},
-
-		/**
-		 * 获取当前预报的起始和结束时间
-		 * @param dtFormat 指定返回的格式
-		 * @returns {{stDateStr: (*|string), edDateStr: (*|string)}}
-		 * @private
-		 */
-		_getCurrPredictDtExtent(dtFormat) {
-			let pDateObj = dateUtils.strToDate(this.pDate + ' 00:00:00');
-			let stDate = dateUtils.dateAdd('d', 1, pDateObj);
-			let edDate = dateUtils.dateAdd('d', this.currIntervalNum, pDateObj);
-			let stDateStr = dateUtils.dateToStr(dtFormat, stDate);
-			let edDateStr = dateUtils.dateToStr(dtFormat, edDate);
-			return {stDateStr, edDateStr}
-		},
-
 		/**
 		 * 深度copy对象
 		 * @param data copy的源对象
@@ -612,17 +579,6 @@ export default {
 		 */
 		_deepCopy(data) {
 			return JSON.parse(JSON.stringify(data));
-		},
-
-
-		/**
-		 * 判断是否为周末或节假日
-		 * @param str 当前时间字符串
-		 * @returns {boolean}
-		 */
-		isHoliday: function (str) {
-			//todo 目前仅判断了是否为周六或周天 后续需要判断是否为节假日
-			return (str.indexOf('六') > -1 || str.indexOf('日') > -1)
 		},
 
 		/**
@@ -703,11 +659,7 @@ export default {
 
 	activated: function () {
 		if (this.isConfigLoaded) {
-			this.initChart();
-			this.initTable();
 
-
-			console.log("activated----------");
 		}
 		this.onResize();
 	},
