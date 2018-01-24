@@ -26,8 +26,6 @@ export default {
 	components: {
 		'right-panel': rightPanel,
 		'setting-dialog': settingDialog,
-		// 'weather-pane': weatherPane,
-		// 'weather-pane-title': weatherPaneTitle,
 		'title-panel': titlePanel
 
 	},
@@ -40,15 +38,13 @@ export default {
 			toggle: this.$$appConfig.layout.rightPanel.toggle,
 			isConfigLoaded: false,
 			config: {},
-
-
 			//业务数据信息
 			model: '',//默认模式
 			models: [],//可选模式
 			polType: "",
 			polTypes: [],
 			currSelectObj: {},//当前树种选中的节点对象
-//ajax 请求的原始数据
+           //ajax 请求的原始数据
 			originData: [],
 			tableColumns: [],
 			tableData: [],
@@ -130,9 +126,6 @@ export default {
 		onGetConfig(config) {
 			this.config = config;
 			this.isConfigLoaded = true;
-
-			this.area = this._getConfigPro('areaRObj', 'default');
-			this.areas = this._getConfigPro('areaRObj', 'options');
 			this.treeData = this._getConfigPro('cityStaTreeObj', 'default');
 			this.treeDataChecked = this._getConfigPro('cityStaTreeObj', 'checked');
 			this.switchTime = this._getConfigPro('modelSwitchTime', 'default');
@@ -193,8 +186,6 @@ export default {
 		 * 选择时间后触发时间查询数据
 		 */
 		onChangeDateRange(){
-
-			console.log("切换时间控件时 触发--------------");
 			//更新数据
 			this.initChart();
 			this.initTable();
@@ -499,26 +490,12 @@ export default {
 				polAPI = polStaAPI;
 
 			}
-
-			console.log("polAPI-------------" + polAPI);
 			polOption.code = this.currSelectObj.code;
-			console.log("polOption-------------" + JSON.stringify(polOption));
 			let polDef = this[polAPI]({data: polOption, fn: null});
 			let allDef = [polDef];
-
 			this.$$promiseAll.call(this, allDef, responseArray => {
-				console.log(JSON.stringify(responseArray[0]["data"]));
-				// this.originData = responseArray[0]["data"];
-				// let dateStrArray = this.getDateStrArray();
-				// let ajaxData = this.getDateRangeChartData(dateStrArray);
-				// // this.dealRequestData(responseArray);
 				this.initTable(responseArray[0]["data"]);
 				this.initChart1(responseArray[0]["data"]);
-				// this.initChart();
-				// let dateStrArray = this.getDateStrArray();
-				// // this.ajaxData = this.getDateRangeChartData(dateStrArray);
-				// this.chartData = this.assembleChartValue(ajaxData);
-				// this.drawChart();
 			});
 		},
 
@@ -556,7 +533,7 @@ export default {
 					"value": "o3"
 				}];
 			let polTypes = this.polTypes;
-			this.polType = polTypes[1]["value"];
+			this.polType = polTypes[0]["value"];
 			this.initChart();
 			this.initTable();
 		},
@@ -570,15 +547,12 @@ export default {
 			this.ajaxData = this.getDateRangeChartData(dateStrArray);
 			this.chartData = this.assembleChartValue(this.ajaxData);
 			this.drawChart();
-
 		},
 
 		/**
 		 * 初始化统计图
 		 */
 		initChart1(ajaxData){
-			// let dateStrArray = this.getDateStrArray();
-			// this.ajaxData = this.getDateRangeChartData(dateStrArray);
 			this.chartData = this.assembleChartValue(ajaxData);
 			this.drawChart();
 
@@ -608,12 +582,6 @@ export default {
 		 * @param data
 		 */
 		handleNodeClick(data) {
-
-
-			console.log("当前选中的节点-------" + JSON.stringify(this.treeDataChecked));
-
-
-			console.log("当前选中的节点 data-----------" + JSON.stringify(data));
 			this.currSelectObj = this._deepCopy(data);
 			this.initChart();
 			this.initTable();
@@ -750,8 +718,6 @@ export default {
 
 	activated: function () {
 		if (this.isConfigLoaded) {
-
-			console.log("activated-----------");
 			this.initChart();
 			this.initTable();
 		}
@@ -759,7 +725,6 @@ export default {
 	},
 
 	deactivated: function () {
-		console.log("deactivated-----------");
 	}
 
 }
