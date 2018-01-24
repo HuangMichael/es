@@ -56,7 +56,6 @@ export default {
 				children: 'children',
 				label: 'label'
 			},
-			timeRange: "",
 			pickerOptions: {
 				shortcuts: [{
 					text: '最近一周',
@@ -84,8 +83,7 @@ export default {
 					}
 				}]
 			},
-			beginDate: new Date(),
-
+			timeRange: [dateUtils.dateAdd("d", -7, new Date()), new Date()]
 		}
 	},
 
