@@ -166,6 +166,9 @@ export default {
 		 * @param ajaxData
 		 */
 		mapDailyDataByDay(ajaxData){
+			for (let obj of ajaxData) {
+				console.log("obj---------" + JSON.stringify(obj));
+			}
 			let dateArray = [];
 			//首先对数据中的日期进行汇总
 			let days = this.getXaxisData();
@@ -312,7 +315,7 @@ export default {
 			let xData = this.getXaxisData();
 			let newXData = [];
 			for (let x of xData) {
-				newXData.push(x.substr(11, 13));
+				newXData.push(x.substring(11, 13));
 			}
 			this.charts = echarts.init(document.getElementById("chart"));
 			let option = {
@@ -484,7 +487,12 @@ export default {
 		 *初始化表格
 		 */
 		initTable(ajaxData){
-			this.tableData = ajaxData;
+			let dataArray = [];
+			ajaxData.forEach(function (item) {
+				item["datadate"] = item["datadate"].replace("T", " ");
+				dataArray.push(item);
+			});
+			this.tableData = dataArray;
 		},
 
 		/**
