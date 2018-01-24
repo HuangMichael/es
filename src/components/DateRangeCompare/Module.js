@@ -434,7 +434,10 @@ export default {
 						boundaryGap: false,
 						data: xData,
 						axisLine: {
-							color: "white"
+							lineStyle: {
+								color: 'white',
+								width: 1,//这里是为了突出显示加上的
+							}
 						},
 						axisLabel: {
 							color: "white"
@@ -453,7 +456,10 @@ export default {
 							color: "white"
 						},
 						axisLine: {
-							color: "white"
+							lineStyle: {
+								color: 'white',
+								width: 1,//这里是为了突出显示加上的
+							}
 						},
 						splitLine: {
 							show: false
