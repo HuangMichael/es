@@ -32,7 +32,7 @@ export default {
 	data() {
 		return {
 			//模块基础数据信息
-			name: 'DateRangeContrast',
+			name: 'DateRangeCompare',
 			toggleStatus: 'open',
 			rightPanelWidth: this.$$appConfig.layout.rightPanel.width,
 			toggle: this.$$appConfig.layout.rightPanel.toggle,
@@ -146,10 +146,20 @@ export default {
 				this.$refs.cityTree.setCurrentNode(this.currSelectObj);
 			}, 0);
 
-			//选中当前的污染物;
+			//根据当前选择的产品时间和时效显示模式;
 			this.getPolType();
-			this.initChart();
-			this.initTable();
+			// this.initChart();
+			// this.initTable();
+
+
+			// console.log("ajax get data-----------");
+            //
+			// let dateStr = this.getDateStrArray();
+			// this.getDateRangeChartData(dateStr);
+            //
+            //
+			// console.log("ajax get data--originData----------" + JSON.stringify(this.originData));
+
 		},
 
 		/**
@@ -174,7 +184,7 @@ export default {
 			days.forEach(function (day) {
 				let filterArray = ajaxData.filter(function (item) {
 					let dateStr = item["datadate"].toString().substring(0, 10);
-					return (dateStr === day);
+					return (dateStr == day);
 				});
 				let dateObj = {"datadate": day, "dataList": filterArray}
 				dateArray.push(dateObj);
@@ -495,8 +505,7 @@ export default {
 			let polDef = this[polAPI]({data: polOption, fn: null});
 			let allDef = [polDef];
 			this.$$promiseAll.call(this, allDef, responseArray => {
-				this.initTable(responseArray[0]["data"]);
-				this.reloadChartData(responseArray[0]["data"]);
+				this.originData = responseArray[0]["data"];
 			});
 		},
 
@@ -535,7 +544,8 @@ export default {
 				}];
 			let polTypes = this.polTypes;
 			this.polType = polTypes[0]["value"];
-
+			this.initChart();
+			this.initTable();
 		},
 
 
@@ -543,24 +553,25 @@ export default {
 		 * 初始化统计图
 		 */
 		initChart(){
-			let dateStrArray = this.getDateStrArray();
-			this.ajaxData = this.getDateRangeChartData(dateStrArray);
-			this.chartData = this.assembleChartValue(this.ajaxData);
-			this.drawChart();
+			// let dateStrArray = this.getDateStrArray();
+			// this.ajaxData = this.getDateRangeChartData(dateStrArray);
+			// this.chartData = this.assembleChartValue(this.ajaxData);
+			// this.drawChart();
 		},
 
 		/**
 		 * 初始化统计图
 		 */
-		reloadChartData(ajaxData){
-			this.chartData = this.assembleChartValue(ajaxData);
-			this.drawChart();
+		reLoadChartData(ajaxData){
+			// this.chartData = this.assembleChartValue(ajaxData);
+			// this.drawChart();
+
 		},
 		/**
 		 *初始化表格
 		 */
 		initTable(ajaxData){
-			this.tableData = this.assembleTableData(ajaxData);
+			// this.tableData = this.assembleTableData(ajaxData);
 		},
 
 
@@ -719,9 +730,6 @@ export default {
 		if (this.isConfigLoaded) {
 			this.initChart();
 			this.initTable();
-
-
-			console.log("activated----------");
 		}
 		this.onResize();
 	},
