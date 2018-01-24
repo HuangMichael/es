@@ -6,7 +6,6 @@
 				<el-col :span="24" style="text-align: right">
 					<!--<span style="margin-right: 14px">污染物:</span>-->
 					<el-radio-group v-model="polType" @change="onPolTypeChange">
-						<!--// v-if="model!==''" @change="onModelChange"-->
 						<el-radio-button v-for="item in polTypes" :key="item.value" :label="item.value">{{item.label}}
 						</el-radio-button>
 					</el-radio-group>
@@ -19,9 +18,6 @@
 						<div class="title-panelBody" id="timeRangeCompareChart">
 							<div class="title-panel-content">
 								<div class="charts-body">
-									<!--<div class="content-cityimg">-->
-									<!--<img :src='getCityImage(currSelectObj.code)' class="citysImage" alt=""/>-->
-									<!--</div>-->
 									<div class="content-charts">
 										<div class="chartsstyle" id="chart" style="height:280px;width: 100%"></div>
 									</div>
@@ -53,7 +49,7 @@
 									:min-width="child.width"
 									:align="child.align" :sortable="child.sortable">
 									<template scope="scope">
-										<div  :style="scope.row">
+										<div :style="scope.row">
 											{{scope.row[scope.column.property]}}
 										</div>
 									</template>
@@ -71,43 +67,19 @@
 			<div class="condition-wrap">
 
 				<div class="con-div">
-					<span class="con-label">-时段选择-</span>
+					<span class="con-label">-日期选择-</span>
 					<div class="con-body">
+
 						<el-date-picker
-							v-model="timeRange"
-							type="daterange"
+							v-model="chooseDate"
 							align="right"
-							unlink-panels
-							range-separator="至"
-							start-placeholder="开始日期"
-							end-placeholder="结束日期"
-							@change="onChangeDateRange"
+							type="date"
+							@change="onChangeDate"
+							placeholder="选择日期"
 							:picker-options="pickerOptions">
 						</el-date-picker>
-
-
-						<!--<el-select style="width:90px" @change="onIntervalChange" v-model="time" placeholder="请选择">-->
-						<!--<el-option-->
-						<!--v-for="item in timeOptions"-->
-						<!--:key="item.value"-->
-						<!--:label="item.label"-->
-						<!--:value="item.value">-->
-						<!--</el-option>-->
-						<!--</el-select>-->
 					</div>
 				</div>
-
-				<!--<div class="con-div">-->
-				<!--<span class="con-label">-区域选择-</span>-->
-				<!--<div class="con-body">-->
-				<!--<el-radio-group @change="onRegionChange" v-model="area" v-if="area!==''">-->
-				<!--<el-radio-button v-for="item in areas" :key="item.value" :label="item.value">-->
-				<!--{{item.label}}-->
-				<!--</el-radio-button>-->
-				<!--</el-radio-group>-->
-				<!--</div>-->
-				<!--</div>-->
-
 				<div class="con-div">
 					<span class="con-label">-城市选择-</span>
 					<div class="con-body">
@@ -146,29 +118,6 @@
 		top: 0;
 		bottom: 0;
 	}
-
-	.dt-row {
-		margin-left: 12px;
-		margin-top: 34px;
-		background-color: rgb(20, 79, 122);
-		text-align: center;
-		height: 32px;
-		line-height: 32px;
-		color: #04e7e1;
-		margin-bottom: 8px;
-	}
-
-	.holiday {
-		color: #16e7a1;
-	}
-
-	.data-row {
-		/*margin-top: 20px;*/
-		margin-bottom: 8px;
-		margin-left: 12px;
-
-	}
-
 	.condition-wrap {
 		padding: 10px 24px 10px 24px;
 	}

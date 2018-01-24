@@ -57,37 +57,32 @@ export default {
 				label: 'label'
 			},
 			pickerOptions: {
-				shortcuts: [{
-					text: '最近一周',
-					onClick(picker) {
-						const end = new Date();
-						const start = new Date();
-						start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
-						picker.$emit('pick', [start, end]);
-					}
-				}, {
-					text: '最近一个月',
-					onClick(picker) {
-						const end = new Date();
-						const start = new Date();
-						start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-						picker.$emit('pick', [start, end]);
-					}
-				}, {
-					text: '最近三个月',
-					onClick(picker) {
-						const end = new Date();
-						const start = new Date();
-						start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-						picker.$emit('pick', [start, end]);
-					}
-				}],
-				//设置选择日期为今天以前
 				disabledDate(time) {
 					return time.getTime() > Date.now();
-				}
+				},
+				shortcuts: [{
+					text: '今天',
+					onClick(picker) {
+						picker.$emit('pick', new Date());
+					}
+				}, {
+					text: '昨天',
+					onClick(picker) {
+						const date = new Date();
+						date.setTime(date.getTime() - 3600 * 1000 * 24);
+						picker.$emit('pick', date);
+					}
+				}, {
+					text: '一周前',
+					onClick(picker) {
+						const date = new Date();
+						date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+						picker.$emit('pick', date);
+					}
+				}]
 			},
-			timeRange: [dateUtils.dateAdd("d", -1, new Date()), new Date()]
+			timeRange: [dateUtils.dateAdd("d", -1, new Date()), new Date()],
+			chooseDate: new Date()
 		}
 	},
 
@@ -189,7 +184,7 @@ export default {
 		/**
 		 * 选择时间后触发时间查询数据
 		 */
-		onChangeDateRange(){
+		onChangeDate(){
 			//更新数据
 			this.initChart();
 			this.initTable();
@@ -203,21 +198,19 @@ export default {
 		 */
 		getDateStrArray(){
 			let dateStrArray = [];
-			let beginDate, endDate;
-			if (this.timeRange && this.timeRange[0] && this.timeRange[1]) {
-				beginDate = this.timeRange[0];
-				endDate = this.timeRange[1]
-				dateUtils.dateToStr("yyyy-MM-dd", this.timeRange[1]);
 
-			} else {
-				endDate = dateUtils.dateAdd("d", 1, new Date());
-				beginDate = dateUtils.dateAdd("d", -7, endDate);
 
+			console.log("chooseDate------------------------------" + JSON.stringify(this.chooseDate));
+			if (!this.chooseDate) {
+				this.chooseDate = new Date();
 			}
-			let beginDateStr = dateUtils.dateToStr("yyyy-MM-dd", beginDate);
-			let endDateStr = dateUtils.dateToStr("yyyy-MM-dd", endDate);
+			let beginDateStr = dateUtils.dateToStr("yyyy-MM-dd", this.chooseDate);
+			// let endDateStr = dateUtils.dateToStr("yyyy-MM-dd", dateUtils.dateAdd("d", 0, this.chooseDate));
 			dateStrArray[0] = beginDateStr + " 00:00:00";
-			dateStrArray[1] = endDateStr + " 00:00:00";
+			dateStrArray[1] = beginDateStr + " 23:59:59";
+
+
+			console.log("dateStrArray-----------------" + JSON.stringify(dateStrArray));
 			return dateStrArray;
 		},
 
@@ -259,11 +252,10 @@ export default {
 		 * @return {Array} 返回封装数组
 		 */
 		assembleChartValue(ajaxData){
-			let pols = ["aqi", "pm10", "pm25", "so2", "no2", "co", "o3"];
 			let yData = [];
 			for (let x of ajaxData) {
 				let key = (this.polType === 'aqi') ? this.polType : this.polType + "_1h";
-				yData.push(x[key]);
+				(x[key]) ? yData.push(x[key]) : yData.push("-");
 			}
 			console.log("yData-------" + JSON.stringify(yData));
 			return yData;
@@ -307,6 +299,8 @@ export default {
 				if (legend[x]) {
 					let dataArray = this.getDataByDataTypeAndPolType(data, "dataTypeLabel", polType, legend[x]);
 					for (let data of dataArray) {
+
+						console.log("data---xxx--" + JSON.stringify(data));
 						newArray.push(data["monitorValue"]);
 					}
 					series[x] = ({
