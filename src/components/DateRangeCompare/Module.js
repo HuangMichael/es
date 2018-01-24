@@ -171,14 +171,14 @@ export default {
 			let dateArray = [];
 			//首先对数据中的日期进行汇总
 			let days = this.getXaxisData();
-			days.forEach(function (day) {
+			for(let day of days){
 				let filterArray = ajaxData.filter(function (item) {
 					let dateStr = item["datadate"].toString().substring(0, 10);
 					return (dateStr === day);
 				});
-				let dateObj = {"datadate": day, "dataList": filterArray}
+				let dateObj = {"datadate": day, "dataList": filterArray};
 				dateArray.push(dateObj);
-			});
+			}
 			return dateArray;
 		},
 
@@ -248,6 +248,7 @@ export default {
 		{
 			let pols = ["aqi", "pm10", "pm25", "so2", "no2", "co", "o3"];
 			let dailyData = this.mapDailyDataByDay(ajaxData);
+			console.log("dailyData-----" + JSON.stringify(dailyData));
 			let polDataArray = []
 			dailyData.forEach(function (d) {
 				let tableDataObj = {};
@@ -561,17 +562,6 @@ export default {
 		initTable(ajaxData){
 			this.tableData = this.assembleTableData(ajaxData);
 		},
-
-		/**
-		 * 初始化统计图
-		 */
-		reloadTableData(ajaxData){
-			let dateStrArray = this.getDateStrArray();
-			this.ajaxData = this.getDateRangeChartData(dateStrArray);
-			this.tableData = this.assembleChartValue(ajaxData);
-
-		},
-
 
 		/**
 		 * 深度copy对象
