@@ -103,19 +103,7 @@ export default new Router({
 				name: '时段对比',
 				icon: 'bar-chart',
 				component: DateRangeContrast
-			}, {
-				path: 'demo',
-				name: 'demo',
-				icon: 'bar-chart',
-				component: MyDemo
-			},
-				{
-					path: 'compare',
-					name: '时段对比',
-					icon: 'bar-chart',
-					component: DateRangeCompare
-				}
-			]
+			}]
 		},
 		{
 			path: '/weamonitor',
