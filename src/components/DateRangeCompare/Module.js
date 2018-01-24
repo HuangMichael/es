@@ -1,7 +1,7 @@
 /**
- * Created by kangming
- * date: 2017/9/19
- * desc: 框架测试
+ * Created by huangbin
+ * date: 2018-1-24
+ * desc: 时段对比
  */
 
 //布局
