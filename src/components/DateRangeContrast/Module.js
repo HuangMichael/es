@@ -495,7 +495,7 @@ export default {
 			let allDef = [polDef];
 			this.$$promiseAll.call(this, allDef, responseArray => {
 				this.initTable(responseArray[0]["data"]);
-				this.initChart1(responseArray[0]["data"]);
+				this.reLoadChartData(responseArray[0]["data"]);
 			});
 		},
 
@@ -552,7 +552,7 @@ export default {
 		/**
 		 * 初始化统计图
 		 */
-		initChart1(ajaxData){
+		reLoadChartData(ajaxData){
 			this.chartData = this.assembleChartValue(ajaxData);
 			this.drawChart();
 
