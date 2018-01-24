@@ -83,7 +83,8 @@ export default {
 						picker.$emit('pick', [start, end]);
 					}
 				}]
-			}
+			},
+			beginDate: new Date(),
 
 		}
 	},
@@ -171,7 +172,7 @@ export default {
 			let dateArray = [];
 			//首先对数据中的日期进行汇总
 			let days = this.getXaxisData();
-			for(let day of days){
+			for (let day of days) {
 				let filterArray = ajaxData.filter(function (item) {
 					let dateStr = item["datadate"].toString().substring(0, 10);
 					return (dateStr === day);
@@ -248,7 +249,6 @@ export default {
 		{
 			let pols = ["aqi", "pm10", "pm25", "so2", "no2", "co", "o3"];
 			let dailyData = this.mapDailyDataByDay(ajaxData);
-			console.log("dailyData-----" + JSON.stringify(dailyData));
 			let polDataArray = []
 			dailyData.forEach(function (d) {
 				let tableDataObj = {};
@@ -506,36 +506,15 @@ export default {
 		 * 选择当前显示的污染物
 		 */
 		getPolType() {
-			this.polTypes = [{
-				"label": "AQI",
-				"value": "aqi"
-			},
-				{
-					"label": "PM10",
-					"value": "pm10"
-				},
-				{
-					"label": "PM25",
-					"value": "pm25"
-				},
-				{
-					"label": "SO2",
-					"value": "so2"
-				},
-				{
-					"label": "NO2",
-					"value": "no2"
-				},
-				{
-					"label": "CO",
-					"value": "co"
-				},
-				{
-					"label": "O3",
-					"value": "o3"
-				}];
-			let polTypes = this.polTypes;
-			this.polType = polTypes[0]["value"];
+			let pols = ["aqi", "pm10", "so2", "no2", "co", "o3"];
+			for (let p of pols) {
+				let obj = {
+					"label": p.toUpperCase(),
+					"value": p
+				}
+				this.polTypes.push(obj);
+			}
+			this.polType = pols[0];
 		},
 
 

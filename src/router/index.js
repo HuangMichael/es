@@ -14,11 +14,7 @@ const List = () => import('components/Role/list/Module.vue');
 const userList = () => import('components/User/list/Module.vue');
 const Edit = () => import('components/User/edit/Module.vue');
 const Demo = () => import('components/Demo/Module.vue');
-const MyDemo = () => import('components/myDemo/Module.vue');
-const TimeRangeCompare = () => import('components/TimeRangeCompare/Module.vue');
-const DateRangeContrast = () => import('components/DateRangeContrast/Module.vue');
 const DateRangeCompare = () => import('components/DateRangeCompare/Module.vue');
-
 const CityPrediction = () => import('components/CityPrediction/Module.vue');
 const CityForecast = () => import('components/CityForecast/Module.vue');
 const CityContrastAnlayse = () => import('components/CityContrastAnlayse/Module.vue');
